@@ -1,21 +1,21 @@
 # © Mayanktaker Computers & Web Development | https://mayanktaker.com
-# Build the MT Verdant Nocturne GNOME Shell theme: extract upstream CSS per
-# major Shell version, recolor via src/shell/colormap-<major>.json + palette tokens.
+# Build the MT Verdant Nocturne GNOME Shell theme per major Shell version:
+# host major extracts its upstream CSS from the gresource, other majors use
+# vendored upstream CSS in src/shell/upstream-<major>/, then recolor via maps.
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TOKENS = json.loads((REPO_ROOT / "palette" / "tokens.json").read_text())
-BUILD_DIR = REPO_ROOT / "build" / "theme" / "gnome-shell"
 HEADER = "/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */\n"
 
 
-def detect_shell_major() -> int:
-    # Detect the running Shell major to pick the matching color map.
-    import subprocess
+def host_shell_major() -> int:
+    # Detect the running Shell major version.
     version = subprocess.run(["gnome-shell", "--version"], capture_output=True, text=True, check=True).stdout
     return int(re.search(r"(\d+)\.", version).group(1))
 
@@ -29,12 +29,26 @@ def resolve_token(token_path: str) -> str:
 
 
 def load_upstream_css(major: int) -> str:
-    # Extract the upstream dark stylesheet from the host gresource.
-    from gi.repository import Gio
-    gresource = f"/usr/share/gnome-shell/gnome-shell-theme.gresource"
-    resource_path = "/org/gnome/shell/theme/gnome-shell-dark.css"
-    data = Gio.Resource.load(gresource).lookup_data(resource_path, Gio.ResourceLookupFlags.NONE).get_data()
-    return data.decode()
+    # Host major: extract from the installed gresource; other majors: vendored CSS.
+    if major == host_shell_major():
+        from gi.repository import Gio
+        res = Gio.Resource.load("/usr/share/gnome-shell/gnome-shell-theme.gresource")
+        return res.lookup_data("/org/gnome/shell/theme/gnome-shell-dark.css", Gio.ResourceLookupFlags.NONE).get_data().decode()
+    vendored = REPO_ROOT / "src" / f"shell/upstream-{major}/gnome-shell-dark.css"
+    if not vendored.exists():
+        print(f"No vendored upstream CSS for Shell {major} — add src/shell/upstream-{major}/ first.", file=sys.stderr)
+        sys.exit(2)
+    return vendored.read_text()
+
+
+def load_high_contrast(major: int) -> str:
+    # Fetch the matching upstream high-contrast stylesheet as a11y fallback.
+    if major == host_shell_major():
+        from gi.repository import Gio
+        res = Gio.Resource.load("/usr/share/gnome-shell/gnome-shell-theme.gresource")
+        return res.lookup_data("/org/gnome/shell/theme/gnome-shell-high-contrast.css", Gio.ResourceLookupFlags.NONE).get_data().decode()
+    vendored = REPO_ROOT / "src" / f"shell/upstream-{major}/gnome-shell-high-contrast.css"
+    return vendored.read_text()
 
 
 def normalize_hex(match_text: str) -> str:
@@ -85,38 +99,43 @@ def recolor(css: str, color_map: dict) -> tuple:
     return css, usage
 
 
-def copy_high_contrast() -> None:
-    # Keep upstream high-contrast stylesheet as a safe fallback for a11y mode.
-    from gi.repository import Gio
-    data = Gio.Resource.load("/usr/share/gnome-shell/gnome-shell-theme.gresource")
-    hc = data.lookup_data("/org/gnome/shell/theme/gnome-shell-high-contrast.css", Gio.ResourceLookupFlags.NONE).get_data()
-    (BUILD_DIR / "gnome-shell-high-contrast.css").write_text(HEADER + hc.decode())
-
-
-def main() -> int:
-    # Build, report coverage, and fail if any mapped color went unused (map drift).
-    major = detect_shell_major()
+def build_major(major: int) -> None:
+    # Build one Shell major and fail on map drift (mapped colors unused upstream).
     map_path = REPO_ROOT / "src" / f"shell/colormap-{major}.json"
     if not map_path.exists():
-        print(f"No color map for GNOME Shell {major} yet — add src/shell/colormap-{major}.json first.", file=sys.stderr)
-        return 2
+        print(f"No color map for GNOME Shell {major} — add src/shell/colormap-{major}.json first.", file=sys.stderr)
+        sys.exit(2)
     color_map = json.loads(map_path.read_text())
     css, usage = recolor(load_upstream_css(major), color_map)
 
-    BUILD_DIR.mkdir(parents=True, exist_ok=True)
-    (BUILD_DIR / "gnome-shell.css").write_text(HEADER + css)
-    copy_high_contrast()
+    out_dir = REPO_ROOT / "build" / "theme" / f"gnome-shell-{major}"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "gnome-shell.css").write_text(HEADER + css)
+    (out_dir / "gnome-shell-high-contrast.css").write_text(HEADER + load_high_contrast(major))
 
     unused = [k for k in usage if usage[k] == 0 and not k.startswith("rgba-base")]
-    total_colors = len(re.findall(r"#[0-9a-fA-F]{3}\b|#[0-9a-fA-F]{6}\b|rgba?\(", css))
-    print(f"Shell {major}: wrote {BUILD_DIR / 'gnome-shell.css'} ({len(css)} bytes)")
-    print(f"replacements: pseudo={usage.get('-st-accent-color', 0)}+fg{usage.get('-st-accent-fg-color', 0)}, "
-          f"hex={sum(v for k, v in usage.items() if k.startswith('#'))}, "
+    print(f"Shell {major}: wrote {out_dir / 'gnome-shell.css'} ({len(css)} bytes) | "
+          f"accent pseudo={usage.get('-st-accent-color', 0)}, hex={sum(v for k, v in usage.items() if k.startswith('#'))}, "
           f"rgba={sum(v for k, v in usage.items() if k.startswith('rgba-base'))}")
-    print(f"color instances remaining in output: {total_colors}")
     if unused:
-        print("mapped colors not found upstream (map drift):", unused, file=sys.stderr)
-        return 1
+        print(f"Shell {major} mapped colors not found upstream (map drift):", unused, file=sys.stderr)
+        sys.exit(1)
+
+
+def main() -> int:
+    # Build requested majors: --all (every map + vendored source), or --major N, or host default.
+    args = sys.argv[1:]
+    if args[:1] == ["--all"]:
+        majors = sorted(int(p.stem.split("-")[-1]) for p in (REPO_ROOT / "src" / "shell").glob("colormap-*.json"))
+    elif args[:2] == ["--major"]:
+        majors = [int(args[1])]
+    elif not args:
+        majors = [host_shell_major()]
+    else:
+        print("usage: build.py [--major N | --all]", file=sys.stderr)
+        return 2
+    for major in majors:
+        build_major(major)
     return 0
 
 

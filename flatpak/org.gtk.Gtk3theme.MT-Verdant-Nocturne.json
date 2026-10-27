@@ -1,0 +1,44 @@
+{
+  "id": "org.gtk.Gtk3theme.MT-Verdant-Nocturne",
+  "branch": "3.22",
+  "runtime": "org.freedesktop.Platform",
+  "sdk": "org.freedesktop.Sdk",
+  "runtime-version": "26.08",
+  "build-extension": true,
+  "appstream-compose": false,
+  "separate-locales": false,
+  "modules": [
+    {
+      "name": "mt-verdant-nocturne",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -dm755 /usr/share/runtime/share/themes/MT-Verdant-Nocturne/gtk-3.0",
+        "cp -a MT-Verdant-Nocturne/gtk-3.0/. /usr/share/runtime/share/themes/MT-Verdant-Nocturne/gtk-3.0/",
+        "install -Dm644 MT-Verdant-Nocturne/index.theme /usr/share/runtime/share/themes/MT-Verdant-Nocturne/index.theme"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "stage",
+          "skip": [
+            ".git"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "appdata",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p ${FLATPAK_DEST}/share/appdata",
+        "cp org.gtk.Gtk3theme.MT-Verdant-Nocturne.appdata.xml ${FLATPAK_DEST}/share/appdata"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "path": "org.gtk.Gtk3theme.MT-Verdant-Nocturne.appdata.xml"
+        }
+      ]
+    }
+  ]
+}

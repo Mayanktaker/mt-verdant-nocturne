@@ -18,13 +18,14 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 ## Commands
 - Contrast gate: `python3 tools/dev/check_contrast.py` (must pass before commits).
 - Wallpaper: `python3 tools/wallpaper/generate.py` → `wallpaper/dist/` (4K render is gitignored; preview JPG is committed).
-- Shell theme build: `python3 tools/shell/build.py` (extracts upstream CSS → recolors → writes `build/theme/gnome-shell/`).
+- Shell theme build: `python3 tools/shell/build.py [--major N | --all]` (host major extracts from gresource; others use vendored `src/shell/upstream-<major>/`).
 - GTK build: `python3 tools/gtk/build.py` → `build/theme/gtk-{3,4}.0/`.
-- Install: `tools/install.sh` (user-level; no root). Wallpaper apply is always opt-in via `--wallpaper`.
+- Install: `tools/install.sh` (user-level; no root; picks the Shell-major build). Wallpaper apply is always opt-in via `--wallpaper`.
+- Flatpak: `tools/flatpak/stage.sh` (stage extension payload), `tools/flatpak/local-fallback.sh` (user-level sandbox fallback; zero downloads).
 
 ## Layout
-- `palette/` tokens · `src/` per-layer sources & color maps · `tools/` generators + installer
-- `build/` generated output (gitignored) · `wallpaper/preview/` committed previews · `docs/` focused docs
+- `palette/` tokens · `src/` per-layer sources, shell color maps & vendored upstream CSS/SASS · `tools/` generators + installer
+- `build/` generated output (gitignored) · `wallpaper/preview/` committed previews · `flatpak/` extension manifest + appdata · `docs/` focused docs
 
 ## Documentation pointers (do not duplicate content here)
 - `docs/design.md` — Botanical Canopy direction, token table, wallpaper rules

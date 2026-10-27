@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © Mayanktaker Computers & Web Development | https://mayanktaker.com -->
+<component type="runtime">
+  <id>org.gtk.Gtk3theme.MT-Verdant-Nocturne</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>MT Verdant Nocturne GTK3 theme</name>
+  <summary>Quiet charcoal-teal dark theme for GTK3 Flatpak apps</summary>
+  <description>
+    <p>GTK3 theme extension so sandboxed Flatpak apps follow the MT Verdant Nocturne desktop theme. Installed automatically when the host GTK theme is set to MT-Verdant-Nocturne.</p>
+  </description>
+  <url type="homepage">https://github.com/Mayanktaker/mt-verdant-nocturne</url>
+  <developer_name>Mayanktaker Computers &amp; Web Development</developer_name>
+  <releases>
+    <release version="0.1.0" date="2026-10-27">
+      <description><p>Initial packaging of the GTK3 theme.</p></description>
+    </release>
+  </releases>
+</component>

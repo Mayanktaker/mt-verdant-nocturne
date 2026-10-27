@@ -20,12 +20,14 @@ for arg in "$@"; do
 done
 
 # build outputs must exist; run the builders when missing
-[ -f "${REPO_ROOT}/build/theme/gnome-shell/gnome-shell.css" ] || python3 "${REPO_ROOT}/tools/shell/build.py"
+SHELL_MAJOR="$(gnome-shell --version | grep -oE '[0-9]+' | head -1)"
+[ -f "${REPO_ROOT}/build/theme/gnome-shell-${SHELL_MAJOR}/gnome-shell.css" ] || python3 "${REPO_ROOT}/tools/shell/build.py" --major "${SHELL_MAJOR}"
 [ -f "${REPO_ROOT}/build/theme/gtk-3.0/gtk-dark.css" ] || python3 "${REPO_ROOT}/tools/gtk/build.py"
 
 mkdir -p "${THEME_DIR}"
 cp "${REPO_ROOT}/src/index.theme" "${THEME_DIR}/index.theme"
-cp -r "${REPO_ROOT}/build/theme/gnome-shell" "${THEME_DIR}/"
+rm -rf "${THEME_DIR}/gnome-shell"
+cp -r "${REPO_ROOT}/build/theme/gnome-shell-${SHELL_MAJOR}" "${THEME_DIR}/gnome-shell"
 cp -r "${REPO_ROOT}/build/theme/gtk-3.0" "${THEME_DIR}/"
 mkdir -p "${THEME_DIR}/gtk-4.0"
 cp "${REPO_ROOT}/src/gtk-4.0/overrides.css" "${THEME_DIR}/gtk-4.0/gtk.css"
