@@ -11,14 +11,19 @@ Single source of truth for colors: `palette/tokens.json` (do not hardcode hex va
 - **Contrast is a gate:** `tools/dev/check_contrast.py` must pass (WCAG ≥4.5 body text, ≥7 preferred) before any milestone commit.
 - **System fonts**, no custom typography in the theme itself.
 
-## Tokens (v0.1.0)
+## Tokens (v0.2.0)
 | Token | Value | Use |
 |---|---|---|
 | bg.base | #0F141B | panel, dialogs, cards |
 | bg.base_darker | #0B0F14 | overview backdrop, OSD base |
+| bg.oled | #050807 | true pitch-black OLED background (`--tweaks black`) |
 | bg.tile | #16222A | quick-settings tiles, list rows |
 | bg.surface / hover / active | #1D3238 / #2A4148 / #35525A | raised surfaces and states |
-| accent.base / strong / dim | #8FB8A6 / #A9CDBB / #52736F | focus, selected, sliders, links |
+| accent.base / strong / dim | #8FB8A6 / #A9CDBB / #52736F | focus, selected, sliders, links (default Sage) |
+| accent_flavors.emerald | #3DD68C | vibrant Aurora Emerald accent (`--accent emerald`) |
+| accent_flavors.moss | #98B99A | earthy Everforest Moss accent (`--accent moss`) |
+| accent_flavors.pine | #5E9E92 | Nordic Cypress Pine accent (`--accent pine`) |
+| window_controls close/min/max | #E5737F / #E5B580 / #7FC8A0 | macOS/Colloid traffic light buttons (`--tweaks macos`) |
 | text.primary / secondary / disabled | #E9F1EC / #A7B8B1 / #76877F | foreground tiers |
 | status destructive/success/warning | #E5737F / #7FC8A0 / #E5B580 | semantic states |
 | status.petal_decorative | #C9A3B0 | artwork only |
@@ -26,8 +31,19 @@ Single source of truth for colors: `palette/tokens.json` (do not hardcode hex va
 
 All text/accent pairs verified ≥4.5:1 on their backgrounds (most ≥7:1).
 
-## Wallpaper rules
-- One original procedural artwork (`tools/wallpaper/generate.py`, seed 20261027) — night-garden foliage in theme tones with restrained pale-pink blossoms.
-- Composition keeps the top fifth clean for the shell panel; vignette settles the edges.
-- The 4K render lives in `wallpaper/dist/` (gitignored; shipped in releases); the committed artifact is the 1920×1080 preview JPG.
-- Applying the wallpaper is always an explicit opt-in (`tools/install.sh --wallpaper`); the user's current background is never touched silently.
+## Modular Tweaks System
+Inspired by top-tier Linux desktop themes (Colloid, WhiteSur, TokyoNight GTK, Catppuccin, Everforest):
+- **Option A: Canopy Floating Glass (Default showcase)**: Floating rounded pill top bar (`--tweaks float`), frosted translucent backdrop (`--tweaks translucent`), circular window controls (`--tweaks macos`), modern quick settings polish.
+- **Option B: Obsidian Pro & Compact**: True pitch-black surfaces (`--tweaks black`), high density compact headerbars (`--tweaks compact`), rimless borderless windows (`--tweaks rimless`), vibrant emerald highlights.
+- **Option C: Nordic Evergreen & Organic**: Soft modern curves (`--tweaks round`), solid forest panel, native Adwaita inset buttons, warm earthy moss tones.
+
+## 4K Wallpaper Suite Rules
+Four original procedural artworks generated via `tools/wallpaper/generate.py`:
+1. **Botanical Canopy (Midnight Fern)**: Night-garden foliage in theme tones with restrained pale-pink blossoms and quiet moonlight.
+2. **Verdant Aurora (Nordic Pines)**: Silhouetted pine forest under a glowing emerald and sage aurora borealis gradient with distant stars.
+3. **Zen Flora (Geometric Contour)**: Bauhaus/Material-inspired organic geometric leaf contour curves on deep obsidian teal.
+4. **Obsidian River (Mineral Flow)**: Fluid topographic elevation isolines with glowing sage mineral veins over dark riverbed bedrock.
+
+- All 4 wallpapers render at 3840×2160 into `wallpaper/dist/` and automatically copy to `${THEME_DIR}/wallpapers/` on install.
+- 1920×1080 preview JPGs are committed in `wallpaper/preview/`.
+- Applying wallpaper is opt-in via `./tools/install.sh --wallpaper [1-4|all]`.

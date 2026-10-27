@@ -1,0 +1,20 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: extra rounded curves for popups, dialogs, tiles */
+
+.popup-menu-content {
+  border-radius: 22px !important;
+}
+
+.modal-dialog {
+  border-radius: 26px !important;
+}
+
+.quick-toggle,
+.quick-toggle-button {
+  border-radius: 16px !important;
+}
+
+.osd-window,
+.workspace-switcher {
+  border-radius: 24px !important;
+}

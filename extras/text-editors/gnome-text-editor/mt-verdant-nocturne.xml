@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © Mayanktaker Computers & Web Development | https://mayanktaker.com -->
+<style-scheme id="mt-verdant-nocturne" _name="MT Verdant Nocturne" version="1.0">
+  <author>Mayanktaker</author>
+  <_description>Botanical Canopy nocturnal dark theme for GtkSourceView (GNOME Text Editor, Gedit, Builder)</_description>
+
+  <!-- Palette tokens -->
+  <color name="bg_base"        value="#0F141B"/>
+  <color name="bg_surface"     value="#1D3238"/>
+  <color name="bg_tile"        value="#16222A"/>
+  <color name="text_primary"   value="#E9F1EC"/>
+  <color name="text_secondary" value="#A7B8B1"/>
+  <color name="text_muted"     value="#52736F"/>
+  <color name="accent_sage"    value="#8FB8A6"/>
+  <color name="accent_strong"  value="#A9CDBB"/>
+  <color name="accent_emerald" value="#3DD68C"/>
+  <color name="status_warn"    value="#E5B580"/>
+  <color name="status_error"   value="#E5737F"/>
+  <color name="status_blossom" value="#C9A3B0"/>
+  <color name="status_success" value="#7FC8A0"/>
+
+  <!-- Base editor styling -->
+  <style name="text"                        foreground="text_primary" background="bg_base"/>
+  <style name="selection"                   background="bg_surface" foreground="text_primary"/>
+  <style name="cursor"                      foreground="accent_sage"/>
+  <style name="secondary-cursor"            foreground="text_secondary"/>
+  <style name="current-line"                background="bg_tile"/>
+  <style name="line-numbers"                foreground="text_muted" background="bg_base"/>
+  <style name="current-line-number"         foreground="accent_sage" background="bg_tile" bold="true"/>
+  <style name="draw-spaces"                 foreground="text_muted"/>
+  <style name="background-pattern"          background="bg_base"/>
+
+  <!-- Bracket matching -->
+  <style name="bracket-match"               background="bg_surface" foreground="accent_emerald" bold="true"/>
+  <style name="bracket-mismatch"            background="status_error" foreground="bg_base" bold="true"/>
+
+  <!-- Search & Diff -->
+  <style name="search-match"                background="bg_surface" foreground="accent_strong"/>
+  <style name="diff:added-line"             foreground="status_success"/>
+  <style name="diff:removed-line"           foreground="status_error"/>
+  <style name="diff:changed-line"           foreground="status_warn"/>
+
+  <!-- Syntax Highlighting -->
+  <style name="def:comment"                 foreground="text_muted" italic="true"/>
+  <style name="def:shebang"                 foreground="text_muted" bold="true"/>
+  <style name="def:doc-comment-element"     foreground="text_secondary" italic="true"/>
+  <style name="def:constant"                foreground="status_warn"/>
+  <style name="def:string"                  foreground="status_success"/>
+  <style name="def:special-char"            foreground="status_blossom"/>
+  <style name="def:number"                  foreground="status_warn"/>
+  <style name="def:identifier"              foreground="text_primary"/>
+  <style name="def:function"                foreground="accent_emerald" bold="true"/>
+  <style name="def:statement"               foreground="accent_sage" bold="true"/>
+  <style name="def:keyword"                 foreground="accent_sage" bold="true"/>
+  <style name="def:type"                    foreground="accent_strong" bold="true"/>
+  <style name="def:preprocessor"            foreground="status_blossom"/>
+  <style name="def:error"                   foreground="status_error" underline="single"/>
+  <style name="def:warning"                 foreground="status_warn"/>
+  <style name="def:note"                    foreground="accent_emerald" bold="true"/>
+</style-scheme>

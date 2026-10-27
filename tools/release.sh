@@ -13,6 +13,8 @@ TARBALL="${REPO_ROOT}/dist/mt-verdant-nocturne-v${VERSION}.tar.xz"
 # rebuild all layers from tokens
 python3 "${REPO_ROOT}/tools/dev/check_contrast.py" > /dev/null
 python3 "${REPO_ROOT}/tools/wallpaper/generate.py" > /dev/null
+python3 "${REPO_ROOT}/tools/icons/generate_icons.py" > /dev/null
+python3 "${REPO_ROOT}/tools/icons/generate_cursors.py" > /dev/null
 python3 "${REPO_ROOT}/tools/shell/build.py" --all
 python3 "${REPO_ROOT}/tools/gtk/build.py" > /dev/null
 
@@ -26,7 +28,14 @@ for major_dir in "${REPO_ROOT}"/build/theme/gnome-shell-*; do
 done
 cp -r "${REPO_ROOT}/build/theme/gtk-3.0" "${DIST}/gtk-3.0"
 cp -r "${REPO_ROOT}/src/gtk-4.0" "${DIST}/gtk-4.0-src"
-cp "${REPO_ROOT}/wallpaper/dist/mt-verdant-nocturne-3840x2160.png" "${DIST}/wallpaper.png"
+cp -r "${REPO_ROOT}/src/tweaks" "${DIST}/tweaks"
+cp -r "${REPO_ROOT}/src/icons" "${DIST}/icons"
+cp -r "${REPO_ROOT}/src/cursors" "${DIST}/cursors"
+cp -r "${REPO_ROOT}/extras" "${DIST}/extras"
+cp "${REPO_ROOT}/tools/install.sh" "${DIST}/install.sh"
+mkdir -p "${DIST}/wallpapers"
+cp "${REPO_ROOT}/wallpaper/dist/"*.png "${DIST}/wallpapers/"
+cp "${REPO_ROOT}/wallpaper/dist/mt-verdant-canopy-3840x2160.png" "${DIST}/wallpaper.png"
 cp "${REPO_ROOT}/README.md" "${REPO_ROOT}/LICENSES/GPL-3.0.txt" "${REPO_ROOT}/LICENSES/CC-BY-SA-4.0.txt" "${DIST}/"
 
 mkdir -p "${REPO_ROOT}/dist"

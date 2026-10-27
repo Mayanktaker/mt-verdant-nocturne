@@ -1,0 +1,51 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK modern polish: smooth hover states, scrollbars, focus glows */
+
+/* Refined buttons and inputs */
+button {
+  transition: all 150ms ease-in-out;
+  border-radius: 8px;
+}
+
+button:focus-visible,
+entry:focus-visible {
+  outline: 2px solid #8fb8a6;
+  outline-offset: 1px;
+}
+
+button.suggested-action {
+  background-color: #8fb8a6;
+  color: #0d131a;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(143, 184, 166, 0.3);
+}
+
+button.suggested-action:hover {
+  background-color: #a9cdbb;
+  box-shadow: 0 4px 12px rgba(143, 184, 166, 0.45);
+}
+
+/* Slim modern scrollbars */
+scrollbar {
+  background-color: transparent;
+  transition: all 200ms ease;
+}
+
+scrollbar slider {
+  min-width: 6px;
+  min-height: 6px;
+  border-radius: 999px;
+  background-color: rgba(143, 184, 166, 0.4);
+}
+
+scrollbar slider:hover {
+  background-color: rgba(143, 184, 166, 0.8);
+}
+
+/* Selected text and lists */
+selection,
+textview text selection:focus,
+textview text selection {
+  background-color: #8fb8a6;
+  color: #0d131a;
+}

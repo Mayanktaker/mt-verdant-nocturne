@@ -1,0 +1,70 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK tweak: macOS / Colloid circular traffic lights for window buttons */
+
+headerbar windowcontrols {
+  padding: 0 4px;
+}
+
+headerbar windowcontrols button,
+headerbar windowcontrols button.image-button,
+headerbar button.titlebutton {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 0;
+  margin: 9px 3px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+  background-clip: padding-box;
+}
+
+headerbar windowcontrols button > image,
+headerbar button.titlebutton > image {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+/* Close button - Destructive Coral */
+headerbar windowcontrols button.close,
+headerbar button.titlebutton.close {
+  background-color: #e5737f;
+}
+
+headerbar windowcontrols button.close:hover,
+headerbar button.titlebutton.close:hover {
+  background-color: #f28591;
+}
+
+/* Minimize button - Warning Amber */
+headerbar windowcontrols button.minimize,
+headerbar button.titlebutton.minimize {
+  background-color: #e5b580;
+}
+
+headerbar windowcontrols button.minimize:hover,
+headerbar button.titlebutton.minimize:hover {
+  background-color: #f0c38f;
+}
+
+/* Maximize button - Sage Emerald */
+headerbar windowcontrols button.maximize,
+headerbar button.titlebutton.maximize {
+  background-color: #7fc8a0;
+}
+
+headerbar windowcontrols button.maximize:hover,
+headerbar button.titlebutton.maximize:hover {
+  background-color: #8ed9ad;
+}
+
+/* Subtle glyph reveal on windowcontrols hover */
+headerbar windowcontrols:hover button > image,
+headerbar:hover button.titlebutton > image {
+  opacity: 0.65;
+  color: #141c22;
+}

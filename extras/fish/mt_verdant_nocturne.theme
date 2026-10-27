@@ -1,0 +1,24 @@
+# © Mayanktaker Computers & Web Development | https://mayanktaker.com
+# MT Verdant Nocturne fish color theme
+
+fish_color_normal E9F1EC
+fish_color_command 8FB8A6 --bold
+fish_color_keyword 8FB8A6
+fish_color_quote 7FC8A0
+fish_color_redirection A9CDBB
+fish_color_end A7B8B1
+fish_color_error E5737F
+fish_color_param E9F1EC
+fish_color_comment 52736F --italics
+fish_color_selection --background=1D3238
+fish_color_search_match --background=2A4148
+fish_color_operator 3DD68C
+fish_color_escape C9A3B0
+fish_color_autosuggestion 52736F
+fish_color_cancel E5737F --reverse
+
+fish_pager_color_prefix 8FB8A6 --bold
+fish_pager_color_completion E9F1EC
+fish_pager_color_description A7B8B1
+fish_pager_color_progress 3DD68C
+fish_pager_color_secondary_background 16222A

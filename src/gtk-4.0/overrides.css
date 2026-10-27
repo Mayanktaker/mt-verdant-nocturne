@@ -1,13 +1,12 @@
 /*
- * MT Verdant Nocturne — GTK4 best-effort overrides
+ * MT Verdant Nocturne — GTK4 & Libadwaita overrides
  * © Mayanktaker Computers & Web Development | https://mayanktaker.com
  *
- * Targets vanilla GTK4 apps that follow the theme name. libadwaita apps
- * limit third-party styling; see docs/compatibility.md for what works.
- * Colors come from palette/tokens.json — do not edit values here.
+ * Provides full botanical dark styling for both active and unfocused (:backdrop) states.
+ * Colors come from palette/tokens.json — single source of truth.
  */
 
-/* palette (GTK4 @define-color names kept for app compatibility) */
+/* GTK4 & Libadwaita color definitions */
 @define-color accent_color #8fb8a6;
 @define-color accent_bg_color #8fb8a6;
 @define-color accent_fg_color #0d131a;
@@ -15,39 +14,99 @@
 @define-color success_color #7fc8a0;
 @define-color warning_color #e5b580;
 @define-color error_color #e5737f;
+
 @define-color window_bg_color #0f141b;
 @define-color window_fg_color #e9f1ec;
+@define-color window_backdrop_color #0f141b;
+
 @define-color view_bg_color #16222a;
 @define-color view_fg_color #e9f1ec;
+@define-color view_backdrop_color #141f26;
+
 @define-color headerbar_bg_color #0f141b;
 @define-color headerbar_fg_color #e9f1ec;
+@define-color headerbar_backdrop_color #0f141b;
+
 @define-color sidebar_bg_color #131a21;
 @define-color sidebar_fg_color #a7b8b1;
+@define-color sidebar_backdrop_color #11171d;
+
 @define-color card_bg_color #1a2930;
 @define-color card_fg_color #e9f1ec;
+@define-color card_backdrop_color #17242a;
+
 @define-color dialog_bg_color #0f141b;
 @define-color dialog_fg_color #e9f1ec;
 @define-color popover_bg_color #16222a;
 @define-color popover_fg_color #e9f1ec;
 @define-color borders #2c3e44;
+
 @define-color theme_bg_color #0f141b;
 @define-color theme_fg_color #e9f1ec;
 @define-color theme_base_color #16222a;
 @define-color theme_selected_bg_color #8fb8a6;
 @define-color theme_selected_fg_color #0d131a;
 
-/* structural overrides for vanilla GTK4 windows */
-window.background {
+/* Window background and backdrop */
+window.background,
+window.background:backdrop {
   background-color: @window_bg_color;
   color: @window_fg_color;
 }
 
-headerbar {
+/* Headerbar active and backdrop */
+headerbar,
+headerbar:backdrop {
   background-color: @headerbar_bg_color;
   color: @headerbar_fg_color;
   border-color: @borders;
 }
 
+/* Navigation sidebar & split view containers (fixes unfocused non-themed look!) */
+.navigation-sidebar,
+.navigation-sidebar:backdrop,
+placessidebar,
+placessidebar:backdrop,
+splitview > paned > .sidebar,
+splitview > paned > .sidebar:backdrop,
+navigationview,
+navigationview:backdrop {
+  background-color: @sidebar_bg_color;
+  color: @sidebar_fg_color;
+}
+
+/* Navigation sidebar rows */
+.navigation-sidebar row,
+placessidebar row {
+  color: @sidebar_fg_color;
+}
+
+.navigation-sidebar row:hover,
+placessidebar row:hover {
+  background-color: rgba(143, 184, 166, 0.10);
+  color: @theme_fg_color;
+}
+
+.navigation-sidebar row:selected,
+.navigation-sidebar row:selected:focus,
+.navigation-sidebar row:selected:backdrop,
+placessidebar row:selected,
+placessidebar row:selected:focus,
+placessidebar row:selected:backdrop {
+  background-color: rgba(143, 184, 166, 0.22);
+  color: #e9f1ec;
+}
+
+/* Main view areas */
+.view,
+.view:backdrop,
+listview,
+listview:backdrop {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+/* Text selection */
 selection, textview text selection:focus, textview text selection {
   background-color: @theme_selected_bg_color;
   color: @theme_selected_fg_color;
@@ -55,4 +114,60 @@ selection, textview text selection:focus, textview text selection {
 
 button:focus-visible, entry:focus-visible {
   outline-color: @accent_color;
+}
+
+/* Perfect 1:1 circular traffic light window controls */
+headerbar windowcontrols {
+  padding: 0 4px;
+}
+
+headerbar windowcontrols button,
+headerbar windowcontrols button.image-button {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 0;
+  margin: 9px 3px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+  background-clip: padding-box;
+}
+
+headerbar windowcontrols button > image {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+headerbar windowcontrols button.close {
+  background-color: #e5737f;
+}
+
+headerbar windowcontrols button.close:hover {
+  background-color: #f28591;
+}
+
+headerbar windowcontrols button.minimize {
+  background-color: #e5b580;
+}
+
+headerbar windowcontrols button.minimize:hover {
+  background-color: #f0c38f;
+}
+
+headerbar windowcontrols button.maximize {
+  background-color: #7fc8a0;
+}
+
+headerbar windowcontrols button.maximize:hover {
+  background-color: #8ed9ad;
+}
+
+headerbar windowcontrols:hover button > image {
+  opacity: 0.65;
+  color: #141c22;
 }

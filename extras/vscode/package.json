@@ -1,0 +1,22 @@
+{
+  "name": "mt-verdant-nocturne-theme",
+  "displayName": "MT Verdant Nocturne",
+  "description": "Botanical Canopy dark green theme for Visual Studio Code",
+  "version": "0.2.0",
+  "publisher": "mayanktaker",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "MT Verdant Nocturne",
+        "uiTheme": "vs-dark",
+        "path": "./themes/mt-verdant-nocturne-color-theme.json"
+      }
+    ]
+  }
+}

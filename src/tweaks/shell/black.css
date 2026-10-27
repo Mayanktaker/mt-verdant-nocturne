@@ -1,0 +1,27 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: true pitch-black OLED background */
+
+#panel {
+  background-color: #050807 !important;
+  border-color: #1a2624 !important;
+}
+
+#panel:overview {
+  background-color: #050807 !important;
+}
+
+.popup-menu-content {
+  background-color: #050807 !important;
+  border-color: #1a2624 !important;
+}
+
+.modal-dialog,
+.message-dialog-content {
+  background-color: #050807 !important;
+  border-color: #1a2624 !important;
+}
+
+#dash .dash-background {
+  background-color: rgba(5, 8, 7, 0.94) !important;
+  border-color: #1a2624 !important;
+}

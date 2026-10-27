@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="docGrad" x1="32" y1="8" x2="32" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#1A2B33"/>
+    <stop offset="100%" stop-color="#101D22"/>
+  </linearGradient>
+</defs>
+<path d="M 14 10 C 14 7.5 16 6 18.5 6 L 39 6 L 50 17 L 50 54 C 50 56.5 48 58 45.5 58 L 18.5 58 C 16 58 14 56.5 14 54 Z" fill="url(#docGrad)" stroke="#2C4852" stroke-width="1.5"/>
+<path d="M 39 6 L 39 17 L 50 17 Z" fill="#243C45"/>
+
+<polygon points="28,26 40,34 28,42" fill="#3DD68C"/>
+<line x1="22" y1="48" x2="42" y2="48" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+</svg>

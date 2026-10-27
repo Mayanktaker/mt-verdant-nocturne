@@ -1,0 +1,12 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: compact top bar and tight spacing */
+
+#panel {
+  height: 2.0em;
+  font-size: 10pt;
+}
+
+#panel .panel-button {
+  -natural-hpadding: 8px;
+  -minimum-hpadding: 4px;
+}

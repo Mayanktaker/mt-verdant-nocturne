@@ -1,0 +1,19 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK tweak: rimless borderless windows and popovers */
+
+window.background,
+window.csd,
+window.solid-csd {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+headerbar {
+  border-bottom: none;
+  box-shadow: none;
+}
+
+popover.background {
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}

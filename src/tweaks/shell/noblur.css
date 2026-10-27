@@ -1,0 +1,27 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: solid opaque surfaces (no blur / translucency) */
+
+#panel {
+  background-color: #0f141b !important;
+  backdrop-filter: none !important;
+}
+
+#panel:overview {
+  background-color: #0b0f14 !important;
+  backdrop-filter: none !important;
+}
+
+#dash .dash-background {
+  background-color: #0f141b !important;
+  backdrop-filter: none !important;
+}
+
+.popup-menu-content {
+  background-color: #16222a !important;
+  backdrop-filter: none !important;
+}
+
+.osd-window, .workspace-switcher {
+  background-color: #0b0f14 !important;
+  backdrop-filter: none !important;
+}

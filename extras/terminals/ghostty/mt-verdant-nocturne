@@ -1,0 +1,26 @@
+# © Mayanktaker Computers & Web Development | https://mayanktaker.com
+# Ghostty terminal color theme — MT Verdant Nocturne
+
+background = 0f141b
+foreground = e9f1ec
+cursor-color = 8fb8a6
+cursor-text = 0d131a
+selection-background = 8fb8a6
+selection-foreground = 0d131a
+
+palette = 0=#16222a
+palette = 1=#e5737f
+palette = 2=#7fc8a0
+palette = 3=#e5b580
+palette = 4=#52736f
+palette = 5=#c9a3b0
+palette = 6=#68a69e
+palette = 7=#a7b8b1
+palette = 8=#2a4148
+palette = 9=#f28591
+palette = 10=#3dd68c
+palette = 11=#f0c38f
+palette = 12=#8fb8a6
+palette = 13=#dcb8c5
+palette = 14=#8ec5be
+palette = 15=#e9f1ec

@@ -1,0 +1,25 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK tweak: round 16px curvature for modern feel */
+
+window.background,
+window.csd,
+dialog {
+  border-radius: 16px;
+}
+
+headerbar {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+button {
+  border-radius: 10px;
+}
+
+entry {
+  border-radius: 10px;
+}
+
+popover.background {
+  border-radius: 14px;
+}

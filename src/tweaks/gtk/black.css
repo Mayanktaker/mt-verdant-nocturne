@@ -1,0 +1,19 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK tweak: true pitch-black OLED background */
+
+@define-color window_bg_color #050807;
+@define-color headerbar_bg_color #050807;
+@define-color view_bg_color #080d0b;
+@define-color card_bg_color #0c1412;
+@define-color dialog_bg_color #050807;
+@define-color popover_bg_color #080d0b;
+@define-color borders #162420;
+
+window.background,
+headerbar {
+  background-color: #050807;
+}
+
+window.csd {
+  background-color: #050807;
+}

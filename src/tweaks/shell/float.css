@@ -1,0 +1,14 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: floating pill top panel */
+
+#panel {
+  margin: 8px 14px 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(44, 62, 68, 0.75);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+#panel:overview {
+  margin: 8px 14px 0 14px;
+  border-radius: 999px;
+}

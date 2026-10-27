@@ -1,0 +1,10 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK tweak: solid opaque surfaces (no blur / translucency) */
+
+headerbar {
+  background-color: #0f141b;
+}
+
+popover.background {
+  background-color: #16222a;
+}

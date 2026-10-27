@@ -1,0 +1,80 @@
+# © Mayanktaker Computers & Web Development | https://mayanktaker.com
+# MT Verdant Nocturne — GTK2 legacy application fallback (GIMP 2.10, Audacity, etc.)
+
+gtk-color-scheme = "base_color:#16222A\nbg_color:#0F141B\ntext_color:#E9F1EC\nfg_color:#E9F1EC\nselected_bg_color:#8FB8A6\nselected_fg_color:#0D131A\ntooltip_bg_color:#1D3238\ntooltip_fg_color:#E9F1EC"
+
+style "default" {
+  xthickness = 1
+  ythickness = 1
+
+  GtkButton::child-displacement-x = 1
+  GtkButton::child-displacement-y = 1
+  GtkButton::default-border = { 0, 0, 0, 0 }
+  GtkRange::trough-border = 0
+  GtkRange::slider-width = 12
+
+  bg[NORMAL]        = "#0F141B"
+  bg[ACTIVE]        = "#1D3238"
+  bg[PRELIGHT]      = "#1D3238"
+  bg[SELECTED]      = "#8FB8A6"
+  bg[INSENSITIVE]   = "#0B0F14"
+
+  base[NORMAL]      = "#16222A"
+  base[ACTIVE]      = "#1D3238"
+  base[PRELIGHT]    = "#1D3238"
+  base[SELECTED]    = "#8FB8A6"
+  base[INSENSITIVE] = "#0F141B"
+
+  fg[NORMAL]        = "#E9F1EC"
+  fg[ACTIVE]        = "#E9F1EC"
+  fg[PRELIGHT]      = "#E9F1EC"
+  fg[SELECTED]      = "#0D131A"
+  fg[INSENSITIVE]   = "#76877F"
+
+  text[NORMAL]      = "#E9F1EC"
+  text[ACTIVE]      = "#E9F1EC"
+  text[PRELIGHT]    = "#E9F1EC"
+  text[SELECTED]    = "#0D131A"
+  text[INSENSITIVE] = "#76877F"
+}
+
+style "button" = "default" {
+  xthickness = 3
+  ythickness = 3
+  bg[NORMAL]   = "#16222A"
+  bg[PRELIGHT] = "#1D3238"
+  bg[ACTIVE]   = "#8FB8A6"
+  fg[ACTIVE]   = "#0D131A"
+}
+
+style "entry" = "default" {
+  xthickness = 3
+  ythickness = 3
+  base[NORMAL] = "#16222A"
+}
+
+style "menu" = "default" {
+  xthickness = 2
+  ythickness = 2
+  bg[NORMAL]   = "#16222A"
+  bg[PRELIGHT] = "#8FB8A6"
+  fg[PRELIGHT] = "#0D131A"
+}
+
+style "menubar" = "default" {
+  bg[NORMAL]   = "#0F141B"
+}
+
+style "tooltip" {
+  xthickness = 4
+  ythickness = 4
+  bg[NORMAL]   = "#1D3238"
+  fg[NORMAL]   = "#E9F1EC"
+}
+
+class "GtkWidget" style "default"
+class "GtkButton" style "button"
+class "GtkEntry" style "entry"
+class "GtkMenu" style "menu"
+class "GtkMenuBar" style "menubar"
+widget "gtk-tooltip*" style "tooltip"

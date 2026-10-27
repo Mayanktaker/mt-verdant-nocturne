@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=MT Verdant Nocturne
+Description=Botanical Canopy dark green SDDM theme
+Author=Mayanktaker
+Copyright=(c) Mayanktaker Computers & Web Development
+License=GPL-3.0
+Type=sddm-theme
+Version=0.2.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=https://mayanktaker.com

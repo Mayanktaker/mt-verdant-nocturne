@@ -9,7 +9,7 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 - Targets: GNOME Shell 50.x and 51.x (host dev machine: GNOME Shell 51.1, Wayland).
 - Build: `sassc` (libsass 3.6.6), Python 3 + `numpy` 2.5.4 + `Pillow` 13.0.0.
 - Repo: git 2.56, `gh` 2.102.1 authenticated as `Mayanktaker`.
-- **Installation policy:** ALWAYS install user themes into the user's `~/.themes` (e.g. `/home/<user>/.themes`) ONLY — never `~/.local/share/themes` or system dirs. `tools/install.sh` implements and must keep this. Shell activation needs the **User Themes** extension (`user-theme@gnome-shell-extensions.gcampax.github.com`).
+- **Installation policy:** ALWAYS install user themes into the user's `~/.themes` (e.g. `/home/<user>/.themes`) ONLY, and user icon/cursor packs into the user's `~/.icons` (e.g. `/home/<user>/.icons`) ONLY — never `~/.local/share/themes`, `~/.local/share/icons`, or system dirs. `tools/install.sh` implements and must keep this. Shell activation needs the **User Themes** extension (`user-theme@gnome-shell-extensions.gcampax.github.com`).
 - **Installer behavior:** `tools/install.sh` detects distro (`/etc/os-release`) + GNOME Shell major (gate ≥50 with a matching colormap), checks missing packages/modules per distro (python3, gi, sassc, numpy, Pillow, User Themes extension) — only for parts it will actually build — prints the exact distro install command, and uses **sudo only for system package installs** via `--install-deps`; the theme install itself never needs root. Old installs under `~/.local/share/themes` are moved to `deleted_files_folders/`, never deleted.
 
 ## Single source of truth
@@ -18,14 +18,15 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 
 ## Commands
 - Contrast gate: `python3 tools/dev/check_contrast.py` (must pass before commits).
-- Wallpaper: `python3 tools/wallpaper/generate.py` → `wallpaper/dist/` (4K render is gitignored; preview JPG is committed).
+- Wallpaper suite: `python3 tools/wallpaper/generate.py [--which 1|2|3|4|all]` → generates 4 4K renders into `wallpaper/dist/` + preview JPGs in `wallpaper/preview/`.
+- Icons & Cursors build: `python3 tools/icons/generate_icons.py && python3 tools/icons/generate_cursors.py` → builds `src/icons/` and `src/cursors/`.
 - Shell theme build: `python3 tools/shell/build.py [--major N | --all]` (host major extracts from gresource; others use vendored `src/shell/upstream-<major>/`).
 - GTK build: `python3 tools/gtk/build.py` → `build/theme/gtk-{3,4}.0/`.
-- Install: `tools/install.sh [--wallpaper] [--gtk4-libadwaita] [--install-deps]` → installs into `~/.themes/MT-Verdant-Nocturne` (user-only; picks the Shell-major build; wallpaper always opt-in).
-- Flatpak: `tools/flatpak/stage.sh` (stage extension payload), `tools/flatpak/local-fallback.sh` (user-level sandbox fallback; zero downloads).
+- Install: `tools/install.sh [--tweaks <list>] [--accent <flavor>] [--size standard|compact] [--blur|--no-blur] [--wallpaper [1-4|all]] [--icons] [--gtk4-libadwaita] [--install-deps]` → installs theme into `~/.themes/MT-Verdant-Nocturne` and icons/cursors into `~/.icons/` (user-only; copies 4 4K wallpapers into `${THEME_DIR}/wallpapers/` and extras into `${THEME_DIR}/extras/`).
+- App extras install: `tools/extras/install-all.sh` (scans & installs for all detected apps) or individual scripts under `extras/`.
 
 ## Layout
-- `palette/` tokens · `src/` per-layer sources, shell color maps & vendored upstream CSS/SASS · `tools/` generators + installer
+- `palette/` tokens (v0.2.0 w/ flavors & OLED) · `src/` per-layer sources (shell, gtk, tweaks, icons, cursors) · `extras/` (terminals, fish, text-editors, kde, grub, sddm, gdm, plymouth, fastfetch, firefox, vscode) · `tools/` generators + installer
 - `build/` generated output (gitignored) · `wallpaper/preview/` committed previews · `flatpak/` extension manifest + appdata · `docs/` focused docs
 
 ## Documentation pointers (do not duplicate content here)

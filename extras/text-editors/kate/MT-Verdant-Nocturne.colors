@@ -1,0 +1,38 @@
+[General]
+Name=MT-Verdant-Nocturne
+Author=Mayanktaker
+
+[Editor Colors]
+Color Background=15,20,27
+Color Highlighted Line=22,34,42
+Color Line Number=82,115,111
+Color Current Line Number=143,184,166
+Color Selection=29,50,56
+Color Word Wrap Marker=44,62,68
+Color Code Folding=61,214,140
+
+[Default Item Styles]
+Normal=e9f1ec;0f141b;0;0;0
+Keyword=8fb8a6;;1;0;0
+Function=3dd68c;;1;0;0
+Variable=e9f1ec;;0;0;0
+Control Flow=8fb8a6;;1;0;0
+Operator=a9cdbb;;0;0;0
+Builtin=3dd68c;;0;0;0
+Extension=a9cdbb;;0;0;0
+Preprocessor=c9a3b0;;0;0;0
+Attribute=c9a3b0;;0;0;0
+Char=7fc8a0;;0;0;0
+Special Char=c9a3b0;;0;0;0
+String=7fc8a0;;0;0;0
+Verbatim String=7fc8a0;;0;0;0
+Special String=c9a3b0;;0;0;0
+Types=a9cdbb;;1;0;0
+Comment=52736f;;0;1;0
+Documentation=a7b8b1;;0;1;0
+Decimal=e5b580;;0;0;0
+Base-N Integer=e5b580;;0;0;0
+Float=e5b580;;0;0;0
+Error=e5737f;;1;0;0
+Warning=e5b580;;1;0;0
+Information=3dd68c;;1;0;0

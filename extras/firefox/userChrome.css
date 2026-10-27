@@ -1,0 +1,92 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* Firefox userChrome.css — Botanical Canopy nocturnal dark theme */
+
+:root {
+  --mt-bg-base: #0f141b;
+  --mt-bg-darker: #0b0f14;
+  --mt-bg-tile: #16222a;
+  --mt-bg-surface: #1d3238;
+  --mt-accent: #8fb8a6;
+  --mt-accent-strong: #a9cdbb;
+  --mt-text-primary: #e9f1ec;
+  --mt-text-secondary: #a7b8b1;
+  --mt-border: #2c3e44;
+}
+
+/* Main window backdrop */
+#main-window,
+#navigator-toolbox {
+  background-color: var(--mt-bg-base) !important;
+  color: var(--mt-text-primary) !important;
+  border-bottom: 1px solid var(--mt-border) !important;
+}
+
+/* Tabs toolbar */
+#TabsToolbar {
+  background-color: var(--mt-bg-base) !important;
+}
+
+.tabbrowser-tab {
+  color: var(--mt-text-secondary) !important;
+  font-weight: 500 !important;
+}
+
+.tabbrowser-tab:hover .tab-background {
+  background-color: rgba(29, 50, 56, 0.5) !important;
+}
+
+/* Active tab: raised card with sage accent indicator */
+.tabbrowser-tab[selected="true"] .tab-background {
+  background-color: var(--mt-bg-surface) !important;
+  border-top: 2px solid var(--mt-accent) !important;
+  border-radius: 10px 10px 0 0 !important;
+  box-shadow: 0 -2px 10px rgba(143, 184, 166, 0.25) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  color: var(--mt-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Navigation & URL Bar */
+#nav-bar {
+  background-color: var(--mt-bg-base) !important;
+  box-shadow: none !important;
+}
+
+#urlbar-background {
+  background-color: var(--mt-bg-tile) !important;
+  border: 1px solid var(--mt-border) !important;
+  border-radius: 12px !important;
+}
+
+#urlbar[focused="true"] #urlbar-background {
+  border-color: var(--mt-accent) !important;
+  box-shadow: 0 0 0 2px rgba(143, 184, 166, 0.3) !important;
+}
+
+#urlbar-input {
+  color: var(--mt-text-primary) !important;
+}
+
+/* Bookmarks toolbar & buttons */
+#PersonalToolbar {
+  background-color: var(--mt-bg-base) !important;
+  color: var(--mt-text-secondary) !important;
+}
+
+toolbarbutton {
+  color: var(--mt-text-primary) !important;
+  border-radius: 8px !important;
+}
+
+toolbarbutton:hover {
+  background-color: var(--mt-bg-surface) !important;
+}
+
+/* Sidebar styling */
+#sidebar-box,
+#sidebar-header {
+  background-color: var(--mt-bg-darker) !important;
+  border-right: 1px solid var(--mt-border) !important;
+}

@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=MT Verdant Nocturne
+Description=Botanical Canopy dark green boot splash theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/mt-verdant-nocturne
+ScriptFile=/usr/share/plymouth/themes/mt-verdant-nocturne/mt-verdant-nocturne.script

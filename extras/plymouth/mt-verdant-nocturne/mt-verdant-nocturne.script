@@ -1,0 +1,49 @@
+# © Mayanktaker Computers & Web Development | https://mayanktaker.com
+# Plymouth boot script for MT Verdant Nocturne
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# 1. Background
+bg_image = Image("background.png");
+if (bg_image) {
+    resized_bg = bg_image.Scale(screen_width, screen_height);
+    bg_sprite = Sprite(resized_bg);
+    bg_sprite.SetZ(-100);
+}
+
+# 2. Centered Logo
+logo_image = Image("logo.png");
+if (logo_image) {
+    logo_sprite = Sprite(logo_image);
+    logo_x = screen_width / 2 - logo_image.GetWidth() / 2;
+    logo_y = screen_height / 2 - logo_image.GetHeight() / 2 - 30;
+    logo_sprite.SetPosition(logo_x, logo_y, 10);
+}
+
+# 3. Progress bar
+box_image = Image("progress_box.png");
+if (box_image) {
+    box_sprite = Sprite(box_image);
+    box_x = screen_width / 2 - box_image.GetWidth() / 2;
+    box_y = logo_y + logo_image.GetHeight() + 35;
+    box_sprite.SetPosition(box_x, box_y, 10);
+
+    bar_image = Image("progress_bar.png");
+    bar_sprite = Sprite();
+    bar_sprite.SetPosition(box_x + 2, box_y + 2, 11);
+
+    fun progress_callback (duration, progress) {
+        new_width = (box_image.GetWidth() - 4) * progress;
+        if (new_width > 0) {
+            bar = bar_image.Scale(new_width, box_image.GetHeight() - 4);
+            bar_sprite.SetImage(bar);
+        }
+    }
+    Plymouth.SetBootProgressFunction(progress_callback);
+}
+
+fun quit_callback () {
+    if (logo_sprite) logo_sprite.SetOpacity(0);
+}
+Plymouth.SetQuitFunction(quit_callback);
