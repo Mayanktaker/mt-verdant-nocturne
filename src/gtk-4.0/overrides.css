@@ -1,0 +1,58 @@
+/*
+ * MT Verdant Nocturne — GTK4 best-effort overrides
+ * © Mayanktaker Computers & Web Development | https://mayanktaker.com
+ *
+ * Targets vanilla GTK4 apps that follow the theme name. libadwaita apps
+ * limit third-party styling; see docs/compatibility.md for what works.
+ * Colors come from palette/tokens.json — do not edit values here.
+ */
+
+/* palette (GTK4 @define-color names kept for app compatibility) */
+@define-color accent_color #8fb8a6;
+@define-color accent_bg_color #8fb8a6;
+@define-color accent_fg_color #0d131a;
+@define-color destructive_color #e5737f;
+@define-color success_color #7fc8a0;
+@define-color warning_color #e5b580;
+@define-color error_color #e5737f;
+@define-color window_bg_color #0f141b;
+@define-color window_fg_color #e9f1ec;
+@define-color view_bg_color #16222a;
+@define-color view_fg_color #e9f1ec;
+@define-color headerbar_bg_color #0f141b;
+@define-color headerbar_fg_color #e9f1ec;
+@define-color sidebar_bg_color #131a21;
+@define-color sidebar_fg_color #a7b8b1;
+@define-color card_bg_color #1a2930;
+@define-color card_fg_color #e9f1ec;
+@define-color dialog_bg_color #0f141b;
+@define-color dialog_fg_color #e9f1ec;
+@define-color popover_bg_color #16222a;
+@define-color popover_fg_color #e9f1ec;
+@define-color borders #2c3e44;
+@define-color theme_bg_color #0f141b;
+@define-color theme_fg_color #e9f1ec;
+@define-color theme_base_color #16222a;
+@define-color theme_selected_bg_color #8fb8a6;
+@define-color theme_selected_fg_color #0d131a;
+
+/* structural overrides for vanilla GTK4 windows */
+window.background {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+}
+
+headerbar {
+  background-color: @headerbar_bg_color;
+  color: @headerbar_fg_color;
+  border-color: @borders;
+}
+
+selection, textview text selection:focus, textview text selection {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color;
+}
+
+button:focus-visible, entry:focus-visible {
+  outline-color: @accent_color;
+}
