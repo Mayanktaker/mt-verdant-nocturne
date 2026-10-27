@@ -14,4 +14,6 @@ __pycache__/
 
 # release output
 dist/
+# parked previous installs (never hard-deleted)
+deleted_files_folders/
 flatpak/repo/

@@ -9,7 +9,8 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 - Targets: GNOME Shell 50.x and 51.x (host dev machine: GNOME Shell 51.1, Wayland).
 - Build: `sassc` (libsass 3.6.6), Python 3 + `numpy` 2.5.4 + `Pillow` 13.0.0.
 - Repo: git 2.56, `gh` 2.102.1 authenticated as `Mayanktaker`.
-- User-level install only: `~/.local/share/themes/MT-Verdant-Nocturne/`; Shell theme needs the **User Themes** extension (`user-theme@gnome-shell-extensions.gcampax.github.com`).
+- **Installation policy:** ALWAYS install user themes into the user's `~/.themes` (e.g. `/home/<user>/.themes`) ONLY — never `~/.local/share/themes` or system dirs. `tools/install.sh` implements and must keep this. Shell activation needs the **User Themes** extension (`user-theme@gnome-shell-extensions.gcampax.github.com`).
+- **Installer behavior:** `tools/install.sh` detects distro (`/etc/os-release`) + GNOME Shell major (gate ≥50 with a matching colormap), checks missing packages/modules per distro (python3, gi, sassc, numpy, Pillow, User Themes extension) — only for parts it will actually build — prints the exact distro install command, and uses **sudo only for system package installs** via `--install-deps`; the theme install itself never needs root. Old installs under `~/.local/share/themes` are moved to `deleted_files_folders/`, never deleted.
 
 ## Single source of truth
 - `palette/tokens.json` — every color in CSS/wallpaper/builds comes from here. No new magic values; add tokens instead.
@@ -20,7 +21,7 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 - Wallpaper: `python3 tools/wallpaper/generate.py` → `wallpaper/dist/` (4K render is gitignored; preview JPG is committed).
 - Shell theme build: `python3 tools/shell/build.py [--major N | --all]` (host major extracts from gresource; others use vendored `src/shell/upstream-<major>/`).
 - GTK build: `python3 tools/gtk/build.py` → `build/theme/gtk-{3,4}.0/`.
-- Install: `tools/install.sh` (user-level; no root; picks the Shell-major build). Wallpaper apply is always opt-in via `--wallpaper`.
+- Install: `tools/install.sh [--wallpaper] [--gtk4-libadwaita] [--install-deps]` → installs into `~/.themes/MT-Verdant-Nocturne` (user-only; picks the Shell-major build; wallpaper always opt-in).
 - Flatpak: `tools/flatpak/stage.sh` (stage extension payload), `tools/flatpak/local-fallback.sh` (user-level sandbox fallback; zero downloads).
 
 ## Layout
