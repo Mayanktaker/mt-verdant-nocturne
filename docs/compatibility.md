@@ -7,11 +7,11 @@ real session (host or disposable VM). "50+" never implies untested future releas
 
 | Layer | GNOME 50.x | GNOME 51.1 (host) | Notes |
 |---|---|---|---|
-| GNOME Shell CSS | pending test | pending test | built from upstream per-major CSS |
-| GTK3 apps | pending test | pending test | |
-| GTK4 / libadwaita | best-effort | best-effort | app-dependent; see limitations |
-| Flatpak GTK3 | pending test | pending test | via theme extension |
-| Wallpaper | n/a | n/a | version-independent |
+| GNOME Shell CSS | pending test | **verified live** | built from upstream-extract + token map; no stylesheet errors in journal |
+| GTK3 apps | pending test | **parse-verified + applied** | vendored gtk-3-24 sass, sassc build; CssProvider parse clean |
+| GTK4 / libadwaita | best-effort | shipped, live test pending | @define-color overrides for vanilla GTK4; libadwaita needs opt-in `--gtk4-libadwaita` |
+| Flatpak GTK3 | pending test | pending test | extension packaging next; flathub remote present, `org.flatpak.Builder` to install user-level |
+| Wallpaper | n/a | n/a | version-independent; apply is opt-in |
 
 ## Test checklist (per Shell major)
 - [ ] Theme loads via User Themes extension without stylesheet parse errors (check `journalctl` / Looking Glass)
