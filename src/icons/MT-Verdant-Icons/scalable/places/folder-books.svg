@@ -37,7 +37,9 @@
   <!-- Specular highlight line along upper lip -->
   <path d="M 7 24.5 C 7 22.5 8.5 20.5 11.5 20.5 L 26.5 20.5 C 28.5 20.5 30.5 22 32 24 L 34.5 27 C 36 28.5 38 29.5 41.5 29.5 L 52.5 29.5 C 55 29.5 57 31 57 33.5" stroke="url(#specularGrad)" stroke-width="1.2" stroke-linecap="round"/>
 </g>
-<!-- Book / Calibre library emblem -->
-<path d="M 23 35 C 27 33 32 35 32 35 C 32 35 37 33 41 35 L 41 49 C 37 47 32 49 32 49 C 32 49 27 47 23 49 Z" fill="#8FB8A6" stroke="#13262D" stroke-width="1"/>
-<line x1="32" y1="35" x2="32" y2="49" stroke="#3DD68C" stroke-width="2"/>
+<!-- Bookshelf emblem -->
+<rect x="22" y="32" width="4" height="18" rx="1" fill="#8FB8A6"/>
+<rect x="28" y="30" width="4" height="20" rx="1" fill="#3DD68C"/>
+<rect x="34" y="33" width="4" height="17" rx="1" fill="#8FB8A6"/>
+<polygon points="32,35 38,45 26,45" fill="#8FB8A6"/>
 </svg>

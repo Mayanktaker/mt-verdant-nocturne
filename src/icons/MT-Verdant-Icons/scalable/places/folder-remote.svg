@@ -37,8 +37,8 @@
   <!-- Specular highlight line along upper lip -->
   <path d="M 7 24.5 C 7 22.5 8.5 20.5 11.5 20.5 L 26.5 20.5 C 28.5 20.5 30.5 22 32 24 L 34.5 27 C 36 28.5 38 29.5 41.5 29.5 L 52.5 29.5 C 55 29.5 57 31 57 33.5" stroke="url(#specularGrad)" stroke-width="1.2" stroke-linecap="round"/>
 </g>
-<!-- Network emblem -->
-<circle cx="32" cy="41" r="9" stroke="#8FB8A6" stroke-width="2" fill="none"/>
+<!-- Network globe folder -->
+<circle cx="32" cy="41" r="9" stroke="#8FB8A6" stroke-width="2" fill="#13262D"/>
 <ellipse cx="32" cy="41" rx="4.5" ry="9" stroke="#8FB8A6" stroke-width="1.5" fill="none"/>
-<line x1="23" y1="41" x2="41" y2="41" stroke="#3DD68C" stroke-width="1.5"/>
+<line x1="23" y1="41" x2="41" y2="41" stroke="#3DD68C" stroke-width="1.8"/>
 </svg>

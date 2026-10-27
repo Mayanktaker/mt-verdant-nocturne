@@ -8,7 +8,9 @@ from pathlib import Path
 import cairo
 import gi
 gi.require_version("Rsvg", "2.0")
-from gi.repository import Rsvg
+gi.require_version("Adw", "1")
+gi.require_version("Gio", "2.0")
+from gi.repository import Rsvg, Adw, Gio
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = REPO_ROOT / "src" / "icons" / "MT-Verdant-Icons"
@@ -99,54 +101,42 @@ PLACES_EMBLEMS = {
 <polygon points="23,48 28.5,41 33.5,46 37,42.5 41,48" fill="#8FB8A6"/>''',
 
     "folder-videos": '''<!-- Videos emblem -->
-<rect x="21" y="32" width="18" height="18" rx="2.5" fill="#8FB8A6"/>
-<polygon points="39,36 45,32 45,50 39,46" fill="#8FB8A6"/>
-<polygon points="27,36 34,41 27,46" fill="#13262D"/>''',
+<rect x="20" y="32" width="24" height="18" rx="3" stroke="#8FB8A6" stroke-width="2" fill="#13262D"/>
+<circle cx="32" cy="41" r="5" fill="#3DD68C"/>
+<polygon points="30.5,38 35,41 30.5,44" fill="#13262D"/>''',
 
-    "folder-remote": '''<!-- Network emblem -->
-<circle cx="32" cy="41" r="9" stroke="#8FB8A6" stroke-width="2" fill="none"/>
-<ellipse cx="32" cy="41" rx="4.5" ry="9" stroke="#8FB8A6" stroke-width="1.5" fill="none"/>
-<line x1="23" y1="41" x2="41" y2="41" stroke="#3DD68C" stroke-width="1.5"/>''',
-
-    "network-workgroup": '''<!-- Network workgroup emblem -->
-<circle cx="32" cy="41" r="9" stroke="#8FB8A6" stroke-width="2" fill="none"/>
-<ellipse cx="32" cy="41" rx="4.5" ry="9" stroke="#8FB8A6" stroke-width="1.5" fill="none"/>
-<line x1="23" y1="41" x2="41" y2="41" stroke="#3DD68C" stroke-width="1.5"/>''',
-
-    "network-server": '''<!-- Server rack emblem -->
-<rect x="22" y="32" width="20" height="6" rx="2" fill="#13262D" stroke="#8FB8A6" stroke-width="1.5"/>
-<rect x="22" y="41" width="20" height="6" rx="2" fill="#13262D" stroke="#8FB8A6" stroke-width="1.5"/>
-<circle cx="25" cy="35" r="1" fill="#3DD68C"/>
-<circle cx="25" cy="44" r="1" fill="#3DD68C"/>''',
-
-    "folder-applications": '''<!-- Applications launcher grid emblem -->
-<circle cx="26" cy="35" r="2.5" fill="#8FB8A6"/>
-<circle cx="32" cy="35" r="2.5" fill="#8FB8A6"/>
-<circle cx="38" cy="35" r="2.5" fill="#8FB8A6"/>
-<circle cx="26" cy="41" r="2.5" fill="#8FB8A6"/>
-<circle cx="32" cy="41" r="2.5" fill="#3DD68C"/>
-<circle cx="38" cy="41" r="2.5" fill="#8FB8A6"/>
-<circle cx="26" cy="47" r="2.5" fill="#8FB8A6"/>
-<circle cx="32" cy="47" r="2.5" fill="#8FB8A6"/>
-<circle cx="38" cy="47" r="2.5" fill="#8FB8A6"/>''',
-
-    "folder-projects": '''<!-- Code brackets / Dev projects emblem -->
-<path d="M 27 35 L 21 41 L 27 47" stroke="#8FB8A6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 37 35 L 43 41 L 37 47" stroke="#8FB8A6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="33" y1="34" x2="31" y2="48" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>''',
-
-    "folder-books": '''<!-- Book / Calibre library emblem -->
-<path d="M 23 35 C 27 33 32 35 32 35 C 32 35 37 33 41 35 L 41 49 C 37 47 32 49 32 49 C 32 49 27 47 23 49 Z" fill="#8FB8A6" stroke="#13262D" stroke-width="1"/>
-<line x1="32" y1="35" x2="32" y2="49" stroke="#3DD68C" stroke-width="2"/>''',
+    "folder-templates": '''<!-- Templates / Drafting emblem -->
+<rect x="22" y="32" width="20" height="18" rx="2" stroke="#8FB8A6" stroke-width="2" fill="none"/>
+<line x1="22" y1="38" x2="42" y2="38" stroke="#8FB8A6" stroke-width="1.5"/>
+<line x1="28" y1="32" x2="28" y2="50" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="31,41 39,41 31,49" fill="#3DD68C"/>''',
 
     "folder-publicshare": '''<!-- Public share emblem -->
-<circle cx="27" cy="37" r="3.5" fill="#8FB8A6"/>
-<circle cx="37" cy="37" r="3.5" fill="#8FB8A6"/>
-<path d="M 21 49 C 21 44.5 24.5 43 27 43 C 29.5 43 33 44.5 33 49" fill="#8FB8A6"/>
-<path d="M 31 49 C 31 44.5 34.5 43 37 43 C 39.5 43 43 44.5 43 49" fill="#3DD68C"/>''',
+<circle cx="32" cy="36" r="3.5" fill="#8FB8A6"/>
+<path d="M 24 49 C 24 44 27 42 32 42 C 37 42 40 44 40 49 Z" fill="#8FB8A6"/>
+<circle cx="41" cy="37" r="2.5" fill="#3DD68C"/>
+<circle cx="23" cy="37" r="2.5" fill="#3DD68C"/>''',
 
-    "folder-templates": '''<!-- Templates emblem -->
-<rect x="23" y="31" width="18" height="20" rx="2.5" stroke="#8FB8A6" stroke-width="2" stroke-dasharray="3 2" fill="none"/>
+    "folder-remote": '''<!-- Network globe folder -->
+<circle cx="32" cy="41" r="9" stroke="#8FB8A6" stroke-width="2" fill="#13262D"/>
+<ellipse cx="32" cy="41" rx="4.5" ry="9" stroke="#8FB8A6" stroke-width="1.5" fill="none"/>
+<line x1="23" y1="41" x2="41" y2="41" stroke="#3DD68C" stroke-width="1.8"/>''',
+
+    "folder-projects": '''<!-- Code / Projects emblem -->
+<polygon points="26,35 20,41 26,47" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="38,35 44,41 38,47" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="34" y1="33" x2="30" y2="49" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>''',
+
+    "folder-applications": '''<!-- Apps grid emblem -->
+<rect x="23" y="32" width="6" height="6" rx="1.5" fill="#8FB8A6"/>
+<rect x="35" y="32" width="6" height="6" rx="1.5" fill="#8FB8A6"/>
+<rect x="23" y="42" width="6" height="6" rx="1.5" fill="#8FB8A6"/>
+<rect x="35" y="42" width="6" height="6" rx="1.5" fill="#3DD68C"/>''',
+
+    "folder-books": '''<!-- Bookshelf emblem -->
+<rect x="22" y="32" width="4" height="18" rx="1" fill="#8FB8A6"/>
+<rect x="28" y="30" width="4" height="20" rx="1" fill="#3DD68C"/>
+<rect x="34" y="33" width="4" height="17" rx="1" fill="#8FB8A6"/>
 <polygon points="32,35 38,45 26,45" fill="#8FB8A6"/>''',
 
     "folder-saved-search": '''<!-- Search emblem -->
@@ -211,11 +201,11 @@ PLACES_ALIASES = {
 }
 
 # =========================================================================
-# Symbolic Wireframe Icons (16x16 crisp vectors for Nautilus Sidebar)
+# Symbolic Wireframe Icons (16x16 crisp vectors for Nautilus, Settings, Apps)
 # =========================================================================
 
 SYMBOLIC_ICONS = {
-    # Fixes the white missing network icon!
+    # Fixes the white missing network icon in Nautilus
     "network-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <path fill="currentColor" class="ColorScheme-Text" d="M 2 2 C 1.45 2 1 2.45 1 3 L 1 9 C 1 9.55 1.45 10 2 10 L 7 10 L 7 12 L 5 12 C 4.45 12 4 12.45 4 13 C 4 13.55 4.45 14 5 14 L 11 14 C 11.55 14 12 13.55 12 13 C 12 12.45 11.55 12 11 12 L 9 12 L 9 10 L 14 10 C 14.55 10 15 9.55 15 9 L 15 3 C 15 2.45 14.55 2 14 2 Z M 3 4 L 13 4 L 13 8 L 3 8 Z"/>
 </svg>''',
@@ -260,17 +250,14 @@ SYMBOLIC_ICONS = {
   <line x1="4" y1="10.5" x2="8" y2="10.5" stroke="currentColor" stroke-width="1.2"/>
 </svg>''',
 
-    # Fixes Extension Manager and Settings buttons!
     "settings-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <path fill="currentColor" class="ColorScheme-Text" d="M 7 1 L 9 1 L 9.3 2.7 C 9.8 2.9 10.3 3.2 10.7 3.6 L 12.3 2.9 L 13.7 4.3 L 13 5.9 C 13.4 6.3 13.7 6.8 13.9 7.3 L 15.6 7.6 L 15.6 9.6 L 13.9 9.9 C 13.7 10.4 13.4 10.9 13 11.3 L 13.7 12.9 L 12.3 14.3 L 10.7 13.6 C 10.3 14 9.8 14.3 9.3 14.5 L 9 16.2 L 7 16.2 L 6.7 14.5 C 6.2 14.3 5.7 14 5.3 13.6 L 3.7 14.3 L 2.3 12.9 L 3 11.3 C 2.6 10.9 2.3 10.4 2.1 9.9 L 0.4 9.6 L 0.4 7.6 L 2.1 7.3 C 2.3 6.8 2.6 6.3 3 5.9 L 2.3 4.3 L 3.7 2.9 L 5.3 3.6 C 5.7 3.2 6.2 2.9 6.7 2.7 Z M 8 5.5 A 2.5 2.5 0 1 0 8 10.5 A 2.5 2.5 0 1 0 8 5.5 Z"/>
 </svg>''',
 
-    # Fixes Extension Manager 'Use Extensions' row!
     "puzzle-piece-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <path fill="currentColor" class="ColorScheme-Text" d="M 6 2 C 6 2.5 6.5 3 7 3 C 7.5 3 8 2.5 8 2 C 8 1.5 7.5 1 7 1 C 6.5 1 6 1.5 6 2 Z M 5 3 L 5 5 L 3 5 C 2.5 5 2 5.5 2 6 C 2 6.5 2.5 7 3 7 C 3.5 7 4 6.5 4 6 L 4 5 L 5 5 L 5 8 C 5 8.55 5.45 9 6 9 L 7 9 L 7 10 C 7 10.5 7.5 11 8 11 C 8.5 11 9 10.5 9 10 L 9 9 L 11 9 C 11.55 9 12 8.55 12 8 L 12 6 C 12 5.5 12.5 5 13 5 C 13.5 5 14 5.5 14 6 C 14 6.5 13.5 7 13 7 L 13 8 C 13 9.66 11.66 11 10 11 L 10 13 C 10 13.55 9.55 14 9 14 L 5 14 C 3.9 14 3 13.1 3 12 L 3 10 C 2.45 10 2 9.55 2 9 L 2 5 C 2 3.9 2.9 3 4 3 Z"/>
 </svg>''',
 
-    # Fixes Nautilus Recent sidebar row!
     "recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
   <polyline points="8,4.5 8,8 10.5,9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -281,7 +268,6 @@ SYMBOLIC_ICONS = {
   <polyline points="8,4.5 8,8 10.5,9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
 </svg>''',
 
-    # Fixes Nautilus partitions & drive rows!
     "drive-harddisk-root-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <rect x="2" y="3" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
   <circle cx="11.5" cy="10.5" r="1" fill="currentColor"/>
@@ -314,13 +300,104 @@ SYMBOLIC_ICONS = {
   <path d="M 3 4 L 3 8 C 3 9.1 5.2 10 8 10 C 10.8 10 13 9.1 13 8 L 13 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
   <path d="M 3 8 L 3 12 C 3 13.1 5.2 14 8 14 C 10.8 14 13 13.1 13 12 L 13 8" fill="none" stroke="currentColor" stroke-width="1.5"/>
 </svg>''',
+
+    # Fixes GNOME Settings Software Updates row (Left icon)
+    "system-update-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 8 1 A 7 7 0 1 0 15 8 L 13.2 8 A 5.2 5.2 0 1 1 8 2.8 L 8 5 L 12 2.5 L 8 0 Z"/>
+  <path fill="currentColor" d="M 8 6 L 8 10 L 6 8 L 5 9 L 8 12 L 11 9 L 10 8 L 8 10 Z"/>
+</svg>''',
+
+    "system-software-update-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 8 1 A 7 7 0 1 0 15 8 L 13.2 8 A 5.2 5.2 0 1 1 8 2.8 L 8 5 L 12 2.5 L 8 0 Z"/>
+  <path fill="currentColor" d="M 8 6 L 8 10 L 6 8 L 5 9 L 8 12 L 11 9 L 10 8 L 8 10 Z"/>
+</svg>''',
+
+    "software-properties-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <rect x="2" y="3" width="12" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="8" cy="8" r="2.5" fill="currentColor"/>
+</svg>''',
+
+    # Fixes GNOME Settings Software Updates row (Right suffix icon) & Extension Manager
+    "adw-external-link-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 5 2 C 3.34 2 2 3.34 2 5 L 2 11 C 2 12.66 3.34 14 5 14 L 11 14 C 12.66 14 14 12.66 14 11 L 14 8 L 12 8 L 12 11 C 12 11.55 11.55 12 11 12 L 5 12 C 4.45 12 4 11.55 4 11 L 4 5 C 4 4.45 4.45 4 5 4 L 8 4 L 8 2 Z M 10 2 L 10 4 L 12.59 4 L 7.29 9.29 L 8.71 10.71 L 14 5.41 L 14 8 L 16 8 L 16 2 Z"/>
+</svg>''',
+
+    "external-link-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 5 2 C 3.34 2 2 3.34 2 5 L 2 11 C 2 12.66 3.34 14 5 14 L 11 14 C 12.66 14 14 12.66 14 11 L 14 8 L 12 8 L 12 11 C 12 11.55 11.55 12 11 12 L 5 12 C 4.45 12 4 11.55 4 11 L 4 5 C 4 4.45 4.45 4 5 4 L 8 4 L 8 2 Z M 10 2 L 10 4 L 12.59 4 L 7.29 9.29 L 8.71 10.71 L 14 5.41 L 14 8 L 16 8 L 16 2 Z"/>
+</svg>''',
+
+    # Fixes Extension Manager right expander rows across all Libadwaita apps!
+    "adw-expander-arrow-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M 4 6 L 8 10 L 12 6"/>
+</svg>''',
+
+    "expander-open-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M 4 6 L 8 10 L 12 6"/>
+</svg>''',
+
+    # Fixes Nautilus current folder search & search filters
+    "nautilus-folder-search-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+  <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>''',
+
+    "nautilus-search-filters-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <line x1="2" y1="4" x2="14" y2="4" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="5" cy="4" r="1.5" fill="currentColor"/>
+  <line x1="2" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="11" cy="8" r="1.5" fill="currentColor"/>
+  <line x1="2" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="7" cy="12" r="1.5" fill="currentColor"/>
+</svg>''',
+
+    # Fixes Sidebar toggle in Nautilus & Settings
+    "sidebar-hide-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <rect x="2" y="2" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="6" y1="2" x2="6" y2="14" stroke="currentColor" stroke-width="1.5"/>
+  <polyline points="4.5,7 3,8.5 4.5,10" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+</svg>''',
+
+    "sidebar-show-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <rect x="2" y="2" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="6" y1="2" x2="6" y2="14" stroke="currentColor" stroke-width="1.5"/>
+  <polyline points="3.5,7 5,8.5 3.5,10" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+</svg>''',
+
+    # Fixes Extension Manager and app extras
+    "donation-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 8 13.5 C 8 13.5 2 9.5 2 5.5 C 2 3.5 3.5 2 5.5 2 C 6.8 2 7.6 2.7 8 3.3 C 8.4 2.7 9.2 2 10.5 2 C 12.5 2 14 3.5 14 5.5 C 14 9.5 8 13.5 8 13.5 Z"/>
+</svg>''',
+
+    "star-outline-rounded-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <polygon points="8,2.5 9.8,6.5 14.5,7 11,10.2 12,14.5 8,12.2 4,14.5 5,10.2 1.5,7 6.2,6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>''',
+
+    "star-filled-rounded-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <polygon points="8,2.5 9.8,6.5 14.5,7 11,10.2 12,14.5 8,12.2 4,14.5 5,10.2 1.5,7 6.2,6.5" fill="currentColor"/>
+</svg>''',
+
+    "offline-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M 4 10 C 2.5 10 1.5 8.8 1.5 7.5 C 1.5 6.2 2.5 5.2 3.8 5 C 4.2 3.3 5.8 2 7.5 2 C 9.5 2 11 3.4 11.3 5.2 C 12.3 5.5 13 6.4 13 7.5 M 1 1 L 15 15"/>
+</svg>''',
+
+    # Fixes Sound Input & Output Device Chooser row in Extension Manager
+    "sound-output-device-chooser@kgshank.net": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 2 5 L 5 5 L 9 2 L 9 14 L 5 11 L 2 11 Z"/>
+  <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M 11.5 5 C 12.5 6 13 7 13 8 C 13 9 12.5 10 11.5 11 M 13.5 3 C 15 4.5 15.5 6.2 15.5 8 C 15.5 9.8 15 11.5 13.5 13"/>
+</svg>''',
+
+    "sound-output-device-chooser": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" d="M 2 5 L 5 5 L 9 2 L 9 14 L 5 11 L 2 11 Z"/>
+  <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M 11.5 5 C 12.5 6 13 7 13 8 C 13 9 12.5 10 11.5 11 M 13.5 3 C 15 4.5 15.5 6.2 15.5 8 C 15.5 9.8 15 11.5 13.5 13"/>
+</svg>''',
 }
 
 # =========================================================================
-# Application Icons (GNOME Files/Nautilus, Terminal, Settings, Editor, Calc)
+# Application Icons (LibreOffice, Antigravity, Geary, Disks, Console, Apps)
 # =========================================================================
 
 APP_ICONS = {
+    # 1. Nautilus / GNOME Files
     "org.gnome.Nautilus": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <linearGradient id="cabGrad" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
@@ -344,6 +421,7 @@ APP_ICONS = {
 <circle cx="45" cy="17" r="1.5" fill="#3DD68C"/>
 </svg>''',
 
+    # 2. GNOME Terminal
     "utilities-terminal": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="6" y="8" width="52" height="48" rx="8" fill="#0B1317" stroke="#2C3E44" stroke-width="1.5"/>
 <rect x="6" y="8" width="52" height="12" rx="8" fill="#16222A"/>
@@ -354,6 +432,7 @@ APP_ICONS = {
 <line x1="28" y1="42" x2="42" y2="42" stroke="#3DD68C" stroke-width="3" stroke-linecap="round"/>
 </svg>''',
 
+    # 3. GNOME Settings
     "preferences-system": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="32" cy="32" r="24" fill="#16222A" stroke="#2C3E44" stroke-width="1.5"/>
 <circle cx="32" cy="32" r="15" fill="#1D3238" stroke="#8FB8A6" stroke-width="3"/>
@@ -364,6 +443,7 @@ APP_ICONS = {
 <rect x="46" y="30" width="8" height="4" rx="2" fill="#8FB8A6"/>
 </svg>''',
 
+    # 4. Text Editor
     "accessories-text-editor": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="12" y="8" width="38" height="48" rx="6" fill="#16222A" stroke="#2C3E44" stroke-width="1.5"/>
 <rect x="12" y="8" width="38" height="10" rx="6" fill="#8FB8A6"/>
@@ -373,6 +453,7 @@ APP_ICONS = {
 <polygon points="42,44 48,38 48,50" fill="#3DD68C"/>
 </svg>''',
 
+    # 5. Calculator
     "org.gnome.Calculator": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="10" y="6" width="44" height="52" rx="8" fill="#16222A" stroke="#2C3E44" stroke-width="1.5"/>
 <rect x="16" y="12" width="32" height="12" rx="3" fill="#1D3238" stroke="#8FB8A6" stroke-width="1"/>
@@ -388,7 +469,134 @@ APP_ICONS = {
 <circle cx="43" cy="51" r="3.5" fill="#3DD68C"/>
 </svg>''',
 
-    # 6. Google Chrome
+    # 6. Google Antigravity IDE (Specialist requested icon)
+    "antigravity": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="agGrad" x1="16" y1="46" x2="48" y2="14" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#3DD68C"/>
+    <stop offset="50%" stop-color="#7FC8A0"/>
+    <stop offset="100%" stop-color="#8FB8A6"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="15" fill="#122329" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="23" fill="#182E36" fill-opacity="0.6"/>
+<!-- Antigravity iconic smooth Gaussian bell arch -->
+<path d="M 17 45 C 21 45 25 38 28.5 25 C 30 19 32 15 32 15 C 32 15 34 19 35.5 25 C 39 38 43 45 47 45 C 48.5 45 49 43.8 48 42.5 C 43 30 36.5 13 32 13 C 27.5 13 21 30 16 42.5 C 15 43.8 15.5 45 17 45 Z" fill="url(#agGrad)"/>
+<circle cx="32" cy="22" r="3" fill="#3DD68C"/>
+</svg>''',
+
+    # 7. OpenChamber (AI Workspace)
+    "openchamber": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="6" y="6" width="52" height="52" rx="14" fill="#122329" stroke="#2E555F" stroke-width="2"/>
+<!-- Isometric 3D Chamber Cube in glowing emerald -->
+<g transform="translate(32, 33) scale(0.38)">
+  <path d="M 0 -48 L -41.5 -24 L 0 0 L 41.5 -24 Z" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 0 0 L -41.5 -24 L -41.5 24 L 0 48 Z" fill="#8FB8A6" fill-opacity="0.3" stroke="#8FB8A6" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 0 0 L 41.5 -24 L 41.5 24 L 0 48 Z" fill="#3DD68C" fill-opacity="0.45" stroke="#3DD68C" stroke-width="5" stroke-linejoin="round"/>
+</g>
+</svg>''',
+
+    # 8. GNOME Geary Mail Client
+    "org.gnome.Geary": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="12" width="48" height="40" rx="6" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<path d="M 10 14 L 32 32 L 54 14" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="32,36 36,31 28,31" fill="#3DD68C"/>
+<line x1="12" y1="48" x2="26" y2="34" stroke="#2E555F" stroke-width="1.8"/>
+<line x1="52" y1="48" x2="38" y2="34" stroke="#2E555F" stroke-width="1.8"/>
+</svg>''',
+
+    # 9. GNOME Console (kgx)
+    "org.gnome.Console": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="7" y="10" width="50" height="44" rx="8" fill="#0D1A1F" stroke="#2E555F" stroke-width="2"/>
+<rect x="7" y="10" width="50" height="11" rx="8" fill="#172F37"/>
+<circle cx="14" cy="15.5" r="2" fill="#E5737F"/>
+<circle cx="20" cy="15.5" r="2" fill="#E5B580"/>
+<circle cx="26" cy="15.5" r="2" fill="#3DD68C"/>
+<path d="M 16 29 L 24 35 L 16 41" stroke="#3DD68C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="28" y1="41" x2="42" y2="41" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round"/>
+</svg>''',
+
+    # 10. GNOME Disks / Disk Utility
+    "org.gnome.DiskUtility": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="10" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="18" fill="#1B353D" stroke="#8FB8A6" stroke-width="2"/>
+<circle cx="32" cy="32" r="6" fill="#13262D" stroke="#3DD68C" stroke-width="2"/>
+<circle cx="32" cy="32" r="2" fill="#3DD68C"/>
+<path d="M 43 19 L 34 29" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="44" cy="18" r="2" fill="#8FB8A6"/>
+</svg>''',
+
+    # 11. LibreOffice Main / Start Center
+    "libreoffice-startcenter": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1E3B44" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#3DD68C"/>
+<circle cx="32" cy="35" r="6" fill="#3DD68C"/>
+<circle cx="32" cy="35" r="3" fill="#13262D"/>
+</svg>''',
+
+    # 12. LibreOffice Writer
+    "libreoffice-writer": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#7FC8A0"/>
+<line x1="23" y1="24" x2="35" y2="24" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="23" y1="30" x2="41" y2="30" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="23" y1="36" x2="41" y2="36" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="23" y1="42" x2="33" y2="42" stroke="#3DD68C" stroke-width="2" stroke-linecap="round"/>
+</svg>''',
+
+    # 13. LibreOffice Calc
+    "libreoffice-calc": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#3DD68C"/>
+<line x1="22" y1="26" x2="42" y2="26" stroke="#8FB8A6" stroke-width="1.5"/>
+<line x1="22" y1="34" x2="42" y2="34" stroke="#8FB8A6" stroke-width="1.5"/>
+<line x1="32" y1="20" x2="32" y2="44" stroke="#8FB8A6" stroke-width="1.5"/>
+<rect x="24" y="37" width="5" height="5" fill="#3DD68C"/>
+<rect x="34" y="29" width="6" height="3" fill="#7FC8A0"/>
+</svg>''',
+
+    # 14. LibreOffice Impress
+    "libreoffice-impress": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#E5B580"/>
+<circle cx="32" cy="33" r="8" fill="#13262D" stroke="#8FB8A6" stroke-width="1.5"/>
+<path d="M 32 33 L 32 25 A 8 8 0 0 1 39 30 Z" fill="#E5B580"/>
+<path d="M 32 33 L 39 30 A 8 8 0 0 1 32 41 Z" fill="#3DD68C"/>
+</svg>''',
+
+    # 15. LibreOffice Draw
+    "libreoffice-draw": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#E5737F"/>
+<path d="M 23 42 C 27 28 37 38 41 24" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="23" cy="42" r="2.5" fill="#8FB8A6"/>
+<circle cx="41" cy="24" r="2.5" fill="#8FB8A6"/>
+</svg>''',
+
+    # 16. LibreOffice Base
+    "libreoffice-base": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#8FB8A6"/>
+<ellipse cx="32" cy="28" rx="8" ry="3" fill="#13262D" stroke="#3DD68C" stroke-width="1.5"/>
+<path d="M 24 28 L 24 34 C 24 36 27.5 37 32 37 C 36.5 37 40 36 40 34 L 40 28" fill="none" stroke="#3DD68C" stroke-width="1.5"/>
+<path d="M 24 34 L 24 40 C 24 42 27.5 43 32 43 C 36.5 43 40 42 40 40 L 40 34" fill="none" stroke="#3DD68C" stroke-width="1.5"/>
+</svg>''',
+
+    # 17. LibreOffice Math
+    "libreoffice-math": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="18" y="14" width="28" height="36" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<polygon points="38,14 46,22 38,22" fill="#7FC8A0"/>
+<path d="M 24 27 L 39 27 L 32 34 L 39 41 L 24 41" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>''',
+
+    # 18. Google Chrome
     "google-chrome": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
 <circle cx="32" cy="32" r="11" fill="#1D3238" stroke="#8FB8A6" stroke-width="3"/>
@@ -398,13 +606,118 @@ APP_ICONS = {
 <path d="M 26.5 33.5 L 13.2 51.5 C 8.6 46.5 6 39.7 6 32" stroke="#E5B580" stroke-width="3" stroke-linecap="round"/>
 </svg>''',
 
-    # 7. Discord
+    # 19. Microsoft Edge
+    "microsoft-edge": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<path d="M 32 10 C 22 10 14 18 14 28 C 14 36 20 42 27 42 C 34 42 40 37 40 32 C 40 28 37 25 33 25 C 29 25 27 28 27 30 C 27 32 29 34 31 34 C 33 34 34 33 34 32" stroke="#3DD68C" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+<path d="M 46 22 C 49 26 50 31 49 36 C 47 45 39 52 30 52 C 22 52 16 48 13 42" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>''',
+
+    # 20. Brave Browser
+    "brave-browser": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="14" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<polygon points="32,14 44,22 40,40 32,50 24,40 20,22" fill="#1B353D" stroke="#E5B580" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="32,24 38,30 36,40 32,44 28,40 26,30" fill="#3DD68C"/>
+</svg>''',
+
+    # 21. Claude Desktop (Anthropic)
+    "claude-desktop": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="14" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<g transform="translate(32, 32)">
+  <line x1="0" y1="-18" x2="0" y2="18" stroke="#E5B580" stroke-width="4" stroke-linecap="round"/>
+  <line x1="-18" y1="0" x2="18" y2="0" stroke="#E5B580" stroke-width="4" stroke-linecap="round"/>
+  <line x1="-12" y1="-12" x2="12" y2="12" stroke="#3DD68C" stroke-width="4" stroke-linecap="round"/>
+  <line x1="12" y1="-12" x2="-12" y2="12" stroke="#3DD68C" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="0" cy="0" r="3.5" fill="#8FB8A6"/>
+</g>
+</svg>''',
+
+    # 22. Telegram
+    "org.telegram.desktop": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="24" fill="#1B353D"/>
+<path d="M 16 31 L 46 19 L 41 45 L 30 37 L 24 43 L 26 35 Z" fill="#8FB8A6"/>
+<path d="M 30 37 L 40 24 L 26 35 Z" fill="#3DD68C"/>
+</svg>''',
+
+    # 23. qBittorrent
+    "org.qbittorrent.qBittorrent": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<path d="M 32 16 L 32 38 M 32 38 L 23 29 M 32 38 L 41 29" stroke="#3DD68C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 20 44 C 24 48 40 48 44 44" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round"/>
+</svg>''',
+
+    # 24. MPV Media Player
+    "mpv": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="22" fill="#122329"/>
+<polygon points="26,20 44,32 26,44" fill="#3DD68C"/>
+</svg>''',
+
+    # 25. Pavucontrol / Audio Volume Control
+    "org.pulseaudio.pavucontrol": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="12" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<line x1="20" y1="16" x2="20" y2="48" stroke="#2E555F" stroke-width="3" stroke-linecap="round"/>
+<line x1="32" y1="16" x2="32" y2="48" stroke="#2E555F" stroke-width="3" stroke-linecap="round"/>
+<line x1="44" y1="16" x2="44" y2="48" stroke="#2E555F" stroke-width="3" stroke-linecap="round"/>
+<circle cx="20" cy="26" r="4.5" fill="#3DD68C"/>
+<circle cx="32" cy="40" r="4.5" fill="#8FB8A6"/>
+<circle cx="44" cy="22" r="4.5" fill="#3DD68C"/>
+</svg>''',
+
+    # 26. Extension Manager
+    "com.mattjakeman.ExtensionManager": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="14" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<path d="M 28 20 C 28 17.5 30 16 32 16 C 34 16 36 17.5 36 20 L 42 20 C 44 20 46 22 46 24 L 46 30 C 48.5 30 50 32 50 34 C 50 36 48.5 38 46 38 L 46 44 C 46 46 44 48 42 48 L 36 48 C 36 50.5 34 52 32 52 C 30 52 28 50.5 28 48 L 22 48 C 20 48 18 46 18 44 L 18 38 C 15.5 38 14 36 14 34 C 14 32 15.5 30 18 30 L 18 24 C 18 22 20 20 22 20 Z" fill="#1B353D" stroke="#3DD68C" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="32" cy="34" r="3.5" fill="#8FB8A6"/>
+</svg>''',
+
+    # 27. GNOME Software
+    "org.gnome.Software": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="16" width="44" height="40" rx="8" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<path d="M 22 16 C 22 10 26 8 32 8 C 38 8 42 10 42 16" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round" fill="none"/>
+<polygon points="32,24 35,32 43,32 37,37 39,45 32,40 25,45 27,37 21,32 29,32" fill="#3DD68C"/>
+</svg>''',
+
+    # 28. GNOME System Monitor
+    "org.gnome.SystemMonitor": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="10" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<line x1="8" y1="32" x2="56" y2="32" stroke="#2E555F" stroke-width="1.2" stroke-dasharray="2 2"/>
+<line x1="32" y1="8" x2="32" y2="56" stroke="#2E555F" stroke-width="1.2" stroke-dasharray="2 2"/>
+<polyline points="12,34 22,34 27,20 33,46 39,26 44,34 52,34" fill="none" stroke="#3DD68C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>''',
+
+    # 29. Btrfs Assistant
+    "btrfs-assistant": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="10" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+<rect x="14" y="16" width="36" height="12" rx="3" fill="#1B353D" stroke="#8FB8A6" stroke-width="1.5"/>
+<circle cx="43" cy="22" r="1.5" fill="#3DD68C"/>
+<path d="M 22 28 L 22 44 L 32 44 M 22 36 L 42 36" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="32" cy="44" r="2.5" fill="#8FB8A6"/>
+<circle cx="42" cy="36" r="2.5" fill="#8FB8A6"/>
+</svg>''',
+
+    # 30. btop
+    "btop": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="6" y="8" width="52" height="48" rx="8" fill="#0D1A1F" stroke="#2E555F" stroke-width="2"/>
+<polyline points="12,42 20,38 28,40 36,22 44,30 52,20" fill="none" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="12,46 20,44 28,45 36,36 44,40 52,32" fill="none" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>''',
+
+    # 31. Alacritty
+    "Alacritty": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="8" width="48" height="48" rx="10" fill="#0D1A1F" stroke="#2E555F" stroke-width="2"/>
+<polygon points="32,15 48,46 41,46 32,27 23,46 16,46" fill="#3DD68C"/>
+<polygon points="26,38 38,38 32,26" fill="#0D1A1F"/>
+</svg>''',
+
+    # 32. Discord
     "discord": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="8" y="8" width="48" height="48" rx="14" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
 <path d="M 44 20 C 41.5 18.8 38.8 18 36 17.5 C 35.6 18.2 35.1 19.2 34.8 20 C 31.8 19.6 28.8 19.6 25.8 20 C 25.5 19.2 25 18.2 24.6 17.5 C 21.8 18 19.1 18.8 16.6 20 C 12 26.8 10.8 33.5 11.4 40 C 14.5 42.3 17.4 43.7 20.3 44.6 C 21 43.6 21.6 42.6 22.2 41.5 C 21.1 41.1 20.1 40.5 19.2 39.8 C 19.5 39.6 19.7 39.4 20 39.2 C 25.5 41.8 31.5 41.8 37 39.2 C 37.3 39.4 37.5 39.6 37.8 39.8 C 36.9 40.5 35.9 41.1 34.8 41.5 C 35.4 42.6 36 43.6 36.7 44.6 C 39.6 43.7 42.5 42.3 45.6 40 C 46.3 32.5 44.5 25.8 44 20 Z M 23.5 35 A 3.5 3.5 0 1 1 23.5 28 A 3.5 3.5 0 0 1 23.5 35 Z M 37.5 35 A 3.5 3.5 0 1 1 37.5 28 A 3.5 3.5 0 0 1 37.5 35 Z" fill="#8FB8A6"/>
 </svg>''',
 
-    # 8. Spotify
+    # 33. Spotify
     "spotify": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="32" cy="32" r="26" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
 <circle cx="32" cy="32" r="23" fill="#0D1A1F"/>
@@ -413,7 +726,7 @@ APP_ICONS = {
 <path d="M 23 39.5 C 28.5 38 34.5 39 40.5 42.5" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round"/>
 </svg>''',
 
-    # 9. VS Code
+    # 34. VS Code
     "code": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="8" y="8" width="48" height="48" rx="12" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
 <path d="M 45 13 L 34 23 L 25 15 L 20 18 L 30 27 L 20 36 L 25 39 L 34 31 L 45 41 Z" fill="#8FB8A6"/>
@@ -422,24 +735,50 @@ APP_ICONS = {
 }
 
 APP_ALIASES = {
+    # File manager
     "system-file-manager": "org.gnome.Nautilus",
     "nautilus": "org.gnome.Nautilus",
     "file-manager": "org.gnome.Nautilus",
+    # Terminal
     "org.gnome.Terminal": "utilities-terminal",
+    "kitty": "utilities-terminal",
+    "alacritty": "Alacritty",
+    "kgx": "org.gnome.Console",
+    # Settings & Tools
     "org.gnome.Settings": "preferences-system",
+    "org.gnome.tweaks": "preferences-system",
     "org.gnome.TextEditor": "accessories-text-editor",
     "text-editor": "accessories-text-editor",
     "accessories-calculator": "org.gnome.Calculator",
     "calculator": "org.gnome.Calculator",
-    "google-chrome-stable": "google-chrome",
-    "chromium": "google-chrome",
+    "gnome-disks": "org.gnome.DiskUtility",
+    "gnome-disk-utility": "org.gnome.DiskUtility",
+    "gnome-system-monitor": "org.gnome.SystemMonitor",
+    "gnome-software": "org.gnome.Software",
+    "extension-manager": "com.mattjakeman.ExtensionManager",
+    "pavucontrol": "org.pulseaudio.pavucontrol",
+    # Mail & Chat
+    "geary": "org.gnome.Geary",
+    "telegram": "org.telegram.desktop",
+    "telegram-desktop": "org.telegram.desktop",
     "com.discordapp.Discord": "discord",
     "discord-canary": "discord",
+    # Web & Dev
+    "google-chrome-stable": "google-chrome",
+    "chromium": "google-chrome",
+    "edge": "microsoft-edge",
+    "com.microsoft.Edge": "microsoft-edge",
+    "openchamber-2.1.0-linux-x86_64": "openchamber",
+    "com.anthropic.Claude": "claude-desktop",
+    "qbittorrent": "org.qbittorrent.qBittorrent",
     "spotify-client": "spotify",
     "com.spotify.Client": "spotify",
     "visual-studio-code": "code",
     "com.visualstudio.code": "code",
     "vscode": "code",
+    # LibreOffice suite
+    "libreoffice-main": "libreoffice-startcenter",
+    "libreoffice": "libreoffice-startcenter",
 }
 
 # =========================================================================
@@ -449,54 +788,36 @@ APP_ALIASES = {
 MIME_DOC_BASE = '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <linearGradient id="docGrad" x1="32" y1="8" x2="32" y2="56" gradientUnits="userSpaceOnUse">
-    <stop offset="0%" stop-color="#1A2B33"/>
-    <stop offset="100%" stop-color="#101D22"/>
+    <stop offset="0%" stop-color="#1B353D"/>
+    <stop offset="100%" stop-color="#122329"/>
   </linearGradient>
 </defs>
-<path d="M 14 10 C 14 7.5 16 6 18.5 6 L 39 6 L 50 17 L 50 54 C 50 56.5 48 58 45.5 58 L 18.5 58 C 16 58 14 56.5 14 54 Z" fill="url(#docGrad)" stroke="#2C4852" stroke-width="1.5"/>
-<path d="M 39 6 L 39 17 L 50 17 Z" fill="#243C45"/>
+<rect x="14" y="8" width="36" height="48" rx="6" fill="url(#docGrad)" stroke="#2E555F" stroke-width="1.5"/>
+<polygon points="36,8 50,22 36,22" fill="#2E555F"/>
+<polygon points="36,8 50,22 36,22" fill="#8FB8A6" fill-opacity="0.3"/>
 '''
 
 MIME_ICONS = {
-    "text-x-generic": MIME_DOC_BASE + '''
-<line x1="22" y1="26" x2="42" y2="26" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="22" y1="33" x2="42" y2="33" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="22" y1="40" x2="34" y2="40" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="22" y1="47" x2="38" y2="47" stroke="#3DD68C" stroke-width="2" stroke-linecap="round"/>
+    "text-plain": MIME_DOC_BASE + '''
+<line x1="22" y1="28" x2="42" y2="28" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="22" y1="34" x2="42" y2="34" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="22" y1="40" x2="34" y2="40" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
 ''' + SVG_FOOTER,
 
-    "text-x-script": MIME_DOC_BASE + '''
-<path d="M 22 28 L 28 34 L 22 40" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="31" y1="40" x2="41" y2="40" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="22" y1="47" x2="36" y2="47" stroke="#2C4852" stroke-width="2" stroke-linecap="round"/>
+    "text-x-python": MIME_DOC_BASE + '''
+<path d="M 28 26 C 28 24 30 23 32 23 L 36 23 C 38 23 39 24 39 26 L 39 30 L 33 30 C 31 30 30 31 30 33 L 30 36 L 28 36 C 26 36 25 35 25 33 L 25 29 C 25 27 26 26 28 26 Z" fill="#3DD68C"/>
+<path d="M 36 42 C 36 44 34 45 32 45 L 28 45 C 26 45 25 44 25 42 L 25 38 L 31 38 C 33 38 34 37 34 35 L 34 32 L 36 32 C 38 32 39 33 39 35 L 39 39 C 39 41 38 42 36 42 Z" fill="#8FB8A6"/>
+<circle cx="30" cy="26" r="0.8" fill="#122329"/>
+<circle cx="34" cy="42" r="0.8" fill="#122329"/>
 ''' + SVG_FOOTER,
 
-    "application-x-executable": MIME_DOC_BASE + '''
-<polygon points="28,26 40,34 28,42" fill="#3DD68C"/>
-<line x1="22" y1="48" x2="42" y2="48" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
-''' + SVG_FOOTER,
-
-    "application-x-archive": MIME_DOC_BASE + '''
-<line x1="32" y1="22" x2="32" y2="48" stroke="#8FB8A6" stroke-width="3" stroke-dasharray="2 3"/>
-<rect x="29" y="32" width="6" height="8" rx="1.5" fill="#3DD68C"/>
-''' + SVG_FOOTER,
-
-    "audio-x-generic": MIME_DOC_BASE + '''
-<circle cx="26" cy="42" r="3.5" fill="#8FB8A6"/>
-<circle cx="38" cy="38" r="3.5" fill="#8FB8A6"/>
-<path d="M 29.5 42 L 29.5 28 L 41.5 25 L 41.5 38" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
-<polygon points="29.5,28 41.5,25 41.5,29 29.5,32" fill="#3DD68C"/>
-''' + SVG_FOOTER,
-
-    "video-x-generic": MIME_DOC_BASE + '''
-<rect x="22" y="28" width="16" height="14" rx="2" fill="#8FB8A6"/>
-<polygon points="38,31 44,27 44,43 38,39" fill="#8FB8A6"/>
-<polygon points="27,31 33,35 27,39" fill="#101D22"/>
+    "application-x-zerosize": MIME_DOC_BASE + '''
+<line x1="22" y1="32" x2="42" y2="32" stroke="#2E555F" stroke-width="1.5" stroke-dasharray="2 3"/>
 ''' + SVG_FOOTER,
 
     "image-x-generic": MIME_DOC_BASE + '''
-<rect x="21" y="27" width="22" height="18" rx="2" stroke="#8FB8A6" stroke-width="1.5" fill="#13262D"/>
-<circle cx="26" cy="32" r="2" fill="#3DD68C"/>
+<rect x="20" y="26" width="24" height="18" rx="2" fill="#16222A" stroke="#8FB8A6" stroke-width="1.5"/>
+<circle cx="26" cy="31" r="2" fill="#3DD68C"/>
 <polygon points="23,43 28,37 33,41 36,38 41,43" fill="#8FB8A6"/>
 ''' + SVG_FOOTER,
 
@@ -510,7 +831,7 @@ MIME_ICONS = {
 INDEX_THEME = """[Icon Theme]
 Name=MT-Verdant-Icons
 Comment=Botanical Canopy high-definition dark green icon suite for MT Verdant Nocturne
-Inherits=Papirus-Dark,Adwaita,hicolor
+Inherits=Adwaita,breeze-dark,hicolor
 Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/mimetypes,48x48/places,48x48/apps,48x48/mimetypes,64x64/places,64x64/apps,64x64/mimetypes,128x128/places,128x128/apps,128x128/mimetypes
 
 [scalable/places]
@@ -669,10 +990,16 @@ def build_apps() -> None:
             render_svg_to_png(svg_content, png_file, size)
 
     for alias, target in APP_ALIASES.items():
-        (scalable_dir / f"{alias}.svg").symlink_to(f"{target}.svg")
+        dst_svg = scalable_dir / f"{alias}.svg"
+        if dst_svg.exists() or dst_svg.is_symlink():
+            dst_svg.unlink()
+        dst_svg.symlink_to(f"{target}.svg")
         for size in [32, 48, 64, 128]:
             size_dir = OUT_DIR / f"{size}x{size}" / "apps"
-            (size_dir / f"{alias}.png").symlink_to(f"{target}.png")
+            dst_png = size_dir / f"{alias}.png"
+            if dst_png.exists() or dst_png.is_symlink():
+                dst_png.unlink()
+            dst_png.symlink_to(f"{target}.png")
 
 def build_symbolic() -> None:
     # Build symbolic wireframe icons for sidebar navigation, settings, and devices.
@@ -685,29 +1012,57 @@ def build_symbolic() -> None:
     for d in [status_dir, places_dir, devices_dir, actions_dir, categories_dir]:
         d.mkdir(parents=True, exist_ok=True)
 
+    # 1. Write core symbolic SVGs
     for name, svg_content in SYMBOLIC_ICONS.items():
         (status_dir / f"{name}.svg").write_text(svg_content)
+        (actions_dir / f"{name}.svg").write_text(svg_content)
         
         # Symlink to places
-        if "folder" in name or "network" in name or "home" in name or "trash" in name or "recent" in name:
+        if any(k in name for k in ["folder", "network", "home", "trash", "recent"]):
             p_dst = places_dir / f"{name}.svg"
             if not p_dst.exists():
                 p_dst.symlink_to(f"../status/{name}.svg")
                 
         # Symlink to devices
-        if "drive" in name or "media" in name or "server" in name:
+        if any(k in name for k in ["drive", "media", "server"]):
             d_dst = devices_dir / f"{name}.svg"
             if not d_dst.exists():
                 d_dst.symlink_to(f"../status/{name}.svg")
                 
-        # Symlink to actions & categories
-        if "setting" in name or "puzzle" in name or "system" in name:
-            a_dst = actions_dir / f"{name}.svg"
-            if not a_dst.exists():
-                a_dst.symlink_to(f"../status/{name}.svg")
+        # Symlink to categories
+        if any(k in name for k in ["setting", "puzzle", "system"]):
             c_dst = categories_dir / f"{name}.svg"
             if not c_dst.exists():
                 c_dst.symlink_to(f"../status/{name}.svg")
+
+    # 2. Extract and bundle all Libadwaita internal symbolic icons
+    try:
+        Adw.init()
+        adw_icons = Gio.resources_enumerate_children("/org/gnome/Adwaita/icons/scalable/actions", Gio.ResourceLookupFlags.NONE)
+        for icon in adw_icons:
+            try:
+                data = Gio.resources_lookup_data(f"/org/gnome/Adwaita/icons/scalable/actions/{icon}", Gio.ResourceLookupFlags.NONE)
+                svg_text = data.get_data().decode("utf-8")
+                (actions_dir / icon).write_text(svg_text)
+                (status_dir / icon).write_text(svg_text)
+            except Exception:
+                pass
+    except Exception as e:
+        print(f"Notice: Adw resource lookup skipped ({e})")
+
+    # 3. Integrate Blur my Shell extension icons if present
+    bms_dir = Path.home() / ".local" / "share" / "gnome-shell" / "extensions" / "blur-my-shell@aunetx" / "icons" / "hicolor" / "scalable" / "actions"
+    if bms_dir.exists():
+        for bms_svg in bms_dir.glob("*.svg"):
+            (actions_dir / bms_svg.name).write_text(bms_svg.read_text())
+            (status_dir / bms_svg.name).write_text(bms_svg.read_text())
+
+    # 4. Integrate Tiling Shell extension icons if present
+    ts_dir = Path.home() / ".local" / "share" / "gnome-shell" / "extensions" / "tilingshell@ferrarodomenico.com" / "icons"
+    if ts_dir.exists():
+        for ts_svg in ts_dir.glob("*.svg"):
+            (actions_dir / ts_svg.name).write_text(ts_svg.read_text())
+            (status_dir / ts_svg.name).write_text(ts_svg.read_text())
 
 def build_mimetypes() -> None:
     # Build MIME type document icons.
@@ -730,10 +1085,10 @@ def main() -> None:
     print("Building Places Icons...")
     build_places()
 
-    print("Building App Icons (Nautilus, Terminal, Settings)...")
+    print("Building App Icons (LibreOffice, Antigravity, Geary, Disks, Console)...")
     build_apps()
 
-    print("Building Symbolic Icons (Fixing Network & Sidebar)...")
+    print("Building Symbolic Icons (Fixing Blur my Shell, Settings, AdwExpander)...")
     build_symbolic()
 
     print("Building MIME Type Icons...")

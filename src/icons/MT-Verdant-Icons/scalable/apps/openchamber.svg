@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="6" y="6" width="52" height="52" rx="14" fill="#122329" stroke="#2E555F" stroke-width="2"/>
+<!-- Isometric 3D Chamber Cube in glowing emerald -->
+<g transform="translate(32, 33) scale(0.38)">
+  <path d="M 0 -48 L -41.5 -24 L 0 0 L 41.5 -24 Z" fill="none" stroke="#3DD68C" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 0 0 L -41.5 -24 L -41.5 24 L 0 48 Z" fill="#8FB8A6" fill-opacity="0.3" stroke="#8FB8A6" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 0 0 L 41.5 -24 L 41.5 24 L 0 48 Z" fill="#3DD68C" fill-opacity="0.45" stroke="#3DD68C" stroke-width="5" stroke-linejoin="round"/>
+</g>
+</svg>

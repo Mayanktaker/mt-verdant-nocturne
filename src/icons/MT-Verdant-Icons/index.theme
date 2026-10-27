@@ -1,7 +1,7 @@
 [Icon Theme]
 Name=MT-Verdant-Icons
 Comment=Botanical Canopy high-definition dark green icon suite for MT Verdant Nocturne
-Inherits=Papirus-Dark,Adwaita,hicolor
+Inherits=Adwaita,breeze-dark,hicolor
 Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/mimetypes,48x48/places,48x48/apps,48x48/mimetypes,64x64/places,64x64/apps,64x64/mimetypes,128x128/places,128x128/apps,128x128/mimetypes
 
 [scalable/places]

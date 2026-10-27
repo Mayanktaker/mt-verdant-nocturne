@@ -37,8 +37,8 @@
   <!-- Specular highlight line along upper lip -->
   <path d="M 7 24.5 C 7 22.5 8.5 20.5 11.5 20.5 L 26.5 20.5 C 28.5 20.5 30.5 22 32 24 L 34.5 27 C 36 28.5 38 29.5 41.5 29.5 L 52.5 29.5 C 55 29.5 57 31 57 33.5" stroke="url(#specularGrad)" stroke-width="1.2" stroke-linecap="round"/>
 </g>
-<!-- Code brackets / Dev projects emblem -->
-<path d="M 27 35 L 21 41 L 27 47" stroke="#8FB8A6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 37 35 L 43 41 L 37 47" stroke="#8FB8A6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="33" y1="34" x2="31" y2="48" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Code / Projects emblem -->
+<polygon points="26,35 20,41 26,47" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="38,35 44,41 38,47" stroke="#3DD68C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="34" y1="33" x2="30" y2="49" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
