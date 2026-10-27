@@ -11,3 +11,7 @@ __pycache__/
 # editors / os
 .DS_Store
 *.swp
+
+# release output
+dist/
+flatpak/repo/

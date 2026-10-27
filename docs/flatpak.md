@@ -2,25 +2,28 @@
 
 © Mayanktaker Computers & Web Development | https://mayanktaker.com
 
-Status: **packaged** — extension manifest + appdata + staging ready; building the
-distributable extension and live-app verification are the remaining work.
+Status: **built, installed, and mount-verified** on this host (freedesktop 26.08);
+in-app visual pass consciously deferred.
 
-## What's in place
-- Manifest `flatpak/org.gtk.Gtk3theme.MT-Verdant-Nocturne.json`: `org.gtk.Gtk3theme`
-  extension point, branch `3.22`, runtime `org.freedesktop.Platform` 26.08,
-  theme installed at `/usr/share/runtime/share/themes/MT-Verdant-Nocturne/` (Yaru-style layout).
-- Appdata for Flathub discovery; staging via `tools/flatpak/stage.sh` (runs the GTK build first).
-- **Local fallback** `tools/flatpak/local-fallback.sh`: installs the documented
-  user-scoped unmaintained-extension layout with zero downloads — use it when no
-  remote/extension is available. Removal command printed by the script.
+## Verified
+- Extension builds with `org.flatpak.Builder` (user-level, no root) and installs as
+  `runtime/org.gtk.Gtk3theme.MT-Verdant-Nocturne/x86_64/3.22`.
+- It **mounts inside every org.freedesktop.Platform 25.08/26.08 sandbox** at
+  `/usr/share/runtime/share/themes/MT-Verdant-Nocturne/gtk-3.0/` with our
+  `gtk.css`, `gtk-dark.css`, and `assets/` (verified via `flatpak run --command=ls`).
+- Host side: the GTK3 theme itself resolves exact tokens in a live GTK probe.
 
-## Remaining
-1. Build with flatpak-builder (`org.flatpak.Builder` from Flathub works user-level):
-   `flatpak run org.flatpak.Builder --force-clean --user --install-deps-from=flathub --install flatpak/build flatpak/org.gtk.Gtk3theme.MT-Verdant-Nocturne.json`
-2. Verify with a real GTK3 Flatpak app (auto-install via `active-gtk-theme`,
-   mount at `/usr/share/themes/MT-Verdant-Nocturne/` inside the sandbox,
-   Wayland Settings-portal and X11 XSettings propagation).
-3. Record results here; Flathub submission needs the release tarball URL as the manifest source.
+## Key layout fact (modern runtimes)
+The 25.08+ extension point mounts with `subdirectory-suffix gtk-3.0`, so the
+extension payload root must be the **contents of `gtk-3.0/`** (the
+`org.gtk.Gtk3theme.Adwaita-dark` pattern) — not a full theme tree (the pre-23.08
+Yaru layout). Older runtimes that lack the suffix are not targeted.
+
+## Deferred (accepted)
+- In-app visual pass with a real GTK3 app (e.g. Firefox/GIMP flatpak) to confirm
+  portal/XSettings propagation end-to-end. The SDK sandbox refuses display sockets
+  (build runtime by design), so headless in-sandbox rendering isn't possible.
+- Flathub submission: swap the manifest's `dir` source for the release tarball URL.
 
 ## Rules
 - Theme name, extension suffix, and the host `gtk-theme` setting must all be exactly
