@@ -1,0 +1,10 @@
+# build output
+build/
+# full-resolution wallpaper renders (regenerate with tools/wallpaper/generate.py)
+wallpaper/dist/
+# python
+__pycache__/
+*.pyc
+# editors / os
+.DS_Store
+*.swp
