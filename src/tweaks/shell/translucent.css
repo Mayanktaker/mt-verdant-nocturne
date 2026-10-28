@@ -1,6 +1,13 @@
 /* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
 /* GNOME Shell tweak: frosted translucent glass top panel */
 
+#panelBox {
+  background-color: transparent !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 #panelBox #panel,
 #panel {
   background-color: rgba(15, 20, 27, 0.78);

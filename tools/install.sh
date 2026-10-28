@@ -430,28 +430,32 @@ case "${PANEL_STYLE}" in
   round-island)
     [ -f "${REPO_ROOT}/src/tweaks/shell/tray-round.css" ] && cat "${REPO_ROOT}/src/tweaks/shell/tray-round.css" >> "${THEME_DIR}/gnome-shell/gnome-shell.css"
     echo "  + top bar: rounded modern island (16px curved floating bar)"
-    # If blur-my-shell is present, align corner-radius
+    # Disable blur-my-shell panel blur to eliminate duplicate background actor collision
     if have dconf && [ -d "${HOME}/.local/share/gnome-shell/extensions/blur-my-shell@aunetx" ]; then
-      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/corner-radius 16 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/blur false 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/override-background false 2>/dev/null || true
     fi
     ;;
   pill)
     [ -f "${REPO_ROOT}/src/tweaks/shell/tray-pill.css" ] && cat "${REPO_ROOT}/src/tweaks/shell/tray-pill.css" >> "${THEME_DIR}/gnome-shell/gnome-shell.css"
     echo "  + top bar: floating pill capsule (999px circular ends)"
     if have dconf && [ -d "${HOME}/.local/share/gnome-shell/extensions/blur-my-shell@aunetx" ]; then
-      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/corner-radius 999 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/blur false 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/override-background false 2>/dev/null || true
     fi
     ;;
   bottom-round)
     [ -f "${REPO_ROOT}/src/tweaks/shell/tray-bottom-round.css" ] && cat "${REPO_ROOT}/src/tweaks/shell/tray-bottom-round.css" >> "${THEME_DIR}/gnome-shell/gnome-shell.css"
     echo "  + top bar: bottom-rounded (connected to top edge)"
     if have dconf && [ -d "${HOME}/.local/share/gnome-shell/extensions/blur-my-shell@aunetx" ]; then
-      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/corner-radius 16 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/blur false 2>/dev/null || true
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/override-background false 2>/dev/null || true
     fi
     ;;
   flat)
     echo "  + top bar: classic edge-to-edge square bar"
     if have dconf && [ -d "${HOME}/.local/share/gnome-shell/extensions/blur-my-shell@aunetx" ]; then
+      dconf write /org/gnome/shell/extensions/blur-my-shell/panel/blur true 2>/dev/null || true
       dconf write /org/gnome/shell/extensions/blur-my-shell/panel/corner-radius 0 2>/dev/null || true
     fi
     ;;

@@ -3,6 +3,10 @@
 
 #panelBox {
   padding: 6px 14px 0 14px;
+  background-color: transparent !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 #panelBox #panel,
