@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="docBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<path d="M 12 8 L 40 8 L 52 20 L 52 56 C 52 58 50 60 48 60 L 16 60 C 14 60 12 58 12 56 Z" fill="url(#docBg)" stroke="#2E555F" stroke-width="1.5"/>
+<polygon points="40,8 40,20 52,20" fill="#2E555F"/>
+<polygon points="22,6 26,6 26,22 24,20 22,22" fill="#3DD68C"/>
+<line x1="20" y1="28" x2="44" y2="28" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+<line x1="20" y1="36" x2="44" y2="36" stroke="#52736F" stroke-width="2" stroke-linecap="round"/>
+<line x1="20" y1="44" x2="36" y2="44" stroke="#52736F" stroke-width="2" stroke-linecap="round"/>
+</svg>

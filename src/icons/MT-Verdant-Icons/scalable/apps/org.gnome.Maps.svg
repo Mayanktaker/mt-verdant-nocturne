@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="mapP1" x1="10" y1="12" x2="24" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#224049"/>
+    <stop offset="100%" stop-color="#14262D"/>
+  </linearGradient>
+  <linearGradient id="mapP2" x1="24" y1="8" x2="38" y2="52" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#294C56"/>
+    <stop offset="100%" stop-color="#182E36"/>
+  </linearGradient>
+  <linearGradient id="mapP3" x1="38" y1="12" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#224049"/>
+    <stop offset="100%" stop-color="#14262D"/>
+  </linearGradient>
+</defs>
+<polygon points="10,14 24,8 24,48 10,54" fill="url(#mapP1)" stroke="#2E555F" stroke-width="1.5"/>
+<polygon points="24,8 38,14 38,54 24,48" fill="url(#mapP2)" stroke="#2E555F" stroke-width="1.5"/>
+<polygon points="38,14 52,8 52,48 38,54" fill="url(#mapP3)" stroke="#2E555F" stroke-width="1.5"/>
+<path d="M 31 16 C 27.5 16 25 18.5 25 22 C 25 27 31 34 31 34 C 31 34 37 27 37 22 C 37 18.5 34.5 16 31 16 Z" fill="#3DD68C" stroke="#122329" stroke-width="1.5"/>
+<circle cx="31" cy="22" r="2.5" fill="#122329"/>
+</svg>

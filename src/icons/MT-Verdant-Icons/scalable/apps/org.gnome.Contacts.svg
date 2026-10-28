@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bookBg" x1="12" y1="8" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="10" y="8" width="40" height="50" rx="8" fill="url(#bookBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="49" y="16" width="5" height="8" rx="1.5" fill="#3DD68C"/>
+<rect x="49" y="27" width="5" height="8" rx="1.5" fill="#8FB8A6"/>
+<rect x="49" y="38" width="5" height="8" rx="1.5" fill="#52736F"/>
+<rect x="10" y="8" width="6" height="50" rx="3" fill="#182E35"/>
+<circle cx="30" cy="27" r="7" fill="none" stroke="#8FB8A6" stroke-width="2"/>
+<circle cx="30" cy="27" r="3.2" fill="#3DD68C"/>
+<path d="M 21 44 C 21 38.5 25 36.5 30 36.5 C 35 36.5 39 38.5 39 44" stroke="#8FB8A6" stroke-width="2" stroke-linecap="round"/>
+</svg>

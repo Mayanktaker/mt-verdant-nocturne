@@ -12,6 +12,16 @@ gi.require_version("Adw", "1")
 gi.require_version("Gio", "2.0")
 from gi.repository import Rsvg, Adw, Gio
 
+try:
+    from symbolic_assets import EXTENDED_SYMBOLIC_ICONS
+except ImportError:
+    from tools.icons.symbolic_assets import EXTENDED_SYMBOLIC_ICONS
+
+try:
+    from app_assets import EXTENDED_APP_ICONS, EXTENDED_APP_ALIASES
+except ImportError:
+    from tools.icons.app_assets import EXTENDED_APP_ICONS, EXTENDED_APP_ALIASES
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = REPO_ROOT / "src" / "icons" / "MT-Verdant-Icons"
 
@@ -410,6 +420,9 @@ SYMBOLIC_ICONS = {
 </svg>''',
 }
 
+# Merge extended symbolic icons (screenshot UI, Settings panels, navigation, globe)
+SYMBOLIC_ICONS.update(EXTENDED_SYMBOLIC_ICONS)
+
 # =========================================================================
 # Application Icons (LibreOffice, Antigravity, Geary, Disks, Console, Apps)
 # =========================================================================
@@ -752,6 +765,9 @@ APP_ICONS = {
 </svg>''',
 }
 
+# Merge extended core GNOME application icons (Calendar, Contacts, Weather, etc.)
+APP_ICONS.update(EXTENDED_APP_ICONS)
+
 APP_ALIASES = {
     # File manager
     "system-file-manager": "org.gnome.Nautilus",
@@ -798,6 +814,9 @@ APP_ALIASES = {
     "libreoffice-main": "libreoffice-startcenter",
     "libreoffice": "libreoffice-startcenter",
 }
+
+# Merge extended application aliases for full desktop compatibility
+APP_ALIASES.update(EXTENDED_APP_ALIASES)
 
 # =========================================================================
 # MIME Type Document Icons (Clean botanical file-type suite for Nautilus)
@@ -952,7 +971,7 @@ INDEX_THEME = """[Icon Theme]
 Name=MT-Verdant-Icons
 Comment=Botanical Canopy high-definition dark green icon suite for MT Verdant Nocturne
 Inherits=Adwaita,breeze-dark,hicolor
-Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/devices,32x32/mimetypes,48x48/places,48x48/apps,48x48/devices,48x48/mimetypes,64x64/places,64x64/apps,64x64/devices,64x64/mimetypes,128x128/places,128x128/apps,128x128/devices,128x128/mimetypes
+Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/ui,scalable/mimetypes,symbolic/actions,symbolic/apps,symbolic/categories,symbolic/devices,symbolic/emblems,symbolic/emotes,symbolic/mimetypes,symbolic/places,symbolic/status,symbolic/ui,symbolic/legacy,32x32/places,32x32/apps,32x32/devices,32x32/mimetypes,48x48/places,48x48/apps,48x48/devices,48x48/mimetypes,64x64/places,64x64/apps,64x64/devices,64x64/mimetypes,128x128/places,128x128/apps,128x128/devices,128x128/mimetypes
 
 [scalable/places]
 Size=64
@@ -996,11 +1015,95 @@ MaxSize=512
 Context=Categories
 Type=Scalable
 
+[scalable/ui]
+Size=16
+MinSize=8
+MaxSize=512
+Context=UI
+Type=Scalable
+
 [scalable/mimetypes]
 Size=64
 MinSize=16
 MaxSize=512
 Context=MimeTypes
+Type=Scalable
+
+[symbolic/actions]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Actions
+Type=Scalable
+
+[symbolic/apps]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Applications
+Type=Scalable
+
+[symbolic/categories]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Categories
+Type=Scalable
+
+[symbolic/devices]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Devices
+Type=Scalable
+
+[symbolic/emblems]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Emblems
+Type=Scalable
+
+[symbolic/emotes]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Emotes
+Type=Scalable
+
+[symbolic/mimetypes]
+Size=16
+MinSize=8
+MaxSize=512
+Context=MimeTypes
+Type=Scalable
+
+[symbolic/places]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Places
+Type=Scalable
+
+[symbolic/status]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Status
+Type=Scalable
+
+[symbolic/ui]
+Size=16
+MinSize=8
+MaxSize=512
+Context=UI
+Type=Scalable
+
+[symbolic/legacy]
+Size=16
+MinSize=8
+MaxSize=512
+Context=Legacy
 Type=Scalable
 
 [32x32/places]
@@ -1142,36 +1245,47 @@ def build_apps() -> None:
             dst_png.symlink_to(f"{target}.png")
 
 def build_symbolic() -> None:
-    # Build symbolic wireframe icons for sidebar navigation, settings, and devices.
-    status_dir = OUT_DIR / "scalable" / "status"
-    places_dir = OUT_DIR / "scalable" / "places"
-    devices_dir = OUT_DIR / "scalable" / "devices"
-    actions_dir = OUT_DIR / "scalable" / "actions"
-    categories_dir = OUT_DIR / "scalable" / "categories"
-    
-    for d in [status_dir, places_dir, devices_dir, actions_dir, categories_dir]:
+    # Build symbolic wireframe icons for sidebar navigation, settings, devices, and UI actions.
+    contexts = ["status", "places", "devices", "actions", "categories", "apps", "ui"]
+    scalable_dirs = {ctx: OUT_DIR / "scalable" / ctx for ctx in contexts}
+    symbolic_dirs = {ctx: OUT_DIR / "symbolic" / ctx for ctx in contexts}
+
+    for d in list(scalable_dirs.values()) + list(symbolic_dirs.values()):
         d.mkdir(parents=True, exist_ok=True)
 
-    # 1. Write core symbolic SVGs
+    def write_icon(target_contexts: list[str], icon_name: str, svg_content: str) -> None:
+        filename = f"{icon_name}.svg" if not icon_name.endswith(".svg") else icon_name
+        for ctx in target_contexts:
+            if ctx in scalable_dirs:
+                (scalable_dirs[ctx] / filename).write_text(svg_content)
+            if ctx in symbolic_dirs:
+                (symbolic_dirs[ctx] / filename).write_text(svg_content)
+
+    # 1. Write core and extended symbolic SVGs
     for name, svg_content in SYMBOLIC_ICONS.items():
-        (status_dir / f"{name}.svg").write_text(svg_content)
-        (actions_dir / f"{name}.svg").write_text(svg_content)
-        
-        # Symlink to places
-        if any(k in name for k in ["folder", "network", "home", "trash", "recent"]):
-            p_dst = places_dir / f"{name}.svg"
-            if not p_dst.exists():
-                p_dst.symlink_to(f"../status/{name}.svg")
-                
-        # Write directly to devices
-        if any(k in name for k in ["drive", "media", "server"]):
-            (devices_dir / f"{name}.svg").write_text(svg_content)
-                
-        # Symlink to categories
-        if any(k in name for k in ["setting", "puzzle", "system"]):
-            c_dst = categories_dir / f"{name}.svg"
-            if not c_dst.exists():
-                c_dst.symlink_to(f"../status/{name}.svg")
+        ctx_list = ["status", "actions"]
+
+        # Applications and Settings panels
+        if "Settings" in name or name.endswith("-app-symbolic"):
+            ctx_list.extend(["apps", "categories"])
+
+        # Places / storage / navigation
+        if any(k in name for k in ["folder", "network", "home", "trash", "recent", "globe", "map"]):
+            ctx_list.append("places")
+
+        # UI & Sidebar navigation
+        if any(k in name for k in ["sidebar", "split", "find", "menu", "pan-", "go-", "window-", "screenshot", "camera", "screencast", "record"]):
+            ctx_list.append("ui")
+
+        # Hardware devices
+        if any(k in name for k in ["drive", "media", "server", "camera", "display", "mouse", "keyboard"]):
+            ctx_list.append("devices")
+
+        # Categories
+        if any(k in name for k in ["setting", "puzzle", "system", "preference"]):
+            ctx_list.append("categories")
+
+        write_icon(list(set(ctx_list)), name, svg_content)
 
     # Storage symbolic aliases
     storage_sym_aliases = {
@@ -1187,12 +1301,32 @@ def build_symbolic() -> None:
     }
     for alias, target in storage_sym_aliases.items():
         if target in SYMBOLIC_ICONS:
-            content = SYMBOLIC_ICONS[target]
-            (status_dir / f"{alias}.svg").write_text(content)
-            (actions_dir / f"{alias}.svg").write_text(content)
-            (devices_dir / f"{alias}.svg").write_text(content)
+            write_icon(["status", "actions", "devices"], alias, SYMBOLIC_ICONS[target])
 
-    # 2. Extract and bundle all Libadwaita internal symbolic icons
+    # 2. Extract and bundle GNOME Shell internal symbolic icons
+    gs_res_path = Path("/usr/share/gnome-shell/gnome-shell-icons.gresource")
+    if gs_res_path.exists():
+        try:
+            res = Gio.Resource.load(str(gs_res_path))
+            Gio.resources_register(res)
+            for subpath, ctx_targets in [
+                ("/org/gnome/shell/icons/scalable/actions", ["actions", "status", "ui"]),
+                ("/org/gnome/shell/icons/scalable/status", ["status", "actions", "ui"]),
+            ]:
+                try:
+                    for icon in Gio.resources_enumerate_children(subpath, Gio.ResourceLookupFlags.NONE):
+                        try:
+                            data = Gio.resources_lookup_data(f"{subpath}/{icon}", Gio.ResourceLookupFlags.NONE)
+                            svg_text = data.get_data().decode("utf-8")
+                            write_icon(ctx_targets, icon, svg_text)
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+        except Exception as e:
+            print(f"Notice: GNOME Shell icons resource lookup skipped ({e})")
+
+    # 3. Extract and bundle all Libadwaita internal symbolic icons
     try:
         Adw.init()
         adw_icons = Gio.resources_enumerate_children("/org/gnome/Adwaita/icons/scalable/actions", Gio.ResourceLookupFlags.NONE)
@@ -1200,26 +1334,23 @@ def build_symbolic() -> None:
             try:
                 data = Gio.resources_lookup_data(f"/org/gnome/Adwaita/icons/scalable/actions/{icon}", Gio.ResourceLookupFlags.NONE)
                 svg_text = data.get_data().decode("utf-8")
-                (actions_dir / icon).write_text(svg_text)
-                (status_dir / icon).write_text(svg_text)
+                write_icon(["actions", "status", "ui"], icon, svg_text)
             except Exception:
                 pass
     except Exception as e:
         print(f"Notice: Adw resource lookup skipped ({e})")
 
-    # 3. Integrate Blur my Shell extension icons if present
+    # 4. Integrate Blur my Shell extension icons if present
     bms_dir = Path.home() / ".local" / "share" / "gnome-shell" / "extensions" / "blur-my-shell@aunetx" / "icons" / "hicolor" / "scalable" / "actions"
     if bms_dir.exists():
         for bms_svg in bms_dir.glob("*.svg"):
-            (actions_dir / bms_svg.name).write_text(bms_svg.read_text())
-            (status_dir / bms_svg.name).write_text(bms_svg.read_text())
+            write_icon(["actions", "status", "ui"], bms_svg.name, bms_svg.read_text())
 
-    # 4. Integrate Tiling Shell extension icons if present
+    # 5. Integrate Tiling Shell extension icons if present
     ts_dir = Path.home() / ".local" / "share" / "gnome-shell" / "extensions" / "tilingshell@ferrarodomenico.com" / "icons"
     if ts_dir.exists():
         for ts_svg in ts_dir.glob("*.svg"):
-            (actions_dir / ts_svg.name).write_text(ts_svg.read_text())
-            (status_dir / ts_svg.name).write_text(ts_svg.read_text())
+            write_icon(["actions", "status", "ui"], ts_svg.name, ts_svg.read_text())
 
 def build_devices() -> None:
     # Build hardware storage devices icons (HDD, SSD, USB external, Partition).

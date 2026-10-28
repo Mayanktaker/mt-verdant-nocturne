@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="yelpBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="8" y="8" width="48" height="48" rx="10" fill="url(#yelpBg)" stroke="#2E555F" stroke-width="1.5"/>
+<circle cx="32" cy="32" r="18" fill="none" stroke="#2E555F" stroke-width="2"/>
+<path d="M 26 25 C 26 21.5 28.5 19 32 19 C 35.5 19 38 21.5 38 25 C 38 28 35.5 29.5 33.5 31 C 32 32 32 34 32 36" fill="none" stroke="#3DD68C" stroke-width="3" stroke-linecap="round"/>
+<circle cx="32" cy="42" r="2" fill="#3DD68C"/>
+</svg>

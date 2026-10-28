@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="ferBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="8" y="8" width="48" height="48" rx="10" fill="url(#ferBg)" stroke="#2E555F" stroke-width="1.5"/>
+<path d="M 18 28 C 22 28 26 36 32 36 C 38 36 42 28 46 28 C 48 28 49 30 49 33 C 49 40 41 46 32 46 C 23 46 15 40 15 33 C 15 30 16 28 18 28 Z" fill="#3DD68C"/>
+<path d="M 21 24 C 25 24 28 30 32 30 C 36 30 39 24 43 24" stroke="#8FB8A6" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="wamBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="8" y="8" width="48" height="48" rx="10" fill="url(#wamBg)" stroke="#2E555F" stroke-width="1.5"/>
+<path d="M 22 44 C 18.5 44 16 41.5 16 38 C 16 35 18 32.5 21 32 C 22 27 26.5 23.5 31.5 23.5 C 36.5 23.5 40.5 26.5 41.5 31 C 42.5 30.5 43.5 30.5 44.5 30.5 C 48.5 30.5 52 33.8 52 38 C 52 42 48.5 44 44.5 44 Z" fill="#1A333C" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="22" y="32" width="20" height="13" rx="2" fill="#122329" stroke="#3DD68C" stroke-width="1.2"/>
+<line x1="22" y1="36" x2="42" y2="36" stroke="#2E555F" stroke-width="1"/>
+<circle cx="25" cy="34" r="0.8" fill="#8FB8A6"/>
+<circle cx="28" cy="34" r="0.8" fill="#8FB8A6"/>
+</svg>

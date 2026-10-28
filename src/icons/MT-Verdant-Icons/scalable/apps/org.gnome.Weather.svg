@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="weaBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#1A343D"/>
+    <stop offset="100%" stop-color="#0E1A20"/>
+  </linearGradient>
+  <linearGradient id="sunGrad" x1="24" y1="14" x2="44" y2="34" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#A9CDBB"/>
+    <stop offset="100%" stop-color="#3DD68C"/>
+  </linearGradient>
+</defs>
+<rect x="8" y="8" width="48" height="48" rx="10" fill="url(#weaBg)" stroke="#2E555F" stroke-width="1.5"/>
+<circle cx="34" cy="24" r="10" fill="url(#sunGrad)"/>
+<path d="M 20 45 C 16.5 45 14 42.5 14 39 C 14 36 16 33.5 19 33 C 20 28 24.5 24.5 29.5 24.5 C 34.5 24.5 38.5 27.5 39.5 32 C 40.5 31.5 41.5 31.5 42.5 31.5 C 46.5 31.5 50 34.8 50 39 C 50 43 46.5 45 42.5 45 Z" fill="#24444D" stroke="#8FB8A6" stroke-width="1.5"/>
+</svg>

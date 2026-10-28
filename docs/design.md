@@ -58,3 +58,9 @@ Four high-resolution dawn & luminous atmospheric artworks (`wallpaper/dist/light
   - **24-hour timed cycle** (`--wallpaper timed`): Continuous clock-based cross-fade via `mt-verdant-timed.xml`.
   - Registered natively into GNOME Settings Backgrounds via `~/.local/share/gnome-background-properties/mt-verdant.xml`.
 - Applying wallpaper is opt-in via `./tools/install.sh --wallpaper [1-4|light-1..4|dynamic|timed|all]`.
+
+## Icon Suite (MT-Verdant-Icons)
+- **Design language**: High-definition vector icons adhering to the Botanical Canopy dark-green identity (obsidian teal bases `#122329` to `#24444D`, sage `#8FB8A6` and emerald `#3DD68C` accents).
+- **Core application coverage**: Provides full dark-green vector designs for all essential GNOME and desktop apps (Calendar, Contacts, Characters, Connections, Weather, Clocks, Snapshot, Loupe, Showtime, Decibels, Papers, Maps, Music, Scanner, Logs, Disk Usage, Fonts, Tour, Help, Extensions, Printers, and Vim).
+- **Symbolic UI & Wireframes**: Complete 16×16 symbolic coverage across `symbolic/*` and `scalable/*` contexts for empty states (`globe-centered-symbolic`), Libadwaita split navigation (`view-sidebar-start/end-symbolic`), interactive screenshot & screencast overlay utilities, and all 25+ GNOME Settings panels.
+- **Cache & Distribution**: Automatically generated via `tools/icons/generate_icons.py` into scalable vector SVGs and multi-size PNGs (32, 48, 64, 128), and compiled with `gtk-update-icon-cache` upon installation into `~/.icons/MT-Verdant-Icons`.

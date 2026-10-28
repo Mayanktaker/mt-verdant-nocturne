@@ -527,6 +527,9 @@ if [ "${WANT_ICONS}" -eq 1 ]; then
   if [ -d "${REPO_ROOT}/src/icons/MT-Verdant-Icons" ]; then
     rm -rf "${ICONS_DIR}/MT-Verdant-Icons"
     cp -r "${REPO_ROOT}/src/icons/MT-Verdant-Icons" "${ICONS_DIR}/"
+    if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+      gtk-update-icon-cache -f -t "${ICONS_DIR}/MT-Verdant-Icons" >/dev/null 2>&1 || true
+    fi
     gsettings set org.gnome.desktop.interface icon-theme 'MT-Verdant-Icons' || true
     echo "installed and activated icon pack in ${ICONS_DIR}/MT-Verdant-Icons"
   fi

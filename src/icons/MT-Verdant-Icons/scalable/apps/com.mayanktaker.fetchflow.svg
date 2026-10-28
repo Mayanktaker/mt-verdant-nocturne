@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="ffBg" x1="32" y1="8" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+  <linearGradient id="ffArrow" x1="32" y1="18" x2="32" y2="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#8FB8A6"/>
+    <stop offset="100%" stop-color="#3DD68C"/>
+  </linearGradient>
+</defs>
+<rect x="8" y="8" width="48" height="48" rx="10" fill="url(#ffBg)" stroke="#2E555F" stroke-width="1.5"/>
+<path d="M 20 18 L 44 18 L 44 24 L 28 24 L 28 30 L 40 30 L 40 36 L 28 36 L 28 46 L 20 46 Z" fill="#2E555F" opacity="0.6"/>
+<polyline points="22,34 32,44 42,34" fill="none" stroke="url(#ffArrow)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="32" y1="18" x2="32" y2="42" stroke="url(#ffArrow)" stroke-width="4" stroke-linecap="round"/>
+<line x1="16" y1="50" x2="48" y2="50" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

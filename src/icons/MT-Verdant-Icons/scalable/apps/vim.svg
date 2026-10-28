@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="vimBg" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#0E191E"/>
+  </linearGradient>
+</defs>
+<polygon points="32,6 58,32 32,58 6,32" fill="url(#vimBg)" stroke="#3DD68C" stroke-width="2"/>
+<path d="M 18 20 L 25 20 L 32 38 L 39 20 L 46 20 L 35 44 L 29 44 Z" fill="#8FB8A6" stroke="#122329" stroke-width="1"/>
+</svg>
