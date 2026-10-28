@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="subBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#subBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Stacked diagonal S slabs -->
+<path d="M 20 20 L 44 26 L 36 33 L 20 27 Z" fill="#8FB8A6"/>
+<path d="M 20 27 L 44 33 L 36 40 L 20 34 Z" fill="#3DD68C"/>
+<path d="M 20 34 L 44 40 L 36 47 L 20 41 Z" fill="#8FB8A6"/>
+</svg>

@@ -1,5 +1,14 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="8" y="8" width="48" height="48" rx="14" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
-<polygon points="32,14 44,22 40,40 32,50 24,40 20,22" fill="#1B353D" stroke="#E5B580" stroke-width="2.5" stroke-linejoin="round"/>
-<polygon points="32,24 38,30 36,40 32,44 28,40 26,30" fill="#3DD68C"/>
+<defs>
+  <linearGradient id="brBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#brBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Faceted Lion Silhouette in Botanical Emerald -->
+<polygon points="32,15 42,22 47,33 42,45 32,49 22,45 17,33 22,22" fill="#183640" stroke="#2E555F" stroke-width="1.5"/>
+<polygon points="32,18 39,24 42,34 37,42 32,45 27,42 22,34 25,24" fill="#3DD68C"/>
+<polygon points="32,22 36,28 32,34 28,28" fill="#122329"/>
 </svg>

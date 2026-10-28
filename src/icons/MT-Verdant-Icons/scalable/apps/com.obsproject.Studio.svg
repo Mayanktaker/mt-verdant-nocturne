@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="obsBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#obsBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Outer circular housing -->
+<circle cx="32" cy="32" r="20" stroke="#2E555F" stroke-width="1.5" fill="#14262C"/>
+<!-- Three interlocking pinwheel blades -->
+<path d="M 32 16 C 36 22 36 28 32 32 C 28 28 28 22 32 16 Z" fill="#3DD68C"/>
+<path d="M 46 39 C 40 41 34 38 32 32 C 37 31 43 34 46 39 Z" fill="#8FB8A6"/>
+<path d="M 18 39 C 21 34 27 31 32 32 C 30 38 24 41 18 39 Z" fill="#EDF5F1"/>
+<circle cx="32" cy="32" r="4.5" fill="#122329"/>
+<circle cx="32" cy="32" r="2.5" fill="#3DD68C"/>
+</svg>

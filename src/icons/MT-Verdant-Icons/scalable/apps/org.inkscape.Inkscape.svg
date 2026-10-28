@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="inkBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#inkBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Mountain peak silhouette -->
+<path d="M 16 46 L 27 24 L 34 33 L 42 18 L 48 46 Z" fill="#14262C" stroke="#2E555F" stroke-width="1"/>
+<!-- Bezier curve path and control points -->
+<path d="M 18 42 C 26 22 38 20 46 38" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="16" y="40" width="4" height="4" rx="1" fill="#8FB8A6"/>
+<rect x="44" y="36" width="4" height="4" rx="1" fill="#8FB8A6"/>
+<circle cx="32" cy="24" r="2.5" fill="#EDF5F1"/>
+<line x1="28" y1="28" x2="36" y2="20" stroke="#8FB8A6" stroke-width="1.2"/>
+</svg>

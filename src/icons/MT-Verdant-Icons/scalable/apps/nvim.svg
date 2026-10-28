@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="nvimBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#nvimBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Left pillar -->
+<path d="M 18 16 L 26 16 L 26 48 L 18 48 Z" fill="#8FB8A6"/>
+<!-- Diagonal bridge -->
+<path d="M 26 16 L 40 44 L 40 48 L 32 48 L 18 20 Z" fill="#3DD68C"/>
+<!-- Right pillar -->
+<path d="M 38 16 L 46 16 L 46 48 L 38 48 Z" fill="#8FB8A6"/>
+</svg>

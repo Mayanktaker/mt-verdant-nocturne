@@ -748,3 +748,22 @@ EXTENDED_APP_ALIASES = {
     "preferences-desktop-theme": "preferences-system",
     "canon-ufr": "printer",
 }
+
+# Integrate modular application suites (Creative, Dev/AI, Productivity/Web/Gaming)
+try:
+    from apps_creative import CREATIVE_APP_ICONS, CREATIVE_APP_ALIASES
+    from apps_dev_ai import DEV_AI_APP_ICONS, DEV_AI_APP_ALIASES
+    from apps_general import GENERAL_APP_ICONS, GENERAL_APP_ALIASES
+except ImportError:
+    from tools.icons.apps_creative import CREATIVE_APP_ICONS, CREATIVE_APP_ALIASES
+    from tools.icons.apps_dev_ai import DEV_AI_APP_ICONS, DEV_AI_APP_ALIASES
+    from tools.icons.apps_general import GENERAL_APP_ICONS, GENERAL_APP_ALIASES
+
+EXTENDED_APP_ICONS.update(CREATIVE_APP_ICONS)
+EXTENDED_APP_ICONS.update(DEV_AI_APP_ICONS)
+EXTENDED_APP_ICONS.update(GENERAL_APP_ICONS)
+
+EXTENDED_APP_ALIASES.update(CREATIVE_APP_ALIASES)
+EXTENDED_APP_ALIASES.update(DEV_AI_APP_ALIASES)
+EXTENDED_APP_ALIASES.update(GENERAL_APP_ALIASES)
+

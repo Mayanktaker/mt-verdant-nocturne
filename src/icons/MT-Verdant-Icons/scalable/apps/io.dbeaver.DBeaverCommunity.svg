@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="dbBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#dbBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Database Cylinder -->
+<ellipse cx="32" cy="22" rx="16" ry="5" fill="#3DD68C"/>
+<path d="M 16 22 L 16 32 C 16 35 23 37 32 37 C 41 37 48 35 48 32 L 48 22 Z" fill="#20404A" stroke="#2E555F"/>
+<path d="M 16 32 L 16 42 C 16 45 23 47 32 47 C 41 47 48 45 48 42 L 48 32 Z" fill="#162D35" stroke="#2E555F"/>
+<!-- Beaver ears and teeth detail -->
+<ellipse cx="32" cy="32" rx="16" ry="5" stroke="#8FB8A6" stroke-width="1.2" fill="none"/>
+<rect x="29" y="38" width="2.5" height="4" fill="#EDF5F1"/>
+<rect x="32.5" y="38" width="2.5" height="4" fill="#EDF5F1"/>
+</svg>

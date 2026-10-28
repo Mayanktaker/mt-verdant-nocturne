@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="raBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#raBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Space Invader Alien Controller -->
+<path d="M 22 20 L 26 20 L 26 24 L 38 24 L 38 20 L 42 20 L 42 26 L 46 26 L 46 38 L 42 38 L 42 44 L 36 44 L 36 38 L 28 38 L 28 44 L 22 44 L 22 38 L 18 38 L 18 26 L 22 26 Z" fill="#3DD68C"/>
+<!-- Alien eyes -->
+<rect x="24" y="28" width="3" height="4" fill="#122329"/>
+<rect x="37" y="28" width="3" height="4" fill="#122329"/>
+</svg>

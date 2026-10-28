@@ -1,0 +1,22 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="codexBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#codexBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Outer bracket matrix -->
+<path d="M 23 20 L 17 26 L 17 38 L 23 44" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M 41 20 L 47 26 L 47 38 L 41 44" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Central generative neural helix -->
+<circle cx="32" cy="24" r="3" fill="#3DD68C"/>
+<circle cx="27" cy="32" r="2.5" fill="#EDF5F1"/>
+<circle cx="37" cy="32" r="2.5" fill="#EDF5F1"/>
+<circle cx="32" cy="40" r="3" fill="#3DD68C"/>
+<line x1="32" y1="24" x2="27" y2="32" stroke="#3DD68C" stroke-width="1.5"/>
+<line x1="32" y1="24" x2="37" y2="32" stroke="#3DD68C" stroke-width="1.5"/>
+<line x1="27" y1="32" x2="32" y2="40" stroke="#3DD68C" stroke-width="1.5"/>
+<line x1="37" y1="32" x2="32" y2="40" stroke="#3DD68C" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="claudeBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#claudeBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Claude 8-point ray starburst -->
+<path d="M 32 14 L 34.5 27 L 46 22 L 38 31 L 50 36 L 37 38 L 41 50 L 32 41 L 23 50 L 27 38 L 14 36 L 26 31 L 18 22 L 29.5 27 Z" fill="#3DD68C" stroke="#8FB8A6" stroke-width="1.2"/>
+<circle cx="32" cy="33" r="4.5" fill="#122329"/>
+<circle cx="32" cy="33" r="2.2" fill="#EDF5F1"/>
+</svg>

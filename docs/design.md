@@ -61,6 +61,12 @@ Four high-resolution dawn & luminous atmospheric artworks (`wallpaper/dist/light
 
 ## Icon Suite (MT-Verdant-Icons)
 - **Design language**: High-definition vector icons adhering to the Botanical Canopy dark-green identity (obsidian teal bases `#122329` to `#24444D`, sage `#8FB8A6` and emerald `#3DD68C` accents).
-- **Core application coverage**: Provides full dark-green vector designs for all essential GNOME and desktop apps (Calendar, Contacts, Characters, Connections, Weather, Clocks, Snapshot, Loupe, Showtime, Decibels, Papers, Maps, Music, Scanner, Logs, Disk Usage, Fonts, Tour, Help, Extensions, Printers, and Vim).
+- **Core application coverage**: Provides full dark-green vector designs for over 100+ popular and modern Linux applications:
+  - *Core & Desktop*: GNOME Calendar, Contacts, Characters, Connections, Weather, Clocks, Snapshot, Loupe, Showtime, Decibels, Papers, Maps, Music, Scanner, Logs, Disk Usage, Fonts, Tour, Help, Extensions, Printers, Vim.
+  - *AI & IDEs*: Inkscape, GIMP, Android Studio, Cursor, Claude, Codex, Qoder, Paseo, Windsurf, Zed, Sublime Text, Neovim, IntelliJ IDEA, PyCharm, Ghostty.
+  - *DevOps & Terminals*: Kitty, WezTerm, Docker, Postman, Insomnia, DBeaver, Wireshark, GitKraken, GitHub Desktop, Timeshift.
+  - *Creative & Media*: Blender, Krita, OBS Studio, Kdenlive, Audacity, VLC, HandBrake, Darktable, GParted.
+  - *Browsers & AI Assistants*: ChatGPT, Ollama, LM Studio, Zen Browser, Tor Browser, Vivaldi, Chromium, Brave, Firefox, GNOME Web (Epiphany).
+  - *Productivity, Security & Gaming*: Obsidian, Notion, Slack, Signal, Thunderbird, Bitwarden, 1Password, FileZilla, Transmission, Steam, Heroic Games Launcher, Lutris, Prism Launcher, Bottles, RetroArch.
 - **Symbolic UI & Wireframes**: Complete 16×16 symbolic coverage across `symbolic/*` and `scalable/*` contexts for empty states (`globe-centered-symbolic`), Libadwaita split navigation (`view-sidebar-start/end-symbolic`), interactive screenshot & screencast overlay utilities, and all 25+ GNOME Settings panels.
 - **Cache & Distribution**: Automatically generated via `tools/icons/generate_icons.py` into scalable vector SVGs and multi-size PNGs (32, 48, 64, 128), and compiled with `gtk-update-icon-cache` upon installation into `~/.icons/MT-Verdant-Icons`.

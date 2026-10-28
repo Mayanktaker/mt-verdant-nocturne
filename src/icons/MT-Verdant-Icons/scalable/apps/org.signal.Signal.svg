@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="sigBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#sigBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Speech Bubble with dashed security perimeter -->
+<circle cx="32" cy="31" r="16" stroke="#8FB8A6" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+<path d="M 32 17 C 40 17 46 23 46 31 C 46 39 40 45 32 45 C 29 45 26 44 24 42 L 18 45 L 20 39 C 19 37 18 34 18 31 C 18 23 24 17 32 17 Z" fill="#3DD68C"/>
+<!-- Secure Lock Center -->
+<rect x="28" y="29" width="8" height="6" rx="1.5" fill="#122329"/>
+<path d="M 29.5 29 L 29.5 27 C 29.5 25.5 30.5 24.5 32 24.5 C 33.5 24.5 34.5 25.5 34.5 27 L 34.5 29" stroke="#122329" stroke-width="1.5" fill="none"/>
+</svg>

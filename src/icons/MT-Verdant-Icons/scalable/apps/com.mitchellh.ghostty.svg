@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="ghBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#ghBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Minimalist Ghost outline -->
+<path d="M 20 46 L 20 28 C 20 20 25 15 32 15 C 39 15 44 20 44 28 L 44 46 L 39 42 L 34 46 L 30 42 L 25 46 Z" fill="#152B32" stroke="#2E555F" stroke-width="1.5"/>
+<!-- Terminal block eyes -->
+<rect x="25" y="27" width="4" height="6" rx="1" fill="#3DD68C"/>
+<rect x="35" y="27" width="4" height="6" rx="1" fill="#3DD68C"/>
+</svg>

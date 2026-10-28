@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="dtBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#dtBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Camera lens barrel -->
+<circle cx="32" cy="32" r="19" fill="#14262C" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="14" stroke="#8FB8A6" stroke-width="1.2" stroke-dasharray="3 3"/>
+<!-- Aperture blades -->
+<path d="M 26 22 L 38 24 L 30 36 Z" fill="#1C3840"/>
+<path d="M 38 24 L 42 36 L 29 37 Z" fill="#204049"/>
+<path d="M 42 36 L 34 44 L 26 34 Z" fill="#162E35"/>
+<path d="M 34 44 L 24 38 L 31 29 Z" fill="#24444D"/>
+<circle cx="32" cy="32" r="4.5" fill="#3DD68C"/>
+<circle cx="30" cy="30" r="1.5" fill="#EDF5F1"/>
+</svg>

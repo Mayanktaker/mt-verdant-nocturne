@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="vlcBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#vlcBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Base support ring -->
+<ellipse cx="32" cy="49" rx="18" ry="5" fill="#14262C" stroke="#2E555F" stroke-width="1.5"/>
+<!-- Traffic Cone geometry with reflective stripes -->
+<path d="M 29 16 L 35 16 L 44 47 L 20 47 Z" fill="#1C3841" stroke="#2E555F" stroke-width="1"/>
+<!-- Sage reflective band 1 -->
+<path d="M 26.5 26 L 37.5 26 L 39 32 L 25 32 Z" fill="#8FB8A6"/>
+<!-- Emerald reflective band 2 -->
+<path d="M 23.5 37 L 40.5 37 L 42 43 L 22 43 Z" fill="#3DD68C"/>
+<ellipse cx="32" cy="16" rx="3" ry="1.2" fill="#EDF5F1"/>
+</svg>
