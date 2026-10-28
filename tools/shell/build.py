@@ -127,7 +127,7 @@ def main() -> int:
     args = sys.argv[1:]
     if args[:1] == ["--all"]:
         majors = sorted(int(p.stem.split("-")[-1]) for p in (REPO_ROOT / "src" / "shell").glob("colormap-*.json"))
-    elif args[:2] == ["--major"]:
+    elif len(args) >= 2 and args[0] == "--major":
         majors = [int(args[1])]
     elif not args:
         majors = [host_shell_major()]

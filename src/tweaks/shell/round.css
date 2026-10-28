@@ -9,9 +9,31 @@
   border-radius: 26px !important;
 }
 
-.quick-toggle,
+/* Standalone quick toggles and buttons */
+.quick-toggle:not(.quick-toggle-has-menu .quick-toggle),
 .quick-toggle-button {
   border-radius: 16px !important;
+}
+
+/* Quick toggles with submenus: preserve segmented pill geometry */
+.quick-toggle-has-menu {
+  border-radius: 16px !important;
+}
+
+.quick-toggle-has-menu .quick-toggle:ltr {
+  border-radius: 16px 0 0 16px !important;
+}
+
+.quick-toggle-has-menu .quick-toggle:rtl {
+  border-radius: 0 16px 16px 0 !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-menu-button:ltr {
+  border-radius: 0 16px 16px 0 !important;
+}
+
+.quick-toggle-has-menu .quick-toggle-menu-button:rtl {
+  border-radius: 16px 0 0 16px !important;
 }
 
 .osd-window,

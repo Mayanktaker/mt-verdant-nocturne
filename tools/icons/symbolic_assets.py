@@ -375,9 +375,7 @@ EXTENDED_SYMBOLIC_ICONS = {
 </svg>''',
 
     "open-menu-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <line x1="2.5" y1="4" x2="13.5" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="2.5" y1="8" x2="13.5" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="2.5" y1="12" x2="13.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 2.5 3.5 C 2.22 3.5 2 3.72 2 4 C 2 4.28 2.22 4.5 2.5 4.5 H 13.5 C 13.78 4.5 14 4.28 14 4 C 14 3.72 13.78 3.5 13.5 3.5 Z M 2.5 7.25 C 2.22 7.25 2 7.47 2 7.75 C 2 8.03 2.22 8.25 2.5 8.25 H 13.5 C 13.78 8.25 14 8.03 14 7.75 C 14 7.47 13.78 7.25 13.5 7.25 Z M 2.5 11 C 2.22 11 2 11.22 2 11.5 C 2 11.78 2.22 12 2.5 12 H 13.5 C 13.78 12 14 11.78 14 11.5 C 14 11.22 13.78 11 13.5 11 Z"/>
 </svg>''',
 
     "view-more-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -416,66 +414,62 @@ EXTENDED_SYMBOLIC_ICONS = {
 </svg>''',
 
     "window-close-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <line x1="3.5" y1="3.5" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="12.5" y1="3.5" x2="3.5" y2="12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 4 4 H 5.03 C 5.28 4.01 5.54 4.13 5.72 4.31 L 8 6.59 L 10.31 4.31 C 10.58 4.08 10.76 4.01 11 4 H 12 V 5 C 12 5.29 11.96 5.55 11.75 5.75 L 9.47 8.03 L 11.72 10.28 C 11.91 10.47 12 10.73 12 11 V 12 H 11 C 10.73 12 10.47 11.91 10.28 11.72 L 8 9.44 L 5.72 11.72 C 5.53 11.91 5.27 12 5 12 H 4 V 11 C 4 10.73 4.09 10.47 4.28 10.28 L 6.56 8.03 L 4.28 5.75 C 4.07 5.55 3.98 5.28 4 5 Z"/>
 </svg>''',
 
     "window-minimize-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <line x1="3" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.5 10 H 12.5 C 13.05 10 13.5 10.45 13.5 11 C 13.5 11.55 13.05 12 12.5 12 H 3.5 C 2.95 12 2.5 11.55 2.5 11 C 2.5 10.45 2.95 10 3.5 10 Z"/>
 </svg>''',
 
     "window-maximize-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.5 3.5 C 2.67 3.5 2 4.17 2 5 V 12 C 2 12.83 2.67 13.5 3.5 13.5 H 12.5 C 13.33 13.5 14 12.83 14 12 V 5 C 14 4.17 13.33 3.5 12.5 3.5 Z M 4 5.5 H 12 V 11.5 H 4 Z"/>
 </svg>''',
 
     "window-restore-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="4.5" y="4.5" width="9" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/>
-  <path d="M 6.5 2.5 L 11.5 2.5 C 12.6 2.5 13.5 3.4 13.5 4.5 L 13.5 9.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 5.5 2 C 4.67 2 4 2.67 4 3.5 V 4 H 6 V 3.75 H 12.25 V 10 H 12 V 12 H 12.5 C 13.33 12 14 11.33 14 10.5 V 3.5 C 14 2.67 13.33 2 12.5 2 Z M 3.5 4 C 2.67 4 2 4.67 2 5.5 V 12.5 C 2 13.33 2.67 14 3.5 14 H 10.5 C 11.33 14 12 13.33 12 12.5 V 5.5 C 12 4.67 11.33 4 10.5 4 Z M 3.75 6 H 10.25 V 12.25 H 3.75 Z"/>
 </svg>''',
 
     # ---------------------------------------------------------------------
     # Carousel & Pagination Arrows (Fixes App Folder Navigation in GNOME Shell)
     # ---------------------------------------------------------------------
     "carousel-arrow-previous-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="10,3 5,8 10,13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 10.7 3.3 C 11.1 3.7 11.1 4.3 10.7 4.7 L 7.4 8 L 10.7 11.3 C 11.1 11.7 11.1 12.3 10.7 12.7 C 10.3 13.1 9.7 13.1 9.3 12.7 L 5.3 8.7 C 4.9 8.3 4.9 7.7 5.3 7.3 L 9.3 3.3 C 9.7 2.9 10.3 2.9 10.7 3.3 Z"/>
 </svg>''',
 
     "carousel-arrow-next-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="6,3 11,8 6,13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 5.3 3.3 C 5.7 2.9 6.3 2.9 6.7 3.3 L 10.7 7.3 C 11.1 7.7 11.1 8.3 10.7 8.7 L 6.7 12.7 C 6.3 13.1 5.7 13.1 5.3 12.7 C 4.9 12.3 4.9 11.7 5.3 11.3 L 8.6 8 L 5.3 4.7 C 4.9 4.3 4.9 3.7 5.3 3.3 Z"/>
 </svg>''',
 
     "arrow-left-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="9.5,3.5 5,8 9.5,12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 10.7 3.3 C 11.1 3.7 11.1 4.3 10.7 4.7 L 7.4 8 L 10.7 11.3 C 11.1 11.7 11.1 12.3 10.7 12.7 C 10.3 13.1 9.7 13.1 9.3 12.7 L 5.3 8.7 C 4.9 8.3 4.9 7.7 5.3 7.3 L 9.3 3.3 C 9.7 2.9 10.3 2.9 10.7 3.3 Z"/>
 </svg>''',
 
     "arrow-right-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="6.5,3.5 11,8 6.5,12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 5.3 3.3 C 5.7 2.9 6.3 2.9 6.7 3.3 L 10.7 7.3 C 11.1 7.7 11.1 8.3 10.7 8.7 L 6.7 12.7 C 6.3 13.1 5.7 13.1 5.3 12.7 C 4.9 12.3 4.9 11.7 5.3 11.3 L 8.6 8 L 5.3 4.7 C 4.9 4.3 4.9 3.7 5.3 3.3 Z"/>
 </svg>''',
 
     "arrow-up-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="3.5,9.5 8,5 12.5,9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.3 10.7 C 2.9 10.3 2.9 9.7 3.3 9.3 L 7.3 5.3 C 7.7 4.9 8.3 4.9 8.7 5.3 L 12.7 9.3 C 13.1 9.7 13.1 10.3 12.7 10.7 C 12.3 11.1 11.7 11.1 11.3 10.7 L 8 7.4 L 4.7 10.7 C 4.3 11.1 3.7 11.1 3.3 10.7 Z"/>
 </svg>''',
 
     "arrow-down-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="3.5,6.5 8,11 12.5,6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.3 5.3 C 3.7 4.9 4.3 4.9 4.7 5.3 L 8 8.6 L 11.3 5.3 C 11.7 4.9 12.3 4.9 12.7 5.3 C 13.1 5.7 13.1 6.3 12.7 6.7 L 8.7 10.7 C 8.3 11.1 7.7 11.1 7.3 10.7 L 3.3 6.7 C 2.9 6.3 2.9 5.7 3.3 5.3 Z"/>
 </svg>''',
 
     "go-up-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="3.5,9.5 8,5 12.5,9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.3 10.7 C 2.9 10.3 2.9 9.7 3.3 9.3 L 7.3 5.3 C 7.7 4.9 8.3 4.9 8.7 5.3 L 12.7 9.3 C 13.1 9.7 13.1 10.3 12.7 10.7 C 12.3 11.1 11.7 11.1 11.3 10.7 L 8 7.4 L 4.7 10.7 C 4.3 11.1 3.7 11.1 3.3 10.7 Z"/>
 </svg>''',
 
     "go-down-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <polyline points="3.5,6.5 8,11 12.5,6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 3.3 5.3 C 3.7 4.9 4.3 4.9 4.7 5.3 L 8 8.6 L 11.3 5.3 C 11.7 4.9 12.3 4.9 12.7 5.3 C 13.1 5.7 13.1 6.3 12.7 6.7 L 8.7 10.7 C 8.3 11.1 7.7 11.1 7.3 10.7 L 3.3 6.7 C 2.9 6.3 2.9 5.7 3.3 5.3 Z"/>
 </svg>''',
 
     "go-first-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <line x1="3" y1="3" x2="3" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  <polyline points="12,3 7,8 12,13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 2 3 H 4 V 13 H 2 Z M 12.7 3.3 C 13.1 3.7 13.1 4.3 12.7 4.7 L 9.4 8 L 12.7 11.3 C 13.1 11.7 13.1 12.3 12.7 12.7 C 12.3 13.1 11.7 13.1 11.3 12.7 L 7.3 8.7 C 6.9 8.3 6.9 7.7 7.3 7.3 L 11.3 3.3 C 11.7 2.9 12.3 2.9 12.7 3.3 Z"/>
 </svg>''',
 
     "go-last-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <line x1="13" y1="3" x2="13" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  <polyline points="4,3 9,8 4,13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" d="M 12 3 H 14 V 13 H 12 Z M 3.3 3.3 C 3.7 2.9 4.3 2.9 4.7 3.3 L 8.7 7.3 C 9.1 7.7 9.1 8.3 8.7 8.7 L 4.7 12.7 C 4.3 13.1 3.7 13.1 3.3 12.7 C 2.9 12.3 2.9 11.7 3.3 11.3 L 6.6 8 L 3.3 4.7 C 2.9 4.3 2.9 3.7 3.3 3.3 Z"/>
 </svg>''',
 
     # ---------------------------------------------------------------------
