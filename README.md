@@ -66,38 +66,51 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
 
 ---
 
-## Installation & Tweaks (User-level, no root required)
+## Installation & Setup Wizard (User-level, no root required)
 
 User themes are installed exclusively into `~/.themes` and user icon/cursor packs into `~/.icons`.
+
+### Interactive Setup Wizard (Recommended)
+Simply run the installer without arguments to launch the friendly, step-by-step configuration wizard:
 
 ```sh
 git clone https://github.com/Mayanktaker/mt-verdant-nocturne.git
 cd mt-verdant-nocturne
 
-# 1. Quick Start: Install theme + high-definition icon pack + cursors
-./tools/install.sh --icons
+# Run interactive wizard (prompts for tray style, controls, blur, density, accent, wallpapers):
+./install.sh
+```
 
-# 2. Sizing and Blur options:
-./tools/install.sh --size compact --no-blur    # High density, crisp solid surfaces
-./tools/install.sh --size standard --blur      # Balanced density, frosted glass
+### Direct CLI Installation (Human-Friendly Options)
 
-# 3. Design Variants:
-./tools/install.sh --tweaks float,translucent,macos   # Option A: Canopy Glass
-./tools/install.sh --tweaks black,compact,rimless      # Option B: Obsidian Pro
-./tools/install.sh --tweaks round                     # Option C: Nordic Evergreen
-./tools/install.sh --tweaks all                       # All visual enhancements
-./tools/install.sh --tweaks none                      # Vanilla upstream Adwaita geometry
+```sh
+# 1. Default Recommended: 16px Rounded Modern Island Tray Bar + Standard Clean Buttons:
+./install.sh --panel round-island --controls standard
 
-# 4. Accent Flavors:
-./tools/install.sh --accent emerald                   # Aurora Emerald (#3DD68C)
-./tools/install.sh --accent moss                      # Earthy Moss (#98B99A)
-./tools/install.sh --accent pine                      # Nordic Pine (#5E9E92)
+# 2. Floating Capsule Pill Bar + macOS Traffic Dots:
+./install.sh --panel pill --controls macos
 
-# 5. Wallpapers (copies 4K images to ~/Pictures/wallpapers-mt-verdant/):
-./tools/install.sh --wallpaper all
+# 3. Connected Bottom-Rounded Top Bar (Screen-attached top edge, 16px curved bottom corners):
+./install.sh --panel bottom-round
 
-# 6. Libadwaita GTK4 override:
-./tools/install.sh --gtk4-libadwaita
+# 4. Classic Full-Width Edge-to-Edge Square Bar:
+./install.sh --panel flat
+
+# 5. Sizing and Blur Customization:
+./install.sh --size compact --no-blur    # High density, crisp solid surfaces (laptops/low-GPU)
+./install.sh --size standard --blur      # Balanced density, frosted glass translucency
+
+# 6. Botanical Accent Colors:
+./install.sh --accent sage               # Sage (#7FC8A0 - Balanced mint green, default)
+./install.sh --accent emerald            # Emerald (#3DD68C - Vibrant forest green)
+./install.sh --accent moss               # Moss (#9ECB74 - Warm olive foliage)
+./install.sh --accent pine               # Pine (#3D8B7A - Deep twilight teal)
+
+# 7. 4K Wallpapers (copies images to ~/Pictures/wallpapers-mt-verdant/):
+./install.sh --wallpaper all
+
+# 8. Scripting & Automation (Non-interactive mode):
+./install.sh --non-interactive --panel round-island --controls standard --icons --gtk4-libadwaita
 ```
 
 ---

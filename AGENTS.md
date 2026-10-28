@@ -18,11 +18,11 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 
 ## Commands
 - Contrast gate: `python3 tools/dev/check_contrast.py` (must pass before commits).
-- Wallpaper suite: `python3 tools/wallpaper/generate.py [--which 1|2|3|4|all]` → generates 4 4K renders into `wallpaper/dist/` + preview JPGs in `wallpaper/preview/`.
+- Wallpaper suite: `python3 tools/wallpaper/generate.py [--which 1|2|3|4|all]` (dark) and `python3 tools/wallpaper/process_light.py` (light) → generates 4K renders into `wallpaper/dist/` and `wallpaper/dist/light/` + preview JPGs in `wallpaper/preview/`.
 - Icons & Cursors build: `python3 tools/icons/generate_icons.py && python3 tools/icons/generate_cursors.py` → builds `src/icons/` and `src/cursors/`.
 - Shell theme build: `python3 tools/shell/build.py [--major N | --all]` (host major extracts from gresource; others use vendored `src/shell/upstream-<major>/`).
 - GTK build: `python3 tools/gtk/build.py` → `build/theme/gtk-{3,4}.0/`.
-- Install: `tools/install.sh [--tweaks <list>] [--accent <flavor>] [--size standard|compact] [--blur|--no-blur] [--wallpaper [1-4|all]] [--icons] [--gtk4-libadwaita] [--install-deps]` → installs theme into `~/.themes/MT-Verdant-Nocturne` and icons/cursors into `~/.icons/` (user-only; copies 4 4K wallpapers into `${THEME_DIR}/wallpapers/` and extras into `${THEME_DIR}/extras/`).
+- Install: `./install.sh` (interactive CLI wizard) or `tools/install.sh [--panel round-island|pill|bottom-round|flat] [--controls standard|macos] [--accent <flavor>] [--size standard|compact] [--blur|--no-blur] [--wallpaper [1-4|light-1..4|dynamic|timed|all]] [--icons] [--gtk4-libadwaita] [--install-deps]` → installs theme into `~/.themes/MT-Verdant-Nocturne` and icons/cursors into `~/.icons/` (user-only; copies 4K wallpapers into `${THEME_DIR}/wallpapers/` and extras into `${THEME_DIR}/extras/`).
 - App extras install: `tools/extras/install-all.sh` (scans & installs for all detected apps) or individual scripts under `extras/`.
 
 ## Layout

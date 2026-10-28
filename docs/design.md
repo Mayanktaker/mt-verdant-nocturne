@@ -38,12 +38,23 @@ Inspired by top-tier Linux desktop themes (Colloid, WhiteSur, TokyoNight GTK, Ca
 - **Option C: Nordic Evergreen & Organic**: Soft modern curves (`--tweaks round`), solid forest panel, native Adwaita inset buttons, warm earthy moss tones.
 
 ## 4K Wallpaper Suite Rules
-Four original procedural artworks generated via `tools/wallpaper/generate.py`:
+Four original dark procedural artworks generated via `tools/wallpaper/generate.py`:
 1. **Botanical Canopy (Midnight Fern)**: Night-garden foliage in theme tones with restrained pale-pink blossoms and quiet moonlight.
 2. **Verdant Aurora (Nordic Pines)**: Silhouetted pine forest under a glowing emerald and sage aurora borealis gradient with distant stars.
 3. **Zen Flora (Geometric Contour)**: Bauhaus/Material-inspired organic geometric leaf contour curves on deep obsidian teal.
 4. **Obsidian River (Mineral Flow)**: Fluid topographic elevation isolines with glowing sage mineral veins over dark riverbed bedrock.
 
-- All 4 wallpapers render at 3840×2160 into `wallpaper/dist/` and automatically copy to `${THEME_DIR}/wallpapers/` on install.
-- 1920×1080 preview JPGs are committed in `wallpaper/preview/`.
-- Applying wallpaper is opt-in via `./tools/install.sh --wallpaper [1-4|all]`.
+### 4K Light Suite (Ethereal Dawn & Luminous Sage)
+Four high-resolution dawn & luminous atmospheric artworks (`wallpaper/dist/light/`):
+1. **Botanical Canopy Dawn (Morning Mist)**: Sunbeams filtering through lush morning garden foliage and sage leaves with delicate pale blossom buds.
+2. **Luminous Sage Celestial Rift**: Flowing ethereal cyan & sage cosmic dust rift with delicate starfield and soft atmospheric depth.
+3. **Cosmic Dawn (Stellar Amber & Emerald Cloud)**: Glowing golden-amber rimmed stellar cloud with undulating sage and emerald stardust ridges.
+4. **Celestial Botanical Horizon (Aurora Dawn)**: Delicate botanical foreground silhouettes transitioning into soft dawn rose and radiant sage aurora curtains.
+
+- All dark and light wallpapers render at 3840×2160 and copy into `${THEME_DIR}/wallpapers/` on install.
+- 1920×1080 preview JPGs reside in `wallpaper/preview/` and `wallpaper/preview/light/`.
+- Dynamic Day/Night switching:
+  - **Adaptive pairing** (`--wallpaper dynamic`): Pairs Canopy Dawn for GNOME Light style (`picture-uri`) and Midnight Fern for GNOME Dark style (`picture-uri-dark`).
+  - **24-hour timed cycle** (`--wallpaper timed`): Continuous clock-based cross-fade via `mt-verdant-timed.xml`.
+  - Registered natively into GNOME Settings Backgrounds via `~/.local/share/gnome-background-properties/mt-verdant.xml`.
+- Applying wallpaper is opt-in via `./tools/install.sh --wallpaper [1-4|light-1..4|dynamic|timed|all]`.

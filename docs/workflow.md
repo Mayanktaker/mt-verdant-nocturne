@@ -11,7 +11,7 @@
 6. Update `docs/compatibility.md` and tick the plan step when a milestone completes.
 
 ## Release flow
-- Tag `vX.Y`; run `tools/release.sh <version>`. The script generates release tarballs with all 4 4K wallpapers, the Shell/GTK builds, and the modular tweaks engine.
+- Tag `vX.Y`; run `tools/release.sh <version>`. The script generates release tarballs with all 8 4K wallpapers (dark + light + dynamic Day/Night XML), the Shell/GTK builds, and the modular tweaks engine.
 - Release notes are written for end users: what looks different, what got smoother, what was fixed — no internal identifiers.
 
 ## Repo rules

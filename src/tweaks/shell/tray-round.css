@@ -1,0 +1,18 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GNOME Shell tweak: rounded modern island top panel (16px radius) */
+
+#panelBox {
+  padding: 6px 14px 0 14px;
+}
+
+#panelBox #panel,
+#panel {
+  border-radius: 16px !important;
+  border: 1px solid rgba(44, 62, 68, 0.75);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+#panelBox #panel:overview,
+#panel:overview {
+  border-radius: 16px !important;
+}
