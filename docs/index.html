@@ -116,6 +116,27 @@
       color: var(--text-primary);
       transform: translateY(-1px);
     }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-action:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
     /* Hero Section */
     .hero {
       position: relative;
@@ -624,6 +645,14 @@
         <div class="icon-card"><img src="assets/icons/telegram.svg" alt="Telegram"><span class="icon-name">Telegram</span></div>
         <div class="icon-card"><img src="assets/icons/signal.svg" alt="Signal"><span class="icon-name">Signal</span></div>
       </div>
+
+      <div style="margin-top: 36px; text-align: center;">
+        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz" class="btn-action">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Standalone Icons &amp; Cursors (1.6 MB .tar.xz)
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 10px;">Includes MT-Verdant-Icons, MT-Verdant-Cursors, and an automated installer for any Linux desktop.</p>
+      </div>
     </section>
 
     <!-- Wallpapers Gallery -->
@@ -718,6 +747,14 @@ cd mt-verdant-nocturne
 
 # Compact high-density mode without blur (laptops & low-GPU):
 ./install.sh --size compact --no-blur</pre>
+        </div>
+
+        <h3 style="margin-top: 24px;">4. Standalone Icon &amp; Cursor Pack (Any Linux Desktop)</h3>
+        <p style="color: var(--text-secondary); margin-top: 6px;">For users wanting only MT-Verdant-Icons on GNOME, KDE Plasma, XFCE, Cinnamon, Sway, or Hyprland:</p>
+        <div class="code-block">
+          <pre># Download &amp; install the standalone icon suite
+curl -sSLO https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz
+tar -xf mt-verdant-icons-v0.2.0.tar.xz &amp;&amp; cd mt-verdant-icons-v0.2.0 &amp;&amp; ./install.sh</pre>
         </div>
       </div>
     </section>

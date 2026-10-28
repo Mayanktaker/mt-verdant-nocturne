@@ -44,5 +44,12 @@ cp "${REPO_ROOT}/README.md" "${REPO_ROOT}/LICENSES/GPL-3.0.txt" "${REPO_ROOT}/LI
 
 mkdir -p "${REPO_ROOT}/dist"
 tar -C "${REPO_ROOT}/dist" -cJf "${TARBALL}" "mt-verdant-nocturne-v${VERSION}"
-echo "release ready: ${TARBALL}"
-echo "attach to: git tag v${VERSION} && gh release create v${VERSION} ${TARBALL} wallpaper/dist/mt-verdant-nocturne-3840x2160.png wallpaper/dist/light/mt-verdant-canopy-dawn-3840x2160.png"
+rm -rf "${DIST}"
+
+# assemble standalone icon pack tarball
+bash "${REPO_ROOT}/tools/icons/package.sh" "${VERSION}"
+
+echo "release ready:"
+echo "  - Theme bundle: ${TARBALL}"
+echo "  - Standalone icons: ${REPO_ROOT}/dist/mt-verdant-icons-v${VERSION}.tar.xz"
+echo "attach to: git tag v${VERSION} && gh release create v${VERSION} ${TARBALL} ${REPO_ROOT}/dist/mt-verdant-icons-v${VERSION}.tar.xz wallpaper/dist/mt-verdant-canopy-3840x2160.png wallpaper/dist/light/mt-verdant-canopy-dawn-3840x2160.png"

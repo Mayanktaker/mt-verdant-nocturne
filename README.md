@@ -64,6 +64,7 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
     - **Gaming & Media:** Steam, Lutris, Heroic Games Launcher, RetroArch, VLC, MPV, Spotify.
     - **DevOps, Utilities & Hardware:** Docker, Postman, Wireshark, DBeaver, D-Feet, CCTV Surveillance, GParted, Disks, and complete Adwaita symbolic action icons.
   - `MT-Verdant-Cursors`: Obsidian dark pointers with sage glowing tips.
+  - 📦 **Standalone Icon & Cursor Release Asset:** Prefer just the icons on any Linux desktop (GNOME, KDE Plasma, XFCE, Cinnamon, Hyprland)? Download [mt-verdant-icons-v0.2.0.tar.xz](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz) directly.
 - **Universal Application Support**: Ready-to-use color schemes for Kitty, Ghostty, Alacritty, Foot, GNOME Terminal, Fish Shell, Kate/KWrite, GNOME Text Editor, KDE Plasma, Fastfetch, GRUB bootloader, and Plymouth.
 
 ---
@@ -123,6 +124,20 @@ cd mt-verdant-nocturne
 
 # 8. Scripting & Automation (Non-interactive mode):
 ./install.sh --non-interactive --panel round-island --controls standard --icons --gtk4-libadwaita
+```
+
+### Standalone Icon & Cursor Suite Installation (Any Linux Desktop)
+
+If you only want the **MT-Verdant-Icons** and **MT-Verdant-Cursors** packs on any desktop environment (GNOME, KDE Plasma, XFCE, Cinnamon, Sway, Hyprland) without the full theme:
+
+```sh
+# Download and extract the standalone icon archive
+curl -sSLO https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz
+tar -xf mt-verdant-icons-v0.2.0.tar.xz
+cd mt-verdant-icons-v0.2.0
+
+# Run dedicated standalone installer
+./install.sh
 ```
 
 ---
