@@ -215,16 +215,11 @@ SYMBOLIC_ICONS = {
 </svg>''',
 
     "network-server-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="2" y="2" width="12" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <rect x="2" y="9" width="12" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <circle cx="4.5" cy="4.5" r="0.75" fill="currentColor"/>
-  <circle cx="4.5" cy="11.5" r="0.75" fill="currentColor"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 3 2 C 1.9 2 1 2.9 1 4 L 1 7 C 1 8.1 1.9 9 3 9 L 13 9 C 14.1 9 15 8.1 15 7 L 15 4 C 15 2.9 14.1 2 13 2 Z M 3 3.5 L 13 3.5 C 13.3 3.5 13.5 3.7 13.5 4 L 13.5 7 C 13.5 7.3 13.3 7.5 13 7.5 L 3 7.5 C 2.7 7.5 2.5 7.3 2.5 7 L 2.5 4 C 2.5 3.7 2.7 3.5 3 3.5 Z M 4 5 L 6 5 L 6 6 L 4 6 Z M 12 5.5 C 12 5.8 11.8 6 11.5 6 C 11.2 6 11 5.8 11 5.5 C 11 5.2 11.2 5 11.5 5 C 11.8 5 12 5.2 12 5.5 Z M 3 9.5 C 1.9 9.5 1 10.4 1 11.5 L 1 14.5 C 1 15.6 1.9 16.5 3 16.5 L 13 16.5 C 14.1 16.5 15 15.6 15 14.5 L 15 11.5 C 15 10.4 14.1 9.5 13 9.5 Z M 3 11 L 13 11 C 13.3 11 13.5 11.2 13.5 11.5 L 13.5 14.5 C 13.5 14.8 13.3 15 13 15 L 3 15 C 2.7 15 2.5 14.8 2.5 14.5 L 2.5 11.5 C 2.5 11.2 2.7 11 3 11 Z M 4 12.5 L 6 12.5 L 6 13.5 L 4 13.5 Z M 12 13 C 12 13.3 11.8 13.5 11.5 13.5 C 11.2 13.5 11 13.3 11 13 C 11 12.7 11.2 12.5 11.5 12.5 C 11.8 12.5 12 12.7 12 13 Z"/>
 </svg>''',
 
     "folder-remote-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <ellipse cx="8" cy="8" rx="2.5" ry="6" fill="none" stroke="currentColor" stroke-width="1"/>
-  <line x1="2" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1.2"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.13 1 1 4.13 1 8 C 1 11.87 4.13 15 8 15 C 11.87 15 15 11.87 15 8 C 15 4.13 11.87 1 8 1 Z M 8 2.5 C 11.04 2.5 13.5 4.96 13.5 8 C 13.5 11.04 11.04 13.5 8 13.5 C 4.96 13.5 2.5 11.04 2.5 8 C 2.5 4.96 4.96 2.5 8 2.5 Z M 8 2.5 C 9.5 4 10.5 5.8 10.5 8 C 10.5 10.2 9.5 12 8 13.5 C 6.5 12 5.5 10.2 5.5 8 C 5.5 5.8 6.5 4 8 2.5 Z M 2.5 8 L 13.5 8 L 13.5 9.2 L 2.5 9.2 Z"/>
 </svg>''',
 
     "user-home-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -232,8 +227,15 @@ SYMBOLIC_ICONS = {
 </svg>''',
 
     "document-open-recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <polyline points="8,4.5 8,8 10.5,9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.13 1 1 4.13 1 8 C 1 11.87 4.13 15 8 15 C 11.87 15 15 11.87 15 8 C 15 4.13 11.87 1 8 1 Z M 8 2.5 C 11.04 2.5 13.5 4.96 13.5 8 C 13.5 11.04 11.04 13.5 8 13.5 C 4.96 13.5 2.5 11.04 2.5 8 C 2.5 4.96 4.96 2.5 8 2.5 Z M 7.2 4 L 8.8 4 L 8.8 7.5 L 11.5 9.2 L 10.7 10.5 L 7.2 8.3 Z"/>
+</svg>''',
+
+    "recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.13 1 1 4.13 1 8 C 1 11.87 4.13 15 8 15 C 11.87 15 15 11.87 15 8 C 15 4.13 11.87 1 8 1 Z M 8 2.5 C 11.04 2.5 13.5 4.96 13.5 8 C 13.5 11.04 11.04 13.5 8 13.5 C 4.96 13.5 2.5 11.04 2.5 8 C 2.5 4.96 4.96 2.5 8 2.5 Z M 7.2 4 L 8.8 4 L 8.8 7.5 L 11.5 9.2 L 10.7 10.5 L 7.2 8.3 Z"/>
+</svg>''',
+
+    "folder-recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.13 1 1 4.13 1 8 C 1 11.87 4.13 15 8 15 C 11.87 15 15 11.87 15 8 C 15 4.13 11.87 1 8 1 Z M 8 2.5 C 11.04 2.5 13.5 4.96 13.5 8 C 13.5 11.04 11.04 13.5 8 13.5 C 4.96 13.5 2.5 11.04 2.5 8 C 2.5 4.96 4.96 2.5 8 2.5 Z M 7.2 4 L 8.8 4 L 8.8 7.5 L 11.5 9.2 L 10.7 10.5 L 7.2 8.3 Z"/>
 </svg>''',
 
     "starred-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -244,12 +246,6 @@ SYMBOLIC_ICONS = {
   <path fill="currentColor" d="M 3 4 L 13 4 L 11.5 14 L 4.5 14 Z M 5 2 L 11 2 L 12 3 L 4 3 Z"/>
 </svg>''',
 
-    "drive-harddisk-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="2" y="3" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <circle cx="11.5" cy="10.5" r="1" fill="currentColor"/>
-  <line x1="4" y1="10.5" x2="8" y2="10.5" stroke="currentColor" stroke-width="1.2"/>
-</svg>''',
-
     "settings-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <path fill="currentColor" class="ColorScheme-Text" d="M 7 1 L 9 1 L 9.3 2.7 C 9.8 2.9 10.3 3.2 10.7 3.6 L 12.3 2.9 L 13.7 4.3 L 13 5.9 C 13.4 6.3 13.7 6.8 13.9 7.3 L 15.6 7.6 L 15.6 9.6 L 13.9 9.9 C 13.7 10.4 13.4 10.9 13 11.3 L 13.7 12.9 L 12.3 14.3 L 10.7 13.6 C 10.3 14 9.8 14.3 9.3 14.5 L 9 16.2 L 7 16.2 L 6.7 14.5 C 6.2 14.3 5.7 14 5.3 13.6 L 3.7 14.3 L 2.3 12.9 L 3 11.3 C 2.6 10.9 2.3 10.4 2.1 9.9 L 0.4 9.6 L 0.4 7.6 L 2.1 7.3 C 2.3 6.8 2.6 6.3 3 5.9 L 2.3 4.3 L 3.7 2.9 L 5.3 3.6 C 5.7 3.2 6.2 2.9 6.7 2.7 Z M 8 5.5 A 2.5 2.5 0 1 0 8 10.5 A 2.5 2.5 0 1 0 8 5.5 Z"/>
 </svg>''',
@@ -258,47 +254,69 @@ SYMBOLIC_ICONS = {
   <path fill="currentColor" class="ColorScheme-Text" d="M 6 2 C 6 2.5 6.5 3 7 3 C 7.5 3 8 2.5 8 2 C 8 1.5 7.5 1 7 1 C 6.5 1 6 1.5 6 2 Z M 5 3 L 5 5 L 3 5 C 2.5 5 2 5.5 2 6 C 2 6.5 2.5 7 3 7 C 3.5 7 4 6.5 4 6 L 4 5 L 5 5 L 5 8 C 5 8.55 5.45 9 6 9 L 7 9 L 7 10 C 7 10.5 7.5 11 8 11 C 8.5 11 9 10.5 9 10 L 9 9 L 11 9 C 11.55 9 12 8.55 12 8 L 12 6 C 12 5.5 12.5 5 13 5 C 13.5 5 14 5.5 14 6 C 14 6.5 13.5 7 13 7 L 13 8 C 13 9.66 11.66 11 10 11 L 10 13 C 10 13.55 9.55 14 9 14 L 5 14 C 3.9 14 3 13.1 3 12 L 3 10 C 2.45 10 2 9.55 2 9 L 2 5 C 2 3.9 2.9 3 4 3 Z"/>
 </svg>''',
 
-    "recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <polyline points="8,4.5 8,8 10.5,9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    # Botanical Compound-Path Storage Drives Suite (prevents solid-fill bug in GTK)
+    "drive-harddisk-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 8 3 C 10.49 3 12.5 5.01 12.5 7.5 C 12.5 9.99 10.49 12 8 12 C 5.51 12 3.5 9.99 3.5 7.5 C 3.5 5.01 5.51 3 8 3 Z M 8 6 C 7.17 6 6.5 6.67 6.5 7.5 C 6.5 8.33 7.17 9 8 9 C 8.83 9 9.5 8.33 9.5 7.5 C 9.5 6.67 8.83 6 8 6 Z M 4 12.5 L 12 12.5 L 12 13 L 4 13 Z"/>
 </svg>''',
 
-    "folder-recent-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <polyline points="8,4.5 8,8 10.5,9.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    "drive-harddisk-solidstate-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 5.5 4.5 L 10.5 4.5 C 11.05 4.5 11.5 4.95 11.5 5.5 L 11.5 9.5 C 11.5 10.05 11.05 10.5 10.5 10.5 L 5.5 10.5 C 4.95 10.5 4.5 10.05 4.5 9.5 L 4.5 5.5 C 4.5 4.95 4.95 4.5 5.5 4.5 Z M 6.5 6 L 9.5 6 L 9.5 9 L 6.5 9 Z M 6 3.5 L 7 3.5 L 7 4.5 L 6 4.5 Z M 9 3.5 L 10 3.5 L 10 4.5 L 9 4.5 Z M 6 10.5 L 7 10.5 L 7 11.5 L 6 11.5 Z M 9 10.5 L 10 10.5 L 10 11.5 L 9 11.5 Z M 4 12.5 L 12 12.5 L 12 13 L 4 13 Z"/>
+</svg>''',
+
+    "drive-harddisk-usb-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 6 0 L 10 0 L 10 2 L 12 2 C 13.65 2 15 3.35 15 5 L 15 13 C 15 14.65 13.65 16 12 16 L 4 16 C 2.35 16 1 14.65 1 13 L 1 5 C 1 3.35 2.35 2 4 2 L 6 2 Z M 7 1 L 7 2 L 9 2 L 9 1 Z M 4 3.5 C 3.17 3.5 2.5 4.17 2.5 5 L 2.5 13 C 2.5 13.83 3.17 14.5 4 14.5 L 12 14.5 C 12.83 14.5 13.5 13.83 13.5 13 L 13.5 5 C 13.5 4.17 12.83 3.5 12 3.5 Z M 8 4.5 C 5.79 4.5 4 6.29 4 8.5 C 4 10.71 5.79 12.5 8 12.5 C 10.21 12.5 12 10.71 12 8.5 C 12 6.29 10.21 4.5 8 4.5 Z M 8 6.5 C 9.1 6.5 10 7.4 10 8.5 C 10 9.6 9.1 10.5 8 10.5 C 6.9 10.5 6 9.6 6 8.5 C 6 7.4 6.9 6.5 8 6.5 Z"/>
 </svg>''',
 
     "drive-harddisk-root-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="2" y="3" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <circle cx="11.5" cy="10.5" r="1" fill="currentColor"/>
-  <line x1="4" y1="10.5" x2="8" y2="10.5" stroke="currentColor" stroke-width="1.2"/>
-  <line x1="7" y1="4.5" x2="5" y2="8.5" stroke="currentColor" stroke-width="1.2"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 8 3 C 10.49 3 12.5 5.01 12.5 7.5 C 12.5 9.99 10.49 12 8 12 C 5.51 12 3.5 9.99 3.5 7.5 C 3.5 5.01 5.51 3 8 3 Z M 8 6 C 7.17 6 6.5 6.67 6.5 7.5 C 6.5 8.33 7.17 9 8 9 C 8.83 9 9.5 8.33 9.5 7.5 C 9.5 6.67 8.83 6 8 6 Z M 4 12.5 L 7 12.5 L 7 13 L 4 13 Z M 10.5 11.5 L 9 13.5 L 10 13.5 L 11.5 11.5 Z"/>
+</svg>''',
+
+    "drive-harddisk-system-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 8 3 C 10.49 3 12.5 5.01 12.5 7.5 C 12.5 9.99 10.49 12 8 12 C 5.51 12 3.5 9.99 3.5 7.5 C 3.5 5.01 5.51 3 8 3 Z M 8 6 C 7.17 6 6.5 6.67 6.5 7.5 C 6.5 8.33 7.17 9 8 9 C 8.83 9 9.5 8.33 9.5 7.5 C 9.5 6.67 8.83 6 8 6 Z M 4 12.5 L 7 12.5 L 7 13 L 4 13 Z M 10.5 11.5 L 9 13.5 L 10 13.5 L 11.5 11.5 Z"/>
+</svg>''',
+
+    "drive-harddisk-ieee1394-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 6 0 L 10 0 L 10 2 L 12 2 C 13.65 2 15 3.35 15 5 L 15 13 C 15 14.65 13.65 16 12 16 L 4 16 C 2.35 16 1 14.65 1 13 L 1 5 C 1 3.35 2.35 2 4 2 L 6 2 Z M 7 1 L 7 2 L 9 2 L 9 1 Z M 4 3.5 C 3.17 3.5 2.5 4.17 2.5 5 L 2.5 13 C 2.5 13.83 3.17 14.5 4 14.5 L 12 14.5 C 12.83 14.5 13.5 13.83 13.5 13 L 13.5 5 C 13.5 4.17 12.83 3.5 12 3.5 Z M 8 4.5 C 5.79 4.5 4 6.29 4 8.5 C 4 10.71 5.79 12.5 8 12.5 C 10.21 12.5 12 10.71 12 8.5 C 12 6.29 10.21 4.5 8 4.5 Z M 8 6.5 C 9.1 6.5 10 7.4 10 8.5 C 10 9.6 9.1 10.5 8 10.5 C 6.9 10.5 6 9.6 6 8.5 C 6 7.4 6.9 6.5 8 6.5 Z"/>
 </svg>''',
 
     "drive-partition-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="2" y="3" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 1"/>
-  <circle cx="5" cy="10.5" r="0.8" fill="currentColor"/>
-  <circle cx="11" cy="10.5" r="0.8" fill="currentColor"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 7 2.5 L 7 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 9 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 9 13.5 Z M 4 4 L 5.5 4 L 5.5 5.5 L 4 5.5 Z M 10.5 4 L 12 4 L 12 5.5 L 10.5 5.5 Z M 4 10.5 L 5.5 10.5 L 5.5 12 L 4 12 Z M 10.5 10.5 L 12 10.5 L 12 12 L 10.5 12 Z"/>
+</svg>''',
+
+    "drive-multidisk-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 0 C 2.35 0 1 1.35 1 3 L 1 7 C 1 8.65 2.35 10 4 10 L 9 10 C 10.65 10 12 8.65 12 7 L 12 3 C 12 1.35 10.65 0 9 0 Z M 4 1.5 L 9 1.5 C 9.83 1.5 10.5 2.17 10.5 3 L 10.5 7 C 10.5 7.83 9.83 8.5 9 8.5 L 4 8.5 C 3.17 8.5 2.5 7.83 2.5 7 L 2.5 3 C 2.5 2.17 3.17 1.5 4 1.5 Z M 6.5 2.5 C 5.12 2.5 4 3.62 4 5 C 4 6.38 5.12 7.5 6.5 7.5 C 7.88 7.5 9 6.38 9 5 C 9 3.62 7.88 2.5 6.5 2.5 Z M 13 4.2 L 13 13 C 13 13.83 12.33 14.5 11.5 14.5 L 4 14.5 C 3.5 14.5 3 14.2 2.7 13.8 C 2.3 15.1 3.5 16 4.5 16 L 12 16 C 13.65 16 15 14.65 15 13 L 15 6 C 15 4.8 14.1 4.3 13 4.2 Z"/>
+</svg>''',
+
+    "drive-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 4 1 L 12 1 C 13.65 1 15 2.35 15 4 L 15 12 C 15 13.65 13.65 15 12 15 L 4 15 C 2.35 15 1 13.65 1 12 L 1 4 C 1 2.35 2.35 1 4 1 Z M 4 2.5 L 12 2.5 C 12.83 2.5 13.5 3.17 13.5 4 L 13.5 12 C 13.5 12.83 12.83 13.5 12 13.5 L 4 13.5 C 3.17 13.5 2.5 12.83 2.5 12 L 2.5 4 C 2.5 3.17 3.17 2.5 4 2.5 Z M 8 3 C 10.49 3 12.5 5.01 12.5 7.5 C 12.5 9.99 10.49 12 8 12 C 5.51 12 3.5 9.99 3.5 7.5 C 3.5 5.01 5.51 3 8 3 Z M 8 6 C 7.17 6 6.5 6.67 6.5 7.5 C 6.5 8.33 7.17 9 8 9 C 8.83 9 9.5 8.33 9.5 7.5 C 9.5 6.67 8.83 6 8 6 Z M 4 12.5 L 12 12.5 L 12 13 L 4 13 Z"/>
+</svg>''',
+
+    "drive-removable-media-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 5 0 L 11 0 L 11 4 L 5 4 Z M 6 1 L 7 1 L 7 2 L 6 2 Z M 9 1 L 10 1 L 10 2 L 9 2 Z M 4 5 C 2.35 5 1 6.35 1 8 L 1 13 C 1 14.65 2.35 16 4 16 L 12 16 C 13.65 16 15 14.65 15 13 L 15 8 C 15 6.35 13.65 5 12 5 Z M 4 6.5 L 12 6.5 C 12.83 6.5 13.5 7.17 13.5 8 L 13.5 13 C 13.5 13.83 12.83 14.5 12 14.5 L 4 14.5 C 3.17 14.5 2.5 13.83 2.5 13 L 2.5 8 C 2.5 7.17 3.17 6.5 4 6.5 Z M 8 9 C 7.17 9 6.5 9.67 6.5 10.5 C 6.5 11.33 7.17 12 8 12 C 8.83 12 9.5 11.33 9.5 10.5 C 9.5 9.67 8.83 9 8 9 Z"/>
 </svg>''',
 
     "drive-removable-media-usb-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect x="5" y="6" width="6" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <rect x="6" y="2" width="4" height="4" fill="none" stroke="currentColor" stroke-width="1.2"/>
-  <circle cx="8" cy="10" r="1" fill="currentColor"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 5 0 L 11 0 L 11 4 L 5 4 Z M 6 1 L 7 1 L 7 2 L 6 2 Z M 9 1 L 10 1 L 10 2 L 9 2 Z M 4 5 C 2.35 5 1 6.35 1 8 L 1 13 C 1 14.65 2.35 16 4 16 L 12 16 C 13.65 16 15 14.65 15 13 L 15 8 C 15 6.35 13.65 5 12 5 Z M 4 6.5 L 12 6.5 C 12.83 6.5 13.5 7.17 13.5 8 L 13.5 13 C 13.5 13.83 12.83 14.5 12 14.5 L 4 14.5 C 3.17 14.5 2.5 13.83 2.5 13 L 2.5 8 C 2.5 7.17 3.17 6.5 4 6.5 Z M 8 9 C 7.17 9 6.5 9.67 6.5 10.5 C 6.5 11.33 7.17 12 8 12 C 8.83 12 9.5 11.33 9.5 10.5 C 9.5 9.67 8.83 9 8 9 Z"/>
+</svg>''',
+
+    "media-flash-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 5 1 C 3.35 1 2 2.35 2 4 L 2 13 C 2 14.65 3.35 16 5 16 L 11 16 C 12.65 16 14 14.65 14 13 L 14 4 C 14 3.73 13.89 3.48 13.7 3.29 L 11.7 1.29 C 11.52 1.11 11.27 1 11 1 Z M 5 2.5 L 10.5 2.5 L 12.5 4.5 L 12.5 13 C 12.5 13.83 11.83 14.5 11 14.5 L 5 14.5 C 4.17 14.5 3.5 13.83 3.5 13 L 3.5 4 C 3.5 3.17 4.17 2.5 5 2.5 Z M 5 4 L 6 4 L 6 7 L 5 7 Z M 7 4 L 8 4 L 8 7 L 7 7 Z M 9 4 L 10 4 L 10 7 L 9 7 Z M 11 5 L 11.5 5 L 11.5 7 L 11 7 Z"/>
 </svg>''',
 
     "media-memory-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <path d="M 4 2 L 10 2 L 12 4 L 12 14 L 4 14 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <line x1="6" y1="4" x2="6" y2="6" stroke="currentColor" stroke-width="1.2"/>
-  <line x1="8" y1="4" x2="8" y2="6" stroke="currentColor" stroke-width="1.2"/>
-  <line x1="10" y1="5" x2="10" y2="6" stroke="currentColor" stroke-width="1.2"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 5 1 C 3.35 1 2 2.35 2 4 L 2 13 C 2 14.65 3.35 16 5 16 L 11 16 C 12.65 16 14 14.65 14 13 L 14 4 C 14 3.73 13.89 3.48 13.7 3.29 L 11.7 1.29 C 11.52 1.11 11.27 1 11 1 Z M 5 2.5 L 10.5 2.5 L 12.5 4.5 L 12.5 13 C 12.5 13.83 11.83 14.5 11 14.5 L 5 14.5 C 4.17 14.5 3.5 13.83 3.5 13 L 3.5 4 C 3.5 3.17 4.17 2.5 5 2.5 Z M 5 4 L 6 4 L 6 7 L 5 7 Z M 7 4 L 8 4 L 8 7 L 7 7 Z M 9 4 L 10 4 L 10 7 L 9 7 Z M 11 5 L 11.5 5 L 11.5 7 L 11 7 Z"/>
+</svg>''',
+
+    "media-optical-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.13 1 1 4.13 1 8 C 1 11.87 4.13 15 8 15 C 11.87 15 15 11.87 15 8 C 15 4.13 11.87 1 8 1 Z M 8 2.5 C 11.04 2.5 13.5 4.96 13.5 8 C 13.5 11.04 11.04 13.5 8 13.5 C 4.96 13.5 2.5 11.04 2.5 8 C 2.5 4.96 4.96 2.5 8 2.5 Z M 8 5.5 C 6.62 5.5 5.5 6.62 5.5 8 C 5.5 9.38 6.62 10.5 8 10.5 C 9.38 10.5 10.5 9.38 10.5 8 C 10.5 6.62 9.38 5.5 8 5.5 Z M 8 7 C 7.45 7 7 7.45 7 8 C 7 8.55 7.45 9 8 9 C 8.55 9 9 8.55 9 8 C 9 7.45 8.55 7 8 7 Z"/>
+</svg>''',
+
+    "media-removable-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 5 0 L 11 0 L 11 4 L 5 4 Z M 6 1 L 7 1 L 7 2 L 6 2 Z M 9 1 L 10 1 L 10 2 L 9 2 Z M 4 5 C 2.35 5 1 6.35 1 8 L 1 13 C 1 14.65 2.35 16 4 16 L 12 16 C 13.65 16 15 14.65 15 13 L 15 8 C 15 6.35 13.65 5 12 5 Z M 4 6.5 L 12 6.5 C 12.83 6.5 13.5 7.17 13.5 8 L 13.5 13 C 13.5 13.83 12.83 14.5 12 14.5 L 4 14.5 C 3.17 14.5 2.5 13.83 2.5 13 L 2.5 8 C 2.5 7.17 3.17 6.5 4 6.5 Z M 8 9 C 7.17 9 6.5 9.67 6.5 10.5 C 6.5 11.33 7.17 12 8 12 C 8.83 12 9.5 11.33 9.5 10.5 C 9.5 9.67 8.83 9 8 9 Z"/>
 </svg>''',
 
     "server-database-symbolic": '''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <ellipse cx="8" cy="4" rx="5" ry="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <path d="M 3 4 L 3 8 C 3 9.1 5.2 10 8 10 C 10.8 10 13 9.1 13 8 L 13 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-  <path d="M 3 8 L 3 12 C 3 13.1 5.2 14 8 14 C 10.8 14 13 13.1 13 12 L 13 8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <path fill="currentColor" class="ColorScheme-Text" fill-rule="evenodd" d="M 8 1 C 4.69 1 2 2.12 2 3.5 C 2 4.88 4.69 6 8 6 C 11.31 6 14 4.88 14 3.5 C 14 2.12 11.31 1 8 1 Z M 8 2.2 C 10.5 2.2 12.5 3 12.5 3.5 C 12.5 4 10.5 4.8 8 4.8 C 5.5 4.8 3.5 4 3.5 3.5 C 3.5 3 5.5 2.2 8 2.2 Z M 2 5 L 2 8 C 2 9.38 4.69 10.5 8 10.5 C 11.31 10.5 14 9.38 14 8 L 14 5 C 13.6 5.8 11.5 6.8 8 6.8 C 4.5 6.8 2.4 5.8 2 5 Z M 2 9.5 L 2 12.5 C 2 13.88 4.69 15 8 15 C 11.31 15 14 13.88 14 12.5 L 14 9.5 C 13.6 10.3 11.5 11.3 8 11.3 C 4.5 11.3 2.4 10.3 2 9.5 Z"/>
 </svg>''',
 
     # Fixes GNOME Settings Software Updates row (Left icon)
@@ -828,11 +846,113 @@ MIME_ICONS = {
 ''' + SVG_FOOTER,
 }
 
+# =========================================================================
+# Hardware Storage Devices Suite (64x64 Color SVGs with botanical styling)
+# =========================================================================
+
+DEVICE_ICONS = {
+    "drive-harddisk": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="6" width="48" height="52" rx="8" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="12" y="10" width="40" height="44" rx="5" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <circle cx="32" cy="30" r="17" fill="#13262D" stroke="#8FB8A6" stroke-width="2"/>
+  <circle cx="32" cy="30" r="6" fill="#1B353D" stroke="#3DD68C" stroke-width="2"/>
+  <circle cx="32" cy="30" r="2" fill="#3DD68C"/>
+  <path d="M 44 19 L 34 28" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="44" cy="18" r="2.5" fill="#8FB8A6"/>
+  <circle cx="14" cy="12" r="1.5" fill="#2E555F"/>
+  <circle cx="50" cy="12" r="1.5" fill="#2E555F"/>
+  <circle cx="14" cy="52" r="1.5" fill="#2E555F"/>
+  <circle cx="50" cy="52" r="1.5" fill="#2E555F"/>
+  <rect x="20" y="47" width="24" height="4" rx="2" fill="#24444D"/>
+  <circle cx="40" cy="49" r="1" fill="#3DD68C"/>
+</svg>''',
+
+    "drive-harddisk-solidstate": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="6" width="48" height="52" rx="8" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="12" y="10" width="40" height="44" rx="5" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <rect x="22" y="18" width="20" height="20" rx="3" fill="#13262D" stroke="#3DD68C" stroke-width="2"/>
+  <rect x="27" y="23" width="10" height="10" rx="1.5" fill="#24444D"/>
+  <line x1="26" y1="14" x2="26" y2="18" stroke="#8FB8A6" stroke-width="1.5"/>
+  <line x1="32" y1="14" x2="32" y2="18" stroke="#8FB8A6" stroke-width="1.5"/>
+  <line x1="38" y1="14" x2="38" y2="18" stroke="#8FB8A6" stroke-width="1.5"/>
+  <line x1="26" y1="38" x2="26" y2="42" stroke="#8FB8A6" stroke-width="1.5"/>
+  <line x1="32" y1="38" x2="32" y2="42" stroke="#8FB8A6" stroke-width="1.5"/>
+  <line x1="38" y1="38" x2="38" y2="42" stroke="#8FB8A6" stroke-width="1.5"/>
+  <rect x="18" y="46" width="28" height="5" rx="1" fill="#24444D" stroke="#8FB8A6" stroke-width="1"/>
+  <line x1="22" y1="46" x2="22" y2="51" stroke="#3DD68C" stroke-width="1.5"/>
+  <line x1="26" y1="46" x2="26" y2="51" stroke="#3DD68C" stroke-width="1.5"/>
+  <line x1="30" y1="46" x2="30" y2="51" stroke="#3DD68C" stroke-width="1.5"/>
+</svg>''',
+
+    "drive-harddisk-usb": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="8" width="44" height="50" rx="9" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="14" y="12" width="36" height="42" rx="6" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <line x1="12" y1="20" x2="12" y2="46" stroke="#3DD68C" stroke-width="3" stroke-linecap="round"/>
+  <line x1="52" y1="20" x2="52" y2="46" stroke="#3DD68C" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="28" r="8" fill="#13262D" stroke="#8FB8A6" stroke-width="1.5"/>
+  <rect x="28" y="3" width="8" height="6" rx="1" fill="#2E555F" stroke="#8FB8A6" stroke-width="1"/>
+  <line x1="30" y1="5" x2="30" y2="7" stroke="#3DD68C" stroke-width="1"/>
+  <line x1="34" y1="5" x2="34" y2="7" stroke="#3DD68C" stroke-width="1"/>
+  <circle cx="32" cy="46" r="2" fill="#3DD68C"/>
+</svg>''',
+
+    "drive-harddisk-root": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="6" width="48" height="52" rx="8" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="12" y="10" width="40" height="44" rx="5" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <circle cx="32" cy="30" r="17" fill="#13262D" stroke="#8FB8A6" stroke-width="2"/>
+  <circle cx="32" cy="30" r="6" fill="#1B353D" stroke="#3DD68C" stroke-width="2"/>
+  <circle cx="32" cy="30" r="2" fill="#3DD68C"/>
+  <path d="M 44 19 L 34 28" stroke="#3DD68C" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="44" cy="18" r="2.5" fill="#8FB8A6"/>
+  <circle cx="46" cy="46" r="10" fill="#13262D" stroke="#3DD68C" stroke-width="2"/>
+  <line x1="49" y1="40" x2="43" y2="52" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
+</svg>''',
+
+    "drive-partition": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="6" width="48" height="52" rx="8" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="12" y="10" width="18" height="44" rx="4" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <rect x="34" y="10" width="18" height="44" rx="4" fill="#1B353D" stroke="#24444D" stroke-width="1"/>
+  <circle cx="21" cy="20" r="4" fill="#3DD68C"/>
+  <circle cx="43" cy="20" r="4" fill="#8FB8A6"/>
+  <rect x="16" y="30" width="10" height="18" rx="2" fill="#13262D"/>
+  <rect x="38" y="30" width="10" height="18" rx="2" fill="#13262D"/>
+</svg>''',
+
+    "drive-multidisk": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="6" width="44" height="22" rx="5" fill="#13262D" stroke="#2E555F" stroke-width="1.5"/>
+  <rect x="14" y="10" width="36" height="14" rx="3" fill="#1B353D"/>
+  <circle cx="20" cy="17" r="3" fill="#3DD68C"/>
+  <rect x="28" y="15" width="18" height="4" rx="2" fill="#2E555F"/>
+  <rect x="10" y="34" width="44" height="22" rx="5" fill="#13262D" stroke="#2E555F" stroke-width="1.5"/>
+  <rect x="14" y="38" width="36" height="14" rx="3" fill="#1B353D"/>
+  <circle cx="20" cy="45" r="3" fill="#3DD68C"/>
+  <rect x="28" y="43" width="18" height="4" rx="2" fill="#2E555F"/>
+</svg>''',
+
+    "drive-removable-media": '''<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="22" y="6" width="20" height="16" rx="2" fill="#2E555F" stroke="#8FB8A6" stroke-width="1.5"/>
+  <rect x="27" y="10" width="4" height="5" fill="#13262D"/>
+  <rect x="33" y="10" width="4" height="5" fill="#13262D"/>
+  <rect x="16" y="20" width="32" height="38" rx="8" fill="#13262D" stroke="#2E555F" stroke-width="2"/>
+  <rect x="20" y="24" width="24" height="30" rx="5" fill="#1B353D"/>
+  <circle cx="32" cy="38" r="5" fill="#3DD68C"/>
+  <circle cx="32" cy="38" r="2" fill="#13262D"/>
+</svg>'''
+}
+
+DEVICE_ALIASES = {
+    "drive": "drive-harddisk",
+    "drive-harddisk-system": "drive-harddisk-root",
+    "drive-removable-media-usb": "drive-removable-media",
+    "media-flash": "drive-removable-media",
+    "media-optical": "drive-harddisk",
+}
+
 INDEX_THEME = """[Icon Theme]
 Name=MT-Verdant-Icons
 Comment=Botanical Canopy high-definition dark green icon suite for MT Verdant Nocturne
 Inherits=Adwaita,breeze-dark,hicolor
-Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/mimetypes,48x48/places,48x48/apps,48x48/mimetypes,64x64/places,64x64/apps,64x64/mimetypes,128x128/places,128x128/apps,128x128/mimetypes
+Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/devices,32x32/mimetypes,48x48/places,48x48/apps,48x48/devices,48x48/mimetypes,64x64/places,64x64/apps,64x64/devices,64x64/mimetypes,128x128/places,128x128/apps,128x128/devices,128x128/mimetypes
 
 [scalable/places]
 Size=64
@@ -856,7 +976,7 @@ Context=Status
 Type=Scalable
 
 [scalable/devices]
-Size=16
+Size=64
 MinSize=16
 MaxSize=512
 Context=Devices
@@ -893,6 +1013,11 @@ Size=32
 Context=Applications
 Type=Fixed
 
+[32x32/devices]
+Size=32
+Context=Devices
+Type=Fixed
+
 [32x32/mimetypes]
 Size=32
 Context=MimeTypes
@@ -906,6 +1031,11 @@ Type=Fixed
 [48x48/apps]
 Size=48
 Context=Applications
+Type=Fixed
+
+[48x48/devices]
+Size=48
+Context=Devices
 Type=Fixed
 
 [48x48/mimetypes]
@@ -923,6 +1053,11 @@ Size=64
 Context=Applications
 Type=Fixed
 
+[64x64/devices]
+Size=64
+Context=Devices
+Type=Fixed
+
 [64x64/mimetypes]
 Size=64
 Context=MimeTypes
@@ -936,6 +1071,11 @@ Type=Fixed
 [128x128/apps]
 Size=128
 Context=Applications
+Type=Fixed
+
+[128x128/devices]
+Size=128
+Context=Devices
 Type=Fixed
 
 [128x128/mimetypes]
@@ -1023,17 +1163,34 @@ def build_symbolic() -> None:
             if not p_dst.exists():
                 p_dst.symlink_to(f"../status/{name}.svg")
                 
-        # Symlink to devices
+        # Write directly to devices
         if any(k in name for k in ["drive", "media", "server"]):
-            d_dst = devices_dir / f"{name}.svg"
-            if not d_dst.exists():
-                d_dst.symlink_to(f"../status/{name}.svg")
+            (devices_dir / f"{name}.svg").write_text(svg_content)
                 
         # Symlink to categories
         if any(k in name for k in ["setting", "puzzle", "system"]):
             c_dst = categories_dir / f"{name}.svg"
             if not c_dst.exists():
                 c_dst.symlink_to(f"../status/{name}.svg")
+
+    # Storage symbolic aliases
+    storage_sym_aliases = {
+        "drive-symbolic": "drive-harddisk-symbolic",
+        "drive-harddisk-system-symbolic": "drive-harddisk-root-symbolic",
+        "drive-harddisk-ieee1394-symbolic": "drive-harddisk-usb-symbolic",
+        "drive-removable-media-usb-symbolic": "drive-removable-media-symbolic",
+        "media-memory-symbolic": "media-flash-symbolic",
+        "media-removable-symbolic": "drive-removable-media-symbolic",
+        "media-optical-cd-symbolic": "media-optical-symbolic",
+        "media-optical-dvd-symbolic": "media-optical-symbolic",
+        "media-optical-bd-symbolic": "media-optical-symbolic",
+    }
+    for alias, target in storage_sym_aliases.items():
+        if target in SYMBOLIC_ICONS:
+            content = SYMBOLIC_ICONS[target]
+            (status_dir / f"{alias}.svg").write_text(content)
+            (actions_dir / f"{alias}.svg").write_text(content)
+            (devices_dir / f"{alias}.svg").write_text(content)
 
     # 2. Extract and bundle all Libadwaita internal symbolic icons
     try:
@@ -1064,6 +1221,31 @@ def build_symbolic() -> None:
             (actions_dir / ts_svg.name).write_text(ts_svg.read_text())
             (status_dir / ts_svg.name).write_text(ts_svg.read_text())
 
+def build_devices() -> None:
+    # Build hardware storage devices icons (HDD, SSD, USB external, Partition).
+    scalable_dir = OUT_DIR / "scalable" / "devices"
+    scalable_dir.mkdir(parents=True, exist_ok=True)
+
+    for name, svg_content in DEVICE_ICONS.items():
+        (scalable_dir / f"{name}.svg").write_text(svg_content)
+        for size in [32, 48, 64, 128]:
+            png_file = OUT_DIR / f"{size}x{size}" / "devices" / f"{name}.png"
+            render_svg_to_png(svg_content, png_file, size)
+
+    # Link device aliases
+    for alias, target in DEVICE_ALIASES.items():
+        svg_alias = scalable_dir / f"{alias}.svg"
+        if svg_alias.exists() or svg_alias.is_symlink():
+            svg_alias.unlink()
+        svg_alias.symlink_to(f"{target}.svg")
+
+        for size in [32, 48, 64, 128]:
+            size_dir = OUT_DIR / f"{size}x{size}" / "devices"
+            dst_png = size_dir / f"{alias}.png"
+            if dst_png.exists() or dst_png.is_symlink():
+                dst_png.unlink()
+            dst_png.symlink_to(f"{target}.png")
+
 def build_mimetypes() -> None:
     # Build MIME type document icons.
     scalable_dir = OUT_DIR / "scalable" / "mimetypes"
@@ -1088,7 +1270,10 @@ def main() -> None:
     print("Building App Icons (LibreOffice, Antigravity, Geary, Disks, Console)...")
     build_apps()
 
-    print("Building Symbolic Icons (Fixing Blur my Shell, Settings, AdwExpander)...")
+    print("Building Devices Icons (HDD, SSD, USB External, Partition, Media)...")
+    build_devices()
+
+    print("Building Symbolic Icons (Fixing Blur my Shell, Settings, Storage Drives)...")
     build_symbolic()
 
     print("Building MIME Type Icons...")

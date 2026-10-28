@@ -2,7 +2,7 @@
 Name=MT-Verdant-Icons
 Comment=Botanical Canopy high-definition dark green icon suite for MT Verdant Nocturne
 Inherits=Adwaita,breeze-dark,hicolor
-Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/mimetypes,48x48/places,48x48/apps,48x48/mimetypes,64x64/places,64x64/apps,64x64/mimetypes,128x128/places,128x128/apps,128x128/mimetypes
+Directories=scalable/places,scalable/apps,scalable/status,scalable/devices,scalable/actions,scalable/categories,scalable/mimetypes,32x32/places,32x32/apps,32x32/devices,32x32/mimetypes,48x48/places,48x48/apps,48x48/devices,48x48/mimetypes,64x64/places,64x64/apps,64x64/devices,64x64/mimetypes,128x128/places,128x128/apps,128x128/devices,128x128/mimetypes
 
 [scalable/places]
 Size=64
@@ -26,7 +26,7 @@ Context=Status
 Type=Scalable
 
 [scalable/devices]
-Size=16
+Size=64
 MinSize=16
 MaxSize=512
 Context=Devices
@@ -63,6 +63,11 @@ Size=32
 Context=Applications
 Type=Fixed
 
+[32x32/devices]
+Size=32
+Context=Devices
+Type=Fixed
+
 [32x32/mimetypes]
 Size=32
 Context=MimeTypes
@@ -76,6 +81,11 @@ Type=Fixed
 [48x48/apps]
 Size=48
 Context=Applications
+Type=Fixed
+
+[48x48/devices]
+Size=48
+Context=Devices
 Type=Fixed
 
 [48x48/mimetypes]
@@ -93,6 +103,11 @@ Size=64
 Context=Applications
 Type=Fixed
 
+[64x64/devices]
+Size=64
+Context=Devices
+Type=Fixed
+
 [64x64/mimetypes]
 Size=64
 Context=MimeTypes
@@ -106,6 +121,11 @@ Type=Fixed
 [128x128/apps]
 Size=128
 Context=Applications
+Type=Fixed
+
+[128x128/devices]
+Size=128
+Context=Devices
 Type=Fixed
 
 [128x128/mimetypes]
