@@ -1,0 +1,22 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="asBg" x1="32" y1="6" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#24444D"/>
+    <stop offset="100%" stop-color="#122329"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="14" fill="url(#asBg)" stroke="#2E555F" stroke-width="1.5"/>
+<rect x="8.5" y="8.5" width="47" height="4" rx="2" fill="#8FB8A6" fill-opacity="0.25"/>
+<!-- Android dome head -->
+<path d="M 20 34 C 20 25 25 18 32 18 C 39 18 44 25 44 34 Z" fill="#3DD68C"/>
+<!-- Antennas -->
+<line x1="24" y1="21" x2="20" y2="15" stroke="#3DD68C" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="40" y1="21" x2="44" y2="15" stroke="#3DD68C" stroke-width="2.2" stroke-linecap="round"/>
+<!-- Android Eyes -->
+<circle cx="26" cy="27" r="1.8" fill="#122329"/>
+<circle cx="38" cy="27" r="1.8" fill="#122329"/>
+<!-- Studio Compass and ruler -->
+<path d="M 20 48 L 32 32 L 44 48" stroke="#8FB8A6" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="32" cy="32" r="3.5" fill="#EDF5F1"/>
+<line x1="24" y1="43" x2="40" y2="43" stroke="#8FB8A6" stroke-width="1.8"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="agGrad" x1="16" y1="46" x2="48" y2="14" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#3DD68C"/>
+    <stop offset="50%" stop-color="#7FC8A0"/>
+    <stop offset="100%" stop-color="#8FB8A6"/>
+  </linearGradient>
+</defs>
+<rect x="6" y="6" width="52" height="52" rx="15" fill="#122329" stroke="#2E555F" stroke-width="2"/>
+<circle cx="32" cy="32" r="23" fill="#182E36" fill-opacity="0.6"/>
+<!-- Antigravity iconic smooth Gaussian bell arch -->
+<path d="M 17 45 C 21 45 25 38 28.5 25 C 30 19 32 15 32 15 C 32 15 34 19 35.5 25 C 39 38 43 45 47 45 C 48.5 45 49 43.8 48 42.5 C 43 30 36.5 13 32 13 C 27.5 13 21 30 16 42.5 C 15 43.8 15.5 45 17 45 Z" fill="url(#agGrad)"/>
+<circle cx="32" cy="22" r="3" fill="#3DD68C"/>
+</svg>

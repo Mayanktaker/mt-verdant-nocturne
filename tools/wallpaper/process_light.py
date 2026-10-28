@@ -110,7 +110,12 @@ def main() -> None:
     summary_file.write_text(json.dumps(summary, indent=2) + "\n")
 
     # Generate dynamic day/night cycle and GNOME properties XML
-    from tools.wallpaper.generate_dynamic import main as generate_dynamic_xml
+    try:
+        from tools.wallpaper.generate_dynamic import main as generate_dynamic_xml
+    except ModuleNotFoundError:
+        import sys
+        sys.path.insert(0, str(REPO_ROOT))
+        from tools.wallpaper.generate_dynamic import main as generate_dynamic_xml
     generate_dynamic_xml()
 
     print(f"Done! Light suite generated at: {DIST_LIGHT_DIR}")

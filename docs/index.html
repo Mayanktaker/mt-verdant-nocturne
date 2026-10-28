@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<!-- © Mayanktaker Computers & Web Development | https://mayanktaker.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MT Verdant Nocturne — Botanical Dark Desktop Ecosystem for Linux</title>
+  <meta name="description" content="A premium dark theme ecosystem for Linux desktops: GNOME Shell 50/51, GTK3/GTK4, Flatpak, 100+ native app icons, procedural 4K wallpapers, and terminals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0B0F14;
+      --bg-surface: #0F141B;
+      --bg-card: #16222A;
+      --bg-card-hover: #1D2D37;
+      --border: #2C3E44;
+      --border-focus: #8FB8A6;
+      --accent: #8FB8A6;
+      --accent-emerald: #3DD68C;
+      --accent-glow: rgba(143, 184, 166, 0.25);
+      --text-primary: #E9F1EC;
+      --text-secondary: #A7B8B1;
+      --text-muted: #6C827B;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 999px;
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: var(--accent-emerald);
+    }
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .brand-badge {
+      width: 14px;
+      height: 14px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--accent), var(--accent-emerald));
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+    .btn-gh {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+    .btn-gh:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(143, 184, 166, 0.12) 0%, rgba(11, 15, 20, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(143, 184, 166, 0.12);
+      border: 1px solid rgba(143, 184, 166, 0.3);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 36px;
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    /* Command bar */
+    .cmd-box {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 12px 8px 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .cmd-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: var(--accent);
+      overflow-x: auto;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .cmd-text span {
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+    .btn-copy {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    .btn-copy:hover {
+      background: var(--accent);
+      color: var(--bg-base);
+      border-color: var(--accent);
+    }
+    /* Hero Showcase Image */
+    .hero-preview {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      background: var(--bg-card);
+    }
+    .hero-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Section Shared */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* Grid 3-col */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+    .card-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .card-body p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(143, 184, 166, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(143, 184, 166, 0.2);
+    }
+    /* Ecosystem Banner */
+    .ecosystem-banner {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .ecosystem-banner img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 850px) {
+      .ecosystem-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Icon Showcase */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .icon-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 10px;
+      text-align: center;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      background: var(--bg-card);
+      box-shadow: 0 8px 20px var(--accent-glow);
+    }
+    .icon-card img {
+      width: 48px;
+      height: 48px;
+      transition: transform 0.2s ease;
+    }
+    .icon-card:hover img {
+      transform: scale(1.1);
+    }
+    .icon-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 90px;
+    }
+    /* Wallpapers Gallery */
+    .wall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .wall-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      transition: all 0.3s ease;
+    }
+    .wall-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .wall-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .wall-info {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wall-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+    .wall-res {
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Install Options */
+    .install-tabs {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+    .code-block {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin: 14px 0 24px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      margin: 0;
+    }
+    .palette-flavors {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .flavor-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .flavor-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: var(--radius-full);
+    }
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+      padding: 48px 24px 36px;
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      font-weight: 500;
+    }
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-badge"></div>
+        <span>MT Verdant Nocturne</span>
+      </a>
+      <div class="nav-links">
+        <a href="#variants">Variants</a>
+        <a href="#icons">Icons</a>
+        <a href="#wallpapers">Wallpapers</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne" target="_blank" rel="noopener" class="btn-gh">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="pill-tag">v0.2.0 Release • Botanical Canopy</div>
+      <h1>A Premium Botanical Dark<br><span>Desktop Ecosystem for Linux</span></h1>
+      <p>
+        Engineered for GNOME Shell 50/51, GTK3, GTK4 & Flatpak. Quiet charcoal-teal surfaces, glowing sage accents, 100+ native application icons, floating island status bars, and procedural 4K wallpapers.
+      </p>
+
+      <div class="cmd-box">
+        <div class="cmd-text">
+          <span>$</span>git clone https://github.com/Mayanktaker/mt-verdant-nocturne.git &amp;&amp; cd mt-verdant-nocturne &amp;&amp; ./install.sh
+        </div>
+        <button class="btn-copy" onclick="copyCommand()">Copy</button>
+      </div>
+
+      <div class="hero-preview">
+        <img src="assets/screenshots/option-a-floating-glass.png" alt="MT Verdant Nocturne Desktop Showcase" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Design Variants -->
+    <section id="variants">
+      <div class="section-header">
+        <h2>Tailored Design Profiles</h2>
+        <p>Choose between floating glass translucency, high-density OLED black, or warm tactile organic cards.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Variant A -->
+        <div class="card">
+          <img src="assets/screenshots/option-a-floating-glass.png" alt="Option A: Canopy Floating Glass" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Option A: Canopy Floating Glass</h3>
+            <p>16px curved floating island top bar, frosted glass translucency, macOS traffic light window dots, and glassmorphic quick settings.</p>
+            <div class="card-tags">
+              <span class="tag">Floating Island</span>
+              <span class="tag">Frosted Glass</span>
+              <span class="tag">macOS Dots</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variant B -->
+        <div class="card">
+          <img src="assets/screenshots/option-b-obsidian-compact.png" alt="Option B: Obsidian Pro" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Option B: Obsidian Pro</h3>
+            <p>Compact high-density spacing (36px headerbars), true OLED pitch black backgrounds (#050709), and rimless crisp borders.</p>
+            <div class="card-tags">
+              <span class="tag">OLED Black</span>
+              <span class="tag">Compact Sizing</span>
+              <span class="tag">High Density</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variant C -->
+        <div class="card">
+          <img src="assets/screenshots/option-c-nordic-organic.png" alt="Option C: Nordic Evergreen" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Option C: Nordic Evergreen</h3>
+            <p>Tactile forest surfaces, standard touch padding, warm sage cards, and clean Adwaita geometric window controls.</p>
+            <div class="card-tags">
+              <span class="tag">Organic Tactile</span>
+              <span class="tag">No-Blur Solid</span>
+              <span class="tag">Standard Adwaita</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ecosystem Banner -->
+      <div class="ecosystem-banner">
+        <div>
+          <h2>Multi-App Ecosystem</h2>
+          <p style="margin-top: 12px; color: var(--text-secondary);">
+            Every app on your desktop shares the exact same botanical color DNA. Handcrafted color presets for Ghostty, Kitty, GNOME Terminal, Kate, Fastfetch, VS Code, and GRUB bootloader.
+          </p>
+          <div style="margin-top: 24px;">
+            <a href="https://github.com/Mayanktaker/mt-verdant-nocturne/tree/main/extras" target="_blank" rel="noopener" class="btn-gh">Browse extras/ folder &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <img src="assets/screenshots/showcase-terminals-apps.png" alt="Terminals and Applications Ecosystem" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Handcrafted Icons Suite -->
+    <section id="icons">
+      <div class="section-header">
+        <h2>100+ Handcrafted Vector Icons</h2>
+        <p>Multi-stop botanical gradient folders with emerald badges and dedicated vector icons for your favorite Linux tools.</p>
+      </div>
+
+      <div class="icon-grid">
+        <div class="icon-card"><img src="assets/icons/cursor.svg" alt="Cursor"><span class="icon-name">Cursor</span></div>
+        <div class="icon-card"><img src="assets/icons/qoder.svg" alt="Qoder"><span class="icon-name">Qoder</span></div>
+        <div class="icon-card"><img src="assets/icons/claude.svg" alt="Claude"><span class="icon-name">Claude</span></div>
+        <div class="icon-card"><img src="assets/icons/code.svg" alt="VS Code"><span class="icon-name">VS Code</span></div>
+        <div class="icon-card"><img src="assets/icons/android-studio.svg" alt="Android Studio"><span class="icon-name">Android Studio</span></div>
+        <div class="icon-card"><img src="assets/icons/antigravity.svg" alt="Antigravity"><span class="icon-name">Antigravity</span></div>
+        <div class="icon-card"><img src="assets/icons/blender.svg" alt="Blender"><span class="icon-name">Blender</span></div>
+        <div class="icon-card"><img src="assets/icons/inkscape.svg" alt="Inkscape"><span class="icon-name">Inkscape</span></div>
+        <div class="icon-card"><img src="assets/icons/gimp.svg" alt="GIMP"><span class="icon-name">GIMP</span></div>
+        <div class="icon-card"><img src="assets/icons/krita.svg" alt="Krita"><span class="icon-name">Krita</span></div>
+        <div class="icon-card"><img src="assets/icons/godot.svg" alt="Godot"><span class="icon-name">Godot</span></div>
+        <div class="icon-card"><img src="assets/icons/obsidian.svg" alt="Obsidian"><span class="icon-name">Obsidian</span></div>
+        <div class="icon-card"><img src="assets/icons/docker.svg" alt="Docker"><span class="icon-name">Docker</span></div>
+        <div class="icon-card"><img src="assets/icons/firefox.svg" alt="Firefox"><span class="icon-name">Firefox</span></div>
+        <div class="icon-card"><img src="assets/icons/steam.svg" alt="Steam"><span class="icon-name">Steam</span></div>
+        <div class="icon-card"><img src="assets/icons/vlc.svg" alt="VLC"><span class="icon-name">VLC</span></div>
+        <div class="icon-card"><img src="assets/icons/discord.svg" alt="Discord"><span class="icon-name">Discord</span></div>
+        <div class="icon-card"><img src="assets/icons/telegram.svg" alt="Telegram"><span class="icon-name">Telegram</span></div>
+        <div class="icon-card"><img src="assets/icons/signal.svg" alt="Signal"><span class="icon-name">Signal</span></div>
+      </div>
+    </section>
+
+    <!-- Wallpapers Gallery -->
+    <section id="wallpapers">
+      <div class="section-header">
+        <h2>Original Procedural 4K Wallpapers</h2>
+        <p>Rendered at 3840×2160 UHD from botanical mathematical tokens. Includes light and dark canopy variants.</p>
+      </div>
+
+      <div class="wall-grid">
+        <div class="wall-card">
+          <img src="assets/wallpapers/mt-verdant-canopy-1920x1080.jpg" alt="Botanical Canopy" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Botanical Canopy</span>
+            <span class="wall-res">4K UHD</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/mt-verdant-aurora-1920x1080.jpg" alt="Verdant Aurora" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Verdant Aurora</span>
+            <span class="wall-res">4K UHD</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/mt-verdant-flora-1920x1080.jpg" alt="Zen Flora" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Zen Flora</span>
+            <span class="wall-res">4K UHD</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/mt-verdant-river-1920x1080.jpg" alt="Obsidian River" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Obsidian River</span>
+            <span class="wall-res">4K UHD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation & Tweaks Guide -->
+    <section id="install">
+      <div class="section-header">
+        <h2>Quick Installation &amp; Customization</h2>
+        <p>Zero root permissions required. Installs safely into ~/.themes and ~/.icons.</p>
+      </div>
+
+      <div class="install-tabs">
+        <h3>1. Interactive CLI Wizard</h3>
+        <p style="color: var(--text-secondary); margin-top: 6px;">Launch our friendly step-by-step terminal wizard to preview options:</p>
+        <div class="code-block">
+          <pre>git clone https://github.com/Mayanktaker/mt-verdant-nocturne.git
+cd mt-verdant-nocturne
+./install.sh</pre>
+        </div>
+
+        <h3>2. Botanical Accent Flavors</h3>
+        <p style="color: var(--text-secondary); margin-top: 6px;">Choose your primary highlight color flavor:</p>
+        <div class="palette-flavors">
+          <div class="flavor-chip">
+            <div class="flavor-dot" style="background: #8FB8A6;"></div>
+            <span>Sage (#8FB8A6) — Default</span>
+          </div>
+          <div class="flavor-chip">
+            <div class="flavor-dot" style="background: #3DD68C;"></div>
+            <span>Emerald (#3DD68C)</span>
+          </div>
+          <div class="flavor-chip">
+            <div class="flavor-dot" style="background: #9ECB74;"></div>
+            <span>Moss (#9ECB74)</span>
+          </div>
+          <div class="flavor-chip">
+            <div class="flavor-dot" style="background: #3D8B7A;"></div>
+            <span>Pine (#3D8B7A)</span>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 24px;">3. Direct CLI Command Flags</h3>
+        <div class="code-block">
+          <pre># Recommended: Rounded floating island tray + standard buttons:
+./install.sh --panel round-island --controls standard
+
+# Floating pill capsule + macOS traffic dots:
+./install.sh --panel pill --controls macos
+
+# Screen-attached bottom-rounded bar:
+./install.sh --panel bottom-round
+
+# Classic edge-to-edge square bar:
+./install.sh --panel flat
+
+# Compact high-density mode without blur (laptops & low-GPU):
+./install.sh --size compact --no-blur</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne/blob/main/LICENSES/GPL-3.0.txt" target="_blank" rel="noopener">GPL-3.0 License</a>
+        <a href="https://mayanktaker.com" target="_blank" rel="noopener">Mayanktaker.com</a>
+      </div>
+      <div class="copyright">
+        &copy; Mayanktaker Computers &amp; Web Development | <a href="https://mayanktaker.com" target="_blank" rel="noopener">https://mayanktaker.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyCommand() {
+      const cmd = "git clone https://github.com/Mayanktaker/mt-verdant-nocturne.git && cd mt-verdant-nocturne && ./install.sh";
+      navigator.clipboard.writeText(cmd).then(() => {
+        const btn = document.querySelector('.btn-copy');
+        btn.textContent = 'Copied!';
+        btn.style.background = 'var(--accent-emerald)';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.style.background = 'var(--bg-card)';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -34,6 +34,8 @@ Display name **MT Verdant Nocturne**, technical/theme-dir name `MT-Verdant-Noctu
 - `docs/compatibility.md` — GNOME version matrix + test checklist
 - `docs/flatpak.md` — Flatpak GTK3 theme extension plan & status
 - `docs/workflow.md` — build/release workflow
+- `docs/index.html` — GitHub Pages interactive showcase site
+- `docs/release-notes/` — user-facing changelog and release notes
 
 ## Conventions
 - Every file starts with the © header comment above; every function/block gets ≤1-line comment.

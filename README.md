@@ -1,8 +1,14 @@
 # MT Verdant Nocturne
 
+[![Release](https://img.shields.io/badge/release-v0.2.0-8fb8a6.svg?style=flat-square)](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/tag/v0.2.0)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-3dd68c.svg?style=flat-square)](LICENSES/GPL-3.0.txt)
+[![Showcase](https://img.shields.io/badge/Showcase-GitHub%20Pages-7fc8a0.svg?style=flat-square)](https://mayanktaker.github.io/mt-verdant-nocturne/)
+
 © Mayanktaker Computers & Web Development | https://mayanktaker.com
 
-A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, four procedural 4K wallpapers, an ultra-crisp icon pack, and native color schemes across popular terminals and desktop apps.
+A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, four procedural 4K wallpapers, an ultra-crisp icon pack with 100+ native application icons, and matching presets across popular terminals and desktop apps.
+
+🌐 **Live Showcase Website:** [https://mayanktaker.github.io/mt-verdant-nocturne/](https://mayanktaker.github.io/mt-verdant-nocturne/)
 
 ---
 
@@ -50,7 +56,13 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
   3. *Zen Flora* (Minimalist Bauhaus Leaf Contours)
   4. *Obsidian River* (Topographic Flowing Mineral Veins)
 - **High-Definition Icon & Cursor Suite**:
-  - `MT-Verdant-Icons`: Multi-stop botanical gradient folders with specular highlights, emerald badges, and custom system app icons (`org.gnome.Nautilus`, terminal, settings, calculator).
+  - `MT-Verdant-Icons`: Multi-stop botanical gradient folders with specular highlights, emerald badges, and **100+ handcrafted application icons** across:
+    - **AI & Modern IDEs:** Cursor, Qoder, Paseo, Claude Desktop, Antigravity, VS Code, VSCodium, PyCharm, CLion, IntelliJ IDEA, WebStorm, Android Studio, Sublime Text, Neovim, Zed, Emacs, Lapce.
+    - **Creative & 3D:** Blender, Inkscape, GIMP, Krita, Godot Engine, Darktable, RawTherapee, FreeCAD, Audacity, OBS Studio, DaVinci Resolve, Handbrake.
+    - **Browsers & Communication:** GNOME Web (Epiphany), Brave, Google Chrome, Firefox, Chromium, Zen Browser, Vivaldi, Tor Browser, Discord, Telegram, Signal, Slack, Element, Geary, Thunderbird.
+    - **Notes & Productivity:** Obsidian, Notion, Logseq, Joplin, LibreOffice Suite (Writer, Calc, Impress, Draw, Base, Math).
+    - **Gaming & Media:** Steam, Lutris, Heroic Games Launcher, RetroArch, VLC, MPV, Spotify.
+    - **DevOps, Utilities & Hardware:** Docker, Postman, Wireshark, DBeaver, D-Feet, CCTV Surveillance, GParted, Disks, and complete Adwaita symbolic action icons.
   - `MT-Verdant-Cursors`: Obsidian dark pointers with sage glowing tips.
 - **Universal Application Support**: Ready-to-use color schemes for Kitty, Ghostty, Alacritty, Foot, GNOME Terminal, Fish Shell, Kate/KWrite, GNOME Text Editor, KDE Plasma, Fastfetch, GRUB bootloader, and Plymouth.
 
