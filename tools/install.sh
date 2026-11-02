@@ -1,7 +1,7 @@
 #!/bin/sh
 # © Mayanktaker Computers & Web Development | https://mayanktaker.com
-# Install MT Verdant Nocturne at user level into ~/.themes ONLY (project policy),
-# and companion icon/cursor packs into ~/.icons ONLY.
+# Install MT Verdant Nocturne at user level into ~/.themes ONLY (project policy).
+# The companion icon and cursor packs live in the mt-verdant-icons repository.
 # Supports interactive CLI wizard, human-friendly settings, modular tweaks, and 4K wallpapers.
 
 set -eu
@@ -9,7 +9,6 @@ set -eu
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 THEME_NAME="MT-Verdant-Nocturne"
 THEME_DIR="${HOME}/.themes/${THEME_NAME}"
-ICONS_DIR="${HOME}/.icons"
 
 # Defaults
 PANEL_STYLE="round-island"   # Choices: round-island, pill, bottom-round, flat
@@ -17,7 +16,6 @@ CONTROLS="standard"          # Choices: standard, macos
 ACCENT="sage"                # Choices: sage, emerald, moss, pine
 THEME_SIZE="standard"        # Choices: standard, compact
 WANT_BLUR=1
-WANT_ICONS=1
 WANT_GTK4_OVERRIDE=1
 WANT_WALLPAPER=0
 WALLPAPER_CHOICE="none"
@@ -75,12 +73,6 @@ while [ $# -gt 0 ]; do
     --no-blur|--noblur)
       WANT_BLUR=0
       ;;
-    --icons)
-      WANT_ICONS=1
-      ;;
-    --no-icons)
-      WANT_ICONS=0
-      ;;
     --gtk4-libadwaita)
       WANT_GTK4_OVERRIDE=1
       ;;
@@ -126,7 +118,6 @@ User-Friendly Options:
   --accent <flavor>       Botanical accent color: sage (default), emerald, moss, pine
   --size <type>           Theme density sizing: standard (default) or compact
   --blur / --no-blur      Enable or disable frosted glassmorphism blur and translucency
-  --icons / --no-icons    Install companion MT-Verdant-Icons and MT-Verdant-Cursors into ~/.icons
   --gtk4-libadwaita       Link GTK4 styles to ~/.config/gtk-4.0/gtk.css for libadwaita apps
   --wallpaper [choice]    Apply 4K wallpaper (1: Canopy, 2: Aurora, 3: Flora, 4: River, all, none)
   --wizard                Force interactive step-by-step setup wizard
@@ -221,21 +212,9 @@ EOF
     *) ACCENT="sage" ;;
   esac
 
-  # 6. Companion Icon & Cursor Suite
+  # 6. GTK4 / Libadwaita Override
   echo ""
-  echo "6. Install Companion Icon & Cursor Suite (MT-Verdant-Icons & Cursors)?"
-  echo "   [1] Yes (Install and activate into ~/.icons) [Default]"
-  echo "   [2] No"
-  printf "   Select [1-2, default=1]: "
-  read -r choice || choice=""
-  case "${choice}" in
-    2) WANT_ICONS=0 ;;
-    *) WANT_ICONS=1 ;;
-  esac
-
-  # 7. GTK4 / Libadwaita Override
-  echo ""
-  echo "7. Apply GTK4 / Libadwaita Theme Override (~/.config/gtk-4.0)?"
+  echo "6. Apply GTK4 / Libadwaita Theme Override (~/.config/gtk-4.0)?"
   echo "   [1] Yes (Themed style for Settings, Nautilus, Console) [Default]"
   echo "   [2] No"
   printf "   Select [1-2, default=1]: "
@@ -245,9 +224,9 @@ EOF
     *) WANT_GTK4_OVERRIDE=1 ;;
   esac
 
-  # 8. 4K Botanical Wallpaper
+  # 7. 4K Botanical Wallpaper
   echo ""
-  echo "8. 4K Botanical Canopy Wallpaper:"
+  echo "7. 4K Botanical Canopy Wallpaper:"
   echo "   [1] Canopy (Lush forest leaves) [Default]"
   echo "   [2] Aurora (Emerald northern lights)"
   echo "   [3] Flora (Botanical bloom)"
@@ -272,7 +251,6 @@ EOF
   echo "  - Theme Density:     ${THEME_SIZE}"
   echo "  - Surface Blur:      $([ "${WANT_BLUR}" -eq 1 ] && echo "Enabled" || echo "Disabled")"
   echo "  - Accent Flavor:     ${ACCENT}"
-  echo "  - Icons & Cursors:   $([ "${WANT_ICONS}" -eq 1 ] && echo "Install to ~/.icons" || echo "Skip")"
   echo "  - GTK4 / Libadwaita: $([ "${WANT_GTK4_OVERRIDE}" -eq 1 ] && echo "Linked" || echo "Skip")"
   echo "  - 4K Wallpaper:      ${WALLPAPER_CHOICE}"
   echo ""
@@ -331,12 +309,10 @@ echo "detected: ${ID:-unknown} · GNOME Shell ${SHELL_MAJOR}"
 NEED_SHELL_BUILD=0
 NEED_GTK_BUILD=0
 NEED_WALLPAPER_GEN=0
-NEED_ICONS_GEN=0
 
 [ -f "${REPO_ROOT}/build/theme/gnome-shell-${SHELL_MAJOR}/gnome-shell.css" ] || NEED_SHELL_BUILD=1
 [ -f "${REPO_ROOT}/build/theme/gtk-3.0/gtk.css" ] || NEED_GTK_BUILD=1
 [ -f "${REPO_ROOT}/wallpaper/dist/mt-verdant-canopy-3840x2160.png" ] || NEED_WALLPAPER_GEN=1
-[ -d "${REPO_ROOT}/src/icons/MT-Verdant-Icons" ] || NEED_ICONS_GEN=1
 
 MISSING=""
 
@@ -372,10 +348,6 @@ fi
 if [ "${NEED_WALLPAPER_GEN}" -ne 0 ]; then
   python3 "${REPO_ROOT}/tools/wallpaper/generate.py" >/dev/null
   python3 "${REPO_ROOT}/tools/wallpaper/process_light.py" >/dev/null
-fi
-if [ "${NEED_ICONS_GEN}" -eq 1 ]; then
-  python3 "${REPO_ROOT}/tools/icons/generate_icons.py" >/dev/null
-  python3 "${REPO_ROOT}/tools/icons/generate_cursors.py" >/dev/null
 fi
 
 # ---------- install into ~/.themes (policy: user themes dir only) ----------
@@ -525,26 +497,6 @@ fi
 
 echo "installed theme files to ${THEME_DIR}"
 
-# ---------- optional: icons & cursors (user ~/.icons only) ----------
-if [ "${WANT_ICONS}" -eq 1 ]; then
-  mkdir -p "${ICONS_DIR}"
-  if [ -d "${REPO_ROOT}/src/icons/MT-Verdant-Icons" ]; then
-    rm -rf "${ICONS_DIR}/MT-Verdant-Icons"
-    cp -r "${REPO_ROOT}/src/icons/MT-Verdant-Icons" "${ICONS_DIR}/"
-    if command -v gtk-update-icon-cache >/dev/null 2>&1; then
-      gtk-update-icon-cache -f -t "${ICONS_DIR}/MT-Verdant-Icons" >/dev/null 2>&1 || true
-    fi
-    gsettings set org.gnome.desktop.interface icon-theme 'MT-Verdant-Icons' || true
-    echo "installed and activated icon pack in ${ICONS_DIR}/MT-Verdant-Icons"
-  fi
-  if [ -d "${REPO_ROOT}/src/cursors/MT-Verdant-Cursors" ]; then
-    rm -rf "${ICONS_DIR}/MT-Verdant-Cursors"
-    cp -r "${REPO_ROOT}/src/cursors/MT-Verdant-Cursors" "${ICONS_DIR}/"
-    gsettings set org.gnome.desktop.interface cursor-theme 'MT-Verdant-Cursors' || true
-    echo "installed and activated cursor pack in ${ICONS_DIR}/MT-Verdant-Cursors"
-  fi
-fi
-
 # ---------- optional: wallpaper (explicit opt-in) ----------
 if [ "${WANT_WALLPAPER}" -eq 1 ] && [ "${WALLPAPER_CHOICE}" != "none" ]; then
   WP_SRC=""
@@ -605,10 +557,6 @@ if have dconf; then
 fi
 if have gsettings; then
   gsettings set org.gnome.desktop.interface gtk-theme "${THEME_NAME}" || true
-  if [ "${WANT_ICONS}" -eq 1 ]; then
-    gsettings set org.gnome.desktop.interface icon-theme 'MT-Verdant-Icons' || true
-    gsettings set org.gnome.desktop.interface cursor-theme 'MT-Verdant-Cursors' || true
-  fi
 fi
 
 # ---------- activation hint ----------
@@ -632,13 +580,12 @@ Density:          ${THEME_SIZE}
 Settings Applied:
   Shell Theme:    ${THEME_NAME}
   GTK Theme:      ${THEME_NAME}
-  Icon Theme:     MT-Verdant-Icons
-  Cursor Theme:   MT-Verdant-Cursors
+
+Companion icon & cursor pack (separate repo):
+  https://github.com/Mayanktaker/mt-verdant-icons
 
 Restore Defaults (Adwaita):
   dconf write /org/gnome/shell/extensions/user-theme/name "''"
   gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
-  gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-  gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
   rm -f ~/.config/gtk-4.0/gtk.css
 EOF

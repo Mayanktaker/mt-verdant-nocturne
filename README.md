@@ -6,7 +6,7 @@
 
 © Mayanktaker Computers & Web Development | https://mayanktaker.com
 
-A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, four procedural 4K wallpapers, an ultra-crisp icon pack with 100+ native application icons, and matching presets across popular terminals and desktop apps.
+A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, four procedural 4K wallpapers, a matching companion icon pack with 100+ native application icons, and presets across popular terminals and desktop apps.
 
 🌐 **Live Showcase Website:** [https://mayanktaker.github.io/mt-verdant-nocturne/](https://mayanktaker.github.io/mt-verdant-nocturne/)
 
@@ -55,16 +55,13 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
   2. *Verdant Aurora* (Nordic Pines & Northern Lights)
   3. *Zen Flora* (Minimalist Bauhaus Leaf Contours)
   4. *Obsidian River* (Topographic Flowing Mineral Veins)
-- **High-Definition Icon & Cursor Suite**:
-  - `MT-Verdant-Icons`: Multi-stop botanical gradient folders with specular highlights, emerald badges, and **100+ handcrafted application icons** across:
-    - **AI & Modern IDEs:** Cursor, Qoder, Paseo, Claude Desktop, Antigravity, VS Code, VSCodium, PyCharm, CLion, IntelliJ IDEA, WebStorm, Android Studio, Sublime Text, Neovim, Zed, Emacs, Lapce.
-    - **Creative & 3D:** Blender, Inkscape, GIMP, Krita, Godot Engine, Darktable, RawTherapee, FreeCAD, Audacity, OBS Studio, DaVinci Resolve, Handbrake.
-    - **Browsers & Communication:** GNOME Web (Epiphany), Brave, Google Chrome, Firefox, Chromium, Zen Browser, Vivaldi, Tor Browser, Discord, Telegram, Signal, Slack, Element, Geary, Thunderbird.
-    - **Notes & Productivity:** Obsidian, Notion, Logseq, Joplin, LibreOffice Suite (Writer, Calc, Impress, Draw, Base, Math).
-    - **Gaming & Media:** Steam, Lutris, Heroic Games Launcher, RetroArch, VLC, MPV, Spotify.
-    - **DevOps, Utilities & Hardware:** Docker, Postman, Wireshark, DBeaver, D-Feet, CCTV Surveillance, GParted, Disks, and complete Adwaita symbolic action icons.
-  - `MT-Verdant-Cursors`: Obsidian dark pointers with sage glowing tips.
-  - 📦 **Standalone Icon & Cursor Release Asset:** Prefer just the icons on any Linux desktop (GNOME, KDE Plasma, XFCE, Cinnamon, Hyprland)? Download [mt-verdant-icons-v0.2.0.tar.xz](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz) directly.
+- **Companion Icon & Cursor Pack**:
+  - `MT-Verdant-Icons` and `MT-Verdant-Cursors` now live in their own repository so they can be versioned and updated independently: [Mayanktaker/mt-verdant-icons](https://github.com/Mayanktaker/mt-verdant-icons).
+  - The pack ships 100+ handcrafted application icons, botanical gradient folders, complete symbolic coverage, and matching obsidian pointers with sage glowing tips. Install it with:
+    ```sh
+    git clone https://github.com/Mayanktaker/mt-verdant-icons.git
+    cd mt-verdant-icons && ./install.sh
+    ```
 - **Universal Application Support**: Ready-to-use color schemes for Kitty, Ghostty, Alacritty, Foot, GNOME Terminal, Fish Shell, Kate/KWrite, GNOME Text Editor, KDE Plasma, Fastfetch, GRUB bootloader, and Plymouth.
 
 ---
@@ -81,7 +78,7 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
 
 ## Installation & Setup Wizard (User-level, no root required)
 
-User themes are installed exclusively into `~/.themes` and user icon/cursor packs into `~/.icons`.
+User themes are installed exclusively into `~/.themes`. The companion icon and cursor packs install into `~/.icons` from their own repository.
 
 ### Interactive Setup Wizard (Recommended)
 Simply run the installer without arguments to launch the friendly, step-by-step configuration wizard:
@@ -123,20 +120,16 @@ cd mt-verdant-nocturne
 ./install.sh --wallpaper all
 
 # 8. Scripting & Automation (Non-interactive mode):
-./install.sh --non-interactive --panel round-island --controls standard --icons --gtk4-libadwaita
+./install.sh --non-interactive --panel round-island --controls standard --gtk4-libadwaita
 ```
 
 ### Standalone Icon & Cursor Suite Installation (Any Linux Desktop)
 
-If you only want the **MT-Verdant-Icons** and **MT-Verdant-Cursors** packs on any desktop environment (GNOME, KDE Plasma, XFCE, Cinnamon, Sway, Hyprland) without the full theme:
+If you only want the **MT-Verdant-Icons** and **MT-Verdant-Cursors** packs on any desktop environment (GNOME, KDE Plasma, XFCE, Cinnamon, Sway, Hyprland) without the full theme, install them from their own repository:
 
 ```sh
-# Download and extract the standalone icon archive
-curl -sSLO https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz
-tar -xf mt-verdant-icons-v0.2.0.tar.xz
-cd mt-verdant-icons-v0.2.0
-
-# Run dedicated standalone installer
+git clone https://github.com/Mayanktaker/mt-verdant-icons.git
+cd mt-verdant-icons
 ./install.sh
 ```
 
@@ -241,10 +234,6 @@ python3 tools/dev/check_contrast.py
 # Generate 4K procedural wallpapers
 python3 tools/wallpaper/generate.py
 
-# Build High-Definition Icons & Cursors
-python3 tools/icons/generate_icons.py
-python3 tools/icons/generate_cursors.py
-
 # Build GNOME Shell themes (GNOME 50 and 51)
 python3 tools/shell/build.py --all
 
@@ -267,8 +256,6 @@ python3 tools/dev/generate_mockups.py
 | GTK4 / Libadwaita | Best-effort overrides via `--gtk4-libadwaita` | `~/.config/gtk-4.0/gtk.css` |
 | Flatpak GTK3 | Sandboxed apps via `org.gtk.Gtk3theme.MT-Verdant-Nocturne` | `flatpak/` |
 | 4K Wallpapers | 4 original procedural artworks | `${THEME_DIR}/wallpapers/` |
-| Icon Theme | `MT-Verdant-Icons` (places + system apps) | `~/.icons/MT-Verdant-Icons/` |
-| Cursor Theme | `MT-Verdant-Cursors` | `~/.icons/MT-Verdant-Cursors/` |
 | Terminal Schemes | Kitty, Ghostty, Alacritty, Foot, GNOME Terminal | `extras/terminals/` |
 | Shell Theme | Fish syntax highlighting | `extras/fish/` |
 | Text Editors | GtkSourceView 4/5, Kate/KWrite, VS Code | `extras/text-editors/`, `extras/vscode/` |
@@ -281,12 +268,12 @@ python3 tools/dev/generate_mockups.py
 ## Troubleshooting
 
 - **Icons not refreshing in Nautilus or Dash?**
-  Rebuild the user icon cache and toggle the icon theme:
+  Rebuild the user icon cache in the icon pack repository:
   ```sh
-  gtk-update-icon-cache -f -t ~/.icons/MT-Verdant-Icons
-  gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-  gsettings set org.gnome.desktop.interface icon-theme 'MT-Verdant-Icons'
+  cd mt-verdant-icons
+  ./install.sh
   ```
+  Installing the pack again refreshes `~/.icons/MT-Verdant-Icons` and its cache.
 - **Shell styles not reloading on Wayland?**
   Toggle the User Themes extension via Extensions app or log out and back in to reload GNOME Shell CSS.
 
@@ -295,4 +282,5 @@ python3 tools/dev/generate_mockups.py
 ## License
 
 - Code, CSS, and build scripts: [GPL-3.0](LICENSES/GPL-3.0.txt)
-- Wallpapers, icons, and artwork: [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt)
+- Wallpapers and artwork: [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt)
+- Icons and cursors are licensed in the [mt-verdant-icons](https://github.com/Mayanktaker/mt-verdant-icons) repository.

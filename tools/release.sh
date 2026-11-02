@@ -14,8 +14,6 @@ TARBALL="${REPO_ROOT}/dist/mt-verdant-nocturne-v${VERSION}.tar.xz"
 python3 "${REPO_ROOT}/tools/dev/check_contrast.py" > /dev/null
 python3 "${REPO_ROOT}/tools/wallpaper/generate.py" > /dev/null
 python3 "${REPO_ROOT}/tools/wallpaper/process_light.py" > /dev/null
-python3 "${REPO_ROOT}/tools/icons/generate_icons.py" > /dev/null
-python3 "${REPO_ROOT}/tools/icons/generate_cursors.py" > /dev/null
 python3 "${REPO_ROOT}/tools/shell/build.py" --all
 python3 "${REPO_ROOT}/tools/gtk/build.py" > /dev/null
 
@@ -30,8 +28,6 @@ done
 cp -r "${REPO_ROOT}/build/theme/gtk-3.0" "${DIST}/gtk-3.0"
 cp -r "${REPO_ROOT}/src/gtk-4.0" "${DIST}/gtk-4.0-src"
 cp -r "${REPO_ROOT}/src/tweaks" "${DIST}/tweaks"
-cp -r "${REPO_ROOT}/src/icons" "${DIST}/icons"
-cp -r "${REPO_ROOT}/src/cursors" "${DIST}/cursors"
 cp -r "${REPO_ROOT}/extras" "${DIST}/extras"
 cp "${REPO_ROOT}/tools/install.sh" "${DIST}/install.sh"
 mkdir -p "${DIST}/wallpapers/light"
@@ -46,10 +42,7 @@ mkdir -p "${REPO_ROOT}/dist"
 tar -C "${REPO_ROOT}/dist" -cJf "${TARBALL}" "mt-verdant-nocturne-v${VERSION}"
 rm -rf "${DIST}"
 
-# assemble standalone icon pack tarball
-bash "${REPO_ROOT}/tools/icons/package.sh" "${VERSION}"
-
 echo "release ready:"
 echo "  - Theme bundle: ${TARBALL}"
-echo "  - Standalone icons: ${REPO_ROOT}/dist/mt-verdant-icons-v${VERSION}.tar.xz"
-echo "attach to: git tag v${VERSION} && gh release create v${VERSION} ${TARBALL} ${REPO_ROOT}/dist/mt-verdant-icons-v${VERSION}.tar.xz wallpaper/dist/mt-verdant-canopy-3840x2160.png wallpaper/dist/light/mt-verdant-canopy-dawn-3840x2160.png"
+echo "attach to: git tag v${VERSION} && gh release create v${VERSION} ${TARBALL} wallpaper/dist/mt-verdant-canopy-3840x2160.png wallpaper/dist/light/mt-verdant-canopy-dawn-3840x2160.png"
+echo "  - Companion icons are released separately: https://github.com/Mayanktaker/mt-verdant-icons"

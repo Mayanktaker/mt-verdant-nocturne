@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MT Verdant Nocturne — Botanical Dark Desktop Ecosystem for Linux</title>
-  <meta name="description" content="A premium dark theme ecosystem for Linux desktops: GNOME Shell 50/51, GTK3/GTK4, Flatpak, 100+ native app icons, procedural 4K wallpapers, and terminals.">
+  <meta name="description" content="A premium dark theme ecosystem for Linux desktops: GNOME Shell 50/51, GTK3/GTK4, Flatpak, a companion icon pack, procedural 4K wallpapers, and terminals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -534,7 +534,7 @@
       <div class="pill-tag">v0.2.0 Release • Botanical Canopy</div>
       <h1>A Premium Botanical Dark<br><span>Desktop Ecosystem for Linux</span></h1>
       <p>
-        Engineered for GNOME Shell 50/51, GTK3, GTK4 & Flatpak. Quiet charcoal-teal surfaces, glowing sage accents, 100+ native application icons, floating island status bars, and procedural 4K wallpapers.
+        Engineered for GNOME Shell 50/51, GTK3, GTK4 &amp; Flatpak. Quiet charcoal-teal surfaces, glowing sage accents, a companion 100+ app icon pack, floating island status bars, and procedural 4K wallpapers.
       </p>
 
       <div class="cmd-box">
@@ -647,11 +647,11 @@
       </div>
 
       <div style="margin-top: 36px; text-align: center;">
-        <a href="https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz" class="btn-action">
+        <a href="https://github.com/Mayanktaker/mt-verdant-icons" class="btn-action">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Standalone Icons &amp; Cursors (1.6 MB .tar.xz)
+          Get the Icon &amp; Cursor Pack
         </a>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 10px;">Includes MT-Verdant-Icons, MT-Verdant-Cursors, and an automated installer for any Linux desktop.</p>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 10px;">Icons and cursors are maintained separately in <a href="https://github.com/Mayanktaker/mt-verdant-icons" style="color: var(--accent-strong);">mt-verdant-icons</a>, with its own releases and installer for any Linux desktop.</p>
       </div>
     </section>
 
@@ -698,7 +698,7 @@
     <section id="install">
       <div class="section-header">
         <h2>Quick Installation &amp; Customization</h2>
-        <p>Zero root permissions required. Installs safely into ~/.themes and ~/.icons.</p>
+        <p>Zero root permissions required. Installs safely into ~/.themes; the companion icon pack installs into ~/.icons from its own repository.</p>
       </div>
 
       <div class="install-tabs">
@@ -752,9 +752,9 @@ cd mt-verdant-nocturne
         <h3 style="margin-top: 24px;">4. Standalone Icon &amp; Cursor Pack (Any Linux Desktop)</h3>
         <p style="color: var(--text-secondary); margin-top: 6px;">For users wanting only MT-Verdant-Icons on GNOME, KDE Plasma, XFCE, Cinnamon, Sway, or Hyprland:</p>
         <div class="code-block">
-          <pre># Download &amp; install the standalone icon suite
-curl -sSLO https://github.com/Mayanktaker/mt-verdant-nocturne/releases/download/v0.2.0/mt-verdant-icons-v0.2.0.tar.xz
-tar -xf mt-verdant-icons-v0.2.0.tar.xz &amp;&amp; cd mt-verdant-icons-v0.2.0 &amp;&amp; ./install.sh</pre>
+          <pre># Clone and install the standalone icon suite
+git clone https://github.com/Mayanktaker/mt-verdant-icons.git
+cd mt-verdant-icons &amp;&amp; ./install.sh</pre>
         </div>
       </div>
     </section>
