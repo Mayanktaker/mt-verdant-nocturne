@@ -2,41 +2,40 @@
 /* GNOME Shell tweak: extra rounded curves for popups, dialogs, tiles */
 
 .popup-menu-content {
-  border-radius: 22px !important;
+  border-radius: {{geometry.radius.popover}}px !important;
 }
 
 .modal-dialog {
-  border-radius: 26px !important;
+  border-radius: {{geometry.radius.dialog}}px !important;
 }
 
 /* Standalone quick toggles and buttons */
-.quick-toggle:not(.quick-toggle-has-menu .quick-toggle),
-.quick-toggle-button {
-  border-radius: 16px !important;
+.quick-toggle {
+  border-radius: {{geometry.radius.popover}}px !important;
 }
 
 /* Quick toggles with submenus: preserve segmented pill geometry */
 .quick-toggle-has-menu {
-  border-radius: 16px !important;
+  border-radius: {{geometry.radius.popover}}px !important;
 }
 
 .quick-toggle-has-menu .quick-toggle:ltr {
-  border-radius: 16px 0 0 16px !important;
+  border-radius: {{geometry.radius.popover}}px 0 0 {{geometry.radius.popover}}px !important;
 }
 
 .quick-toggle-has-menu .quick-toggle:rtl {
-  border-radius: 0 16px 16px 0 !important;
+  border-radius: 0 {{geometry.radius.popover}}px {{geometry.radius.popover}}px 0 !important;
 }
 
 .quick-toggle-has-menu .quick-toggle-menu-button:ltr {
-  border-radius: 0 16px 16px 0 !important;
+  border-radius: 0 {{geometry.radius.popover}}px {{geometry.radius.popover}}px 0 !important;
 }
 
 .quick-toggle-has-menu .quick-toggle-menu-button:rtl {
-  border-radius: 16px 0 0 16px !important;
+  border-radius: {{geometry.radius.popover}}px 0 0 {{geometry.radius.popover}}px !important;
 }
 
 .osd-window,
 .workspace-switcher {
-  border-radius: 24px !important;
+  border-radius: {{geometry.radius.dock}}px !important;
 }

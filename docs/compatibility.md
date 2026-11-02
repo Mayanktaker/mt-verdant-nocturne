@@ -7,11 +7,12 @@ real session (host or disposable VM). "50+" never implies untested future releas
 
 | Layer | GNOME 50.x | GNOME 51.1 (host) | Notes |
 |---|---|---|---|
-| GNOME Shell CSS | **built** (from vendored 50.6 upstream), live test pending a real 50 session | **verified live** | upstream-extract + token map; sage accent baked; upstream HC sheet kept as a11y fallback |
-| GTK3 apps | same build as 51 | **verified** (resolved-style probe: window/entry/border/fg = exact tokens; applied live) | vendored gtk-3-24 sass, sassc build |
-| GTK4 / libadwaita | best-effort | shipped, live test pending | @define-color overrides for vanilla GTK4; libadwaita needs opt-in `--gtk4-libadwaita` |
-| Flatpak GTK3 | **built + mount-verified** (extension mounts at the GTK path in 25.08/26.08 sandboxes) | same | in-app visual pass deferred by decision; details in docs/flatpak.md |
-| Wallpaper | n/a | n/a | version-independent; apply is opt-in |
+| GNOME Shell CSS | **built** from vendored 50.6 upstream; live test pending | **verified live** on 51.1: loads without CSS parse errors, floating panel renders | upstream-extract + token map; all four accents built; high-contrast sheet recoloured |
+| GTK3 apps | same build as 51 | **verified** with a live app and a headless widget probe (buttons, entries, switches, sliders, rows) | vendored gtk-3-24 SASS, per-accent build |
+| GTK4 / libadwaita | best-effort | **verified live** in Settings, plus probe-verified; opt-in | `--gtk4-libadwaita`; libadwaita still limits third-party styling |
+| Flatpak GTK3 | **built + mount-verified** | same | in-app visual pass deferred; details in docs/flatpak.md |
+| Wallpaper | n/a | n/a | 8 procedural 4K JPEGs, adaptive pairs + timed cycle; apply is opt-in |
+| Installer | n/a | verified from source **and** from the release archive in a sandboxed HOME | unknown values exit 2; uninstall restores GTK4 backups |
 
 ## Test checklist (per Shell major)
 - [ ] Theme loads via User Themes extension without stylesheet parse errors (check `journalctl` / Looking Glass)
@@ -19,10 +20,13 @@ real session (host or disposable VM). "50+" never implies untested future releas
 - [ ] Overview, dash, app grid, search, window/workspace switcher correct
 - [ ] Lock screen / unlock dialog session UI correct
 - [ ] Dark style + high-contrast spot check; keyboard-only navigation
+- [ ] Accent matrix: sage / emerald / moss / pine identical across Shell, GTK3 and GTK4
+- [ ] Destructive button and selected-row contrast spot check
 - [ ] GTK3 apps (e.g. a classic GTK3 app) + GTK4/libadwaita apps (Files, Settings) spot check
 - [ ] Flatpak GTK3 app picks up the theme extension; result recorded in docs/flatpak.md
 
 ## Known limitations
 - libadwaita apps limit third-party styling; GTK4 overrides are conservative and app-dependent.
 - Shell CSS and wallpaper never affect the contents of Flatpak sandboxes.
+- Blur requires the Blur My Shell extension; without it panels are translucent.
 - GDM/login screen is intentionally not themed.

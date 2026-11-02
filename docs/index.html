@@ -531,7 +531,7 @@
   <!-- Hero Section -->
   <main>
     <section class="hero">
-      <div class="pill-tag">v0.2.0 Release • Botanical Canopy</div>
+      <div class="pill-tag">v0.4.0 • Botanical Canopy</div>
       <h1>A Premium Botanical Dark<br><span>Desktop Ecosystem for Linux</span></h1>
       <p>
         Engineered for GNOME Shell 50/51, GTK3, GTK4 &amp; Flatpak. Quiet charcoal-teal surfaces, glowing sage accents, a companion 100+ app icon pack, floating island status bars, and procedural 4K wallpapers.
@@ -545,7 +545,8 @@
       </div>
 
       <div class="hero-preview">
-        <img src="assets/screenshots/option-a-floating-glass.png" alt="MT Verdant Nocturne Desktop Showcase" loading="lazy">
+        <img src="assets/screenshots/option-a-floating-glass.png" alt="MT Verdant Nocturne concept mockup" loading="lazy">
+        <p style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">Concept mockup, not a screenshot. Verified GTK3/GTK4 renders are in the README.</p>
       </div>
     </section>
 
@@ -553,7 +554,7 @@
     <section id="variants">
       <div class="section-header">
         <h2>Tailored Design Profiles</h2>
-        <p>Choose between floating glass translucency, high-density OLED black, or warm tactile organic cards.</p>
+        <p>Choose between floating glass translucency, high-density OLED black, or warm tactile organic cards. These cards are concept mockups; the shipped theme is the source of truth.</p>
       </div>
 
       <div class="grid-3">
@@ -658,8 +659,8 @@
     <!-- Wallpapers Gallery -->
     <section id="wallpapers">
       <div class="section-header">
-        <h2>Original Procedural 4K Wallpapers</h2>
-        <p>Rendered at 3840×2160 UHD from botanical mathematical tokens. Includes light and dark canopy variants.</p>
+        <h2>Eight Procedural 4K Wallpapers</h2>
+        <p>Rendered at 3840×2160 UHD from botanical mathematical tokens. One art system: four night pieces and four dawn pieces, with adaptive pairs and a 24-hour timed cycle.</p>
       </div>
 
       <div class="wall-grid">
@@ -689,6 +690,34 @@
           <div class="wall-info">
             <span class="wall-title">Obsidian River</span>
             <span class="wall-res">4K UHD</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/light/mt-verdant-canopy-dawn-1920x1080.jpg" alt="Botanical Canopy Dawn" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Canopy Dawn</span>
+            <span class="wall-res">Dawn · 4K</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/light/mt-verdant-celestial-rift-1920x1080.jpg" alt="Celestial Rift" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Celestial Rift</span>
+            <span class="wall-res">Dawn · 4K</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/light/mt-verdant-cosmic-dawn-1920x1080.jpg" alt="Cosmic Dawn" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Cosmic Dawn</span>
+            <span class="wall-res">Dawn · 4K</span>
+          </div>
+        </div>
+        <div class="wall-card">
+          <img src="assets/wallpapers/light/mt-verdant-botanical-horizon-1920x1080.jpg" alt="Botanical Horizon" loading="lazy">
+          <div class="wall-info">
+            <span class="wall-title">Botanical Horizon</span>
+            <span class="wall-res">Dawn · 4K</span>
           </div>
         </div>
       </div>
@@ -722,12 +751,12 @@ cd mt-verdant-nocturne
             <span>Emerald (#3DD68C)</span>
           </div>
           <div class="flavor-chip">
-            <div class="flavor-dot" style="background: #9ECB74;"></div>
-            <span>Moss (#9ECB74)</span>
+            <div class="flavor-dot" style="background: #98B99A;"></div>
+            <span>Moss (#98B99A)</span>
           </div>
           <div class="flavor-chip">
-            <div class="flavor-dot" style="background: #3D8B7A;"></div>
-            <span>Pine (#3D8B7A)</span>
+            <div class="flavor-dot" style="background: #5E9E92;"></div>
+            <span>Pine (#5E9E92)</span>
           </div>
         </div>
 
@@ -746,7 +775,19 @@ cd mt-verdant-nocturne
 ./install.sh --panel flat
 
 # Compact high-density mode without blur (laptops & low-GPU):
-./install.sh --size compact --no-blur</pre>
+./install.sh --size compact --no-blur
+
+# OLED black + borderless windows:
+./install.sh --oled --rimless
+
+# Accent flavor (applies to Shell, GTK3 and GTK4):
+./install.sh --accent emerald
+
+# Wallpapers: 1-4 dark, light-1..4 dawn, dynamic, timed, all, none:
+./install.sh --wallpaper light-1
+
+# Remove the theme (keeps a parked copy):
+./install.sh --uninstall</pre>
         </div>
 
         <h3 style="margin-top: 24px;">4. Standalone Icon &amp; Cursor Pack (Any Linux Desktop)</h3>

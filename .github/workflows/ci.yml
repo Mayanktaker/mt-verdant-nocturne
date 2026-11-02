@@ -1,0 +1,48 @@
+# © Mayanktaker Computers & Web Development | https://mayanktaker.com
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sassc
+          python3 -m pip install --upgrade pip numpy pillow
+      - name: Color, contrast, selector and version gates
+        run: |
+          python3 tools/dev/check_contrast.py
+          python3 tools/dev/check_colors.py
+          python3 tools/dev/check_selectors.py
+          python3 tools/dev/check_version.py
+      - name: Build Shell (50 + 51) and GTK3 for every accent
+        run: |
+          for accent in sage emerald moss pine; do
+            python3 tools/shell/build.py --all --accent "$accent"
+            python3 tools/gtk/build.py --accent "$accent" --out "build/theme-$accent/gtk-3.0"
+          done
+      - name: Wallpaper suite (generate + verify)
+        run: |
+          python3 tools/wallpaper/generate.py --which all
+          python3 tools/wallpaper/generate.py --verify
+      - name: Sandboxed source install
+        run: sh tools/dev/smoke-install.sh .
+      - name: Build, install and smoke-test the release archive
+        run: sh tools/release.sh 0.4.0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mt-verdant-nocturne-release
+          path: dist/mt-verdant-nocturne-v0.4.0.tar.xz
+          if-no-files-found: error

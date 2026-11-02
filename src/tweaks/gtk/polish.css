@@ -4,25 +4,54 @@
 /* Refined buttons and inputs */
 button {
   transition: all 150ms ease-in-out;
-  border-radius: 8px;
+  border-radius: {{geometry.radius.control}}px;
 }
 
 button:focus-visible,
 entry:focus-visible {
-  outline: 2px solid #8fb8a6;
+  outline: 2px solid {{accent.base}};
   outline-offset: 1px;
 }
 
 button.suggested-action {
-  background-color: #8fb8a6;
-  color: #0d131a;
+  background-color: {{accent.base}};
+  background-image: none;
+  color: {{accent.text_on_accent}};
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(143, 184, 166, 0.3);
+  box-shadow: 0 2px 8px rgba({{accent.base.rgb}}, 0.3);
 }
 
 button.suggested-action:hover {
-  background-color: #a9cdbb;
-  box-shadow: 0 4px 12px rgba(143, 184, 166, 0.45);
+  background-color: {{accent.strong}};
+  background-image: none;
+  box-shadow: 0 4px 12px rgba({{accent.base.rgb}}, 0.45);
+}
+
+/* Destructive action: dark label on coral (6.3:1, matches GTK4) */
+button.destructive-action,
+button.destructive-action:hover,
+button.destructive-action:active,
+button.destructive-action:checked {
+  color: {{accent.text_on_accent}};
+  text-shadow: none;
+}
+
+/* List/row selection: accent tint plus an accent edge, not a full fill */
+list row:selected,
+list row:selected:focus,
+.view:selected,
+.view:selected:focus,
+treeview.view:selected,
+treeview.view:selected:focus,
+.sidebar row:selected {
+  background-color: rgba({{accent.base.rgb}}, 0.20);
+  color: {{text.primary}};
+  box-shadow: inset 0 0 0 1px rgba({{accent.base.rgb}}, 0.65);
+}
+
+list row:selected .dim-label,
+.sidebar row:selected .dim-label {
+  color: {{text.secondary}};
 }
 
 /* Slim modern scrollbars */
@@ -34,18 +63,18 @@ scrollbar {
 scrollbar slider {
   min-width: 6px;
   min-height: 6px;
-  border-radius: 999px;
-  background-color: rgba(143, 184, 166, 0.4);
+  border-radius: {{geometry.radius.pill}}px;
+  background-color: rgba({{accent.base.rgb}}, 0.4);
 }
 
 scrollbar slider:hover {
-  background-color: rgba(143, 184, 166, 0.8);
+  background-color: rgba({{accent.base.rgb}}, 0.8);
 }
 
 /* Selected text and lists */
 selection,
 textview text selection:focus,
 textview text selection {
-  background-color: #8fb8a6;
-  color: #0d131a;
+  background-color: {{accent.base}};
+  color: {{accent.text_on_accent}};
 }

@@ -4,22 +4,22 @@
 window.background,
 window.csd,
 dialog {
-  border-radius: 16px;
+  border-radius: {{geometry.radius.popover}}px;
 }
 
 headerbar {
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-top-left-radius: {{geometry.radius.popover}}px;
+  border-top-right-radius: {{geometry.radius.popover}}px;
 }
 
 button {
-  border-radius: 10px;
+  border-radius: {{geometry.radius.control}}px;
 }
 
 entry {
-  border-radius: 10px;
+  border-radius: {{geometry.radius.control}}px;
 }
 
 popover.background {
-  border-radius: 14px;
+  border-radius: {{geometry.radius.popover}}px;
 }

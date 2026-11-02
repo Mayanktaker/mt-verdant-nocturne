@@ -4,9 +4,10 @@
 
 MT Verdant Nocturne derives from GNOME upstream theme code:
 
-- **GNOME Shell stylesheet** — derived at build time from the installed
-  `gnome-shell-theme.gresource` (upstream `gnome-shell` project, GPLv2+),
-  recolored through our token maps. Not committed verbatim; regenerated per host.
+- **GNOME Shell stylesheet** — vendored per major in `src/shell/upstream-<major>/`
+  (extracted from the matching `gnome-shell-theme.gresource`, upstream
+  `gnome-shell` project, GPLv2+) and recolored through our token maps at build time.
+  Never hand-edited.
 - **GTK3 theme SASS** — `src/gtk-3.0/upstream/` vendors the upstream Adwaita
   theme from the gtk `gtk-3-24` branch (LGPL-2.1+). Our build patches its base
   color variables only; derived markup is untouched.

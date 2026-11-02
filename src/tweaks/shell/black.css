@@ -2,26 +2,26 @@
 /* GNOME Shell tweak: true pitch-black OLED background */
 
 #panel {
-  background-color: #050807 !important;
-  border-color: #1a2624 !important;
+  background-color: {{bg.oled}} !important;
+  border-color: {{border.oled}} !important;
 }
 
 #panel:overview {
-  background-color: #050807 !important;
+  background-color: {{bg.oled}} !important;
 }
 
 .popup-menu-content {
-  background-color: #050807 !important;
-  border-color: #1a2624 !important;
+  background-color: {{bg.oled}} !important;
+  border-color: {{border.oled}} !important;
 }
 
 .modal-dialog,
 .message-dialog-content {
-  background-color: #050807 !important;
-  border-color: #1a2624 !important;
+  background-color: {{bg.oled}} !important;
+  border-color: {{border.oled}} !important;
 }
 
 #dash .dash-background {
-  background-color: rgba(5, 8, 7, 0.94) !important;
-  border-color: #1a2624 !important;
+  background-color: rgba({{bg.oled.rgb}}, 0.94) !important;
+  border-color: {{border.oled}} !important;
 }

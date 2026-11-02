@@ -1,23 +1,23 @@
 # MT Verdant Nocturne
 
-[![Release](https://img.shields.io/badge/release-v0.2.0-8fb8a6.svg?style=flat-square)](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/tag/v0.2.0)
+[![Release](https://img.shields.io/badge/release-v0.4.0-8fb8a6.svg?style=flat-square)](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/tag/v0.4.0)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-3dd68c.svg?style=flat-square)](LICENSES/GPL-3.0.txt)
 [![Showcase](https://img.shields.io/badge/Showcase-GitHub%20Pages-7fc8a0.svg?style=flat-square)](https://mayanktaker.github.io/mt-verdant-nocturne/)
 
 © Mayanktaker Computers & Web Development | https://mayanktaker.com
 
-A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, four procedural 4K wallpapers, a matching companion icon pack with 100+ native application icons, and presets across popular terminals and desktop apps.
+A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, GTK4 (best-effort), and Flatpak — inspired by modern desktop aesthetics (Colloid, WhiteSur, TokyoNight, Catppuccin, Everforest). Featuring a quiet charcoal-teal "Botanical Canopy" palette, modular tweak flags, compact and standard sizing profiles, frosted glass and crisp no-blur modes, eight procedural 4K wallpapers (four night, four dawn, ~1.5 MB total), a matching companion icon and cursor pack, and presets across popular terminals and desktop apps.
 
 🌐 **Live Showcase Website:** [https://mayanktaker.github.io/mt-verdant-nocturne/](https://mayanktaker.github.io/mt-verdant-nocturne/)
 
 ---
 
-## Desktop Showcase & Design Variants
+## Desktop Showcase & Design Variants (concept mockups)
 
 | **Option A: Canopy Floating Glass** |
 |:---:|
 | ![Option A: Canopy Floating Glass](screenshots/option-a-floating-glass.png) |
-| *Standard Sizing · Frosted Translucency · macOS Traffic Dots · Glassmorphic Dock & Popovers* |
+| *Concept mockup, not a screenshot. Real GTK3/GTK4 renders ship in the release notes.* |
 
 | **Option B: Obsidian Pro (Compact & OLED)** |
 |:---:|
@@ -36,25 +36,42 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
 
 ---
 
+## Verified Renders (real, not mockups)
+
+These are headless renders of the built theme (sage accent) from the release gate: GTK3 on the left, GTK4/libadwaita with the opt-in override on the right.
+
+| GTK3 widgets | GTK4 / libadwaita widgets |
+|---|---|
+| ![GTK3 real render](screenshots/real-gtk3-widgets.png) | ![GTK4 real render](screenshots/real-gtk4-widgets.png) |
+
+Live GNOME Shell 51.1 (Wayland), captured after installing the release archive:
+
+| Floating panel | Settings (libadwaita) |
+|---|---|
+| ![Live floating panel](screenshots/live-panel-51.png) | ![Live Settings](screenshots/live-settings-51.png) |
+
+---
+
 ## Highlights & Features
 
-- **Modular `--tweaks` Engine**: Customize panel styles (`float`, `translucent`, `black`), window controls (`macos`, `square`, `round`, `rimless`), and layout density.
+- **Modular options**: `--panel round-island|pill|bottom-round|flat`, `--controls standard|macos`, `--accent sage|emerald|moss|pine`, `--size standard|compact`, `--oled`, `--rimless`, `--blur | --no-blur`. Legacy `--tweaks a,b,c` maps onto the same flags.
 - **Sizing Density Profiles**:
   - `--size standard`: Balanced padding, generous touch targets, and comfortable typography.
-  - `--size compact`: Reduced 36px headerbar padding, tighter list items, and high-DPI space optimization for laptops and developers.
+  - `--size compact`: Reduced 38px headerbar height, tighter list items, and high-DPI space optimization for laptops and developers.
 - **Blur & Compositing Profiles**:
-  - `--blur`: Glassmorphic frosted translucency with subtle backdrops on panels and popovers.
-  - `--no-blur`: Opaque, high-contrast surfaces with zero compositor overhead and pristine legibility.
+  - `--blur`: Translucent panels. Real frosted blur requires the Blur My Shell extension; the installer configures it when present.
+  - `--no-blur`: Opaque, high-contrast surfaces with zero compositor overhead.
 - **Botanical Accent Flavors**:
   - `sage` (Default): Botanical Sage (`#8FB8A6`)
   - `emerald`: Aurora Emerald (`#3DD68C`)
   - `moss`: Earthy Moss (`#98B99A`)
   - `pine`: Nordic Pine (`#5E9E92`)
-- **4 Original Procedural 4K Wallpapers (3840×2160)**:
-  1. *Botanical Canopy* (Midnight Fern & Moonlight)
-  2. *Verdant Aurora* (Nordic Pines & Northern Lights)
-  3. *Zen Flora* (Minimalist Bauhaus Leaf Contours)
-  4. *Obsidian River* (Topographic Flowing Mineral Veins)
+- **8 Procedural 4K Wallpapers (3840×2160)** — one art system, night and dawn:
+  1. *Botanical Canopy* / *Botanical Canopy Dawn*
+  2. *Verdant Aurora* / *Celestial Rift*
+  3. *Zen Flora* / *Cosmic Dawn*
+  4. *Obsidian River* / *Botanical Horizon*
+  - GNOME adaptive pairs and a 24-hour timed cycle are registered automatically.
 - **Companion Icon & Cursor Pack**:
   - `MT-Verdant-Icons` and `MT-Verdant-Cursors` now live in their own repository so they can be versioned and updated independently: [Mayanktaker/mt-verdant-icons](https://github.com/Mayanktaker/mt-verdant-icons).
   - The pack ships 100+ handcrafted application icons, botanical gradient folders, complete symbolic coverage, and matching obsidian pointers with sage glowing tips. Install it with:
@@ -68,11 +85,13 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
 
 ## 4K Wallpaper Gallery
 
-| Botanical Canopy | Verdant Aurora |
+| Night: Botanical Canopy | Night: Verdant Aurora |
 |---|---|
 | ![Canopy](wallpaper/preview/mt-verdant-canopy-1920x1080.jpg) | ![Aurora](wallpaper/preview/mt-verdant-aurora-1920x1080.jpg) |
-| **Zen Flora** | **Obsidian River** |
+| **Night: Zen Flora** | **Night: Obsidian River** |
 | ![Flora](wallpaper/preview/mt-verdant-flora-1920x1080.jpg) | ![River](wallpaper/preview/mt-verdant-river-1920x1080.jpg) |
+| **Dawn: Botanical Canopy Dawn** | **Dawn: Celestial Rift** |
+| ![Canopy Dawn](wallpaper/preview/light/mt-verdant-canopy-dawn-1920x1080.jpg) | ![Celestial Rift](wallpaper/preview/light/mt-verdant-celestial-rift-1920x1080.jpg) |
 
 ---
 
@@ -110,17 +129,28 @@ cd mt-verdant-nocturne
 ./install.sh --size compact --no-blur    # High density, crisp solid surfaces (laptops/low-GPU)
 ./install.sh --size standard --blur      # Balanced density, frosted glass translucency
 
-# 6. Botanical Accent Colors:
-./install.sh --accent sage               # Sage (#7FC8A0 - Balanced mint green, default)
-./install.sh --accent emerald            # Emerald (#3DD68C - Vibrant forest green)
-./install.sh --accent moss               # Moss (#9ECB74 - Warm olive foliage)
-./install.sh --accent pine               # Pine (#3D8B7A - Deep twilight teal)
+# 6. Botanical Accent Colors (applied to Shell, GTK3 and GTK4 at build time):
+./install.sh --accent sage               # Sage (#8FB8A6, default)
+./install.sh --accent emerald            # Emerald (#3DD68C)
+./install.sh --accent moss               # Moss (#98B99A)
+./install.sh --accent pine               # Pine (#5E9E92)
 
-# 7. 4K Wallpapers (copies images to ~/Pictures/wallpapers-mt-verdant/):
-./install.sh --wallpaper all
+# 7. Surfaces & window style:
+./install.sh --oled --rimless            # Pure-black surfaces, borderless windows
+./install.sh --no-blur                   # Solid surfaces
 
-# 8. Scripting & Automation (Non-interactive mode):
-./install.sh --non-interactive --panel round-island --controls standard --gtk4-libadwaita
+# 8. 4K Wallpapers:
+./install.sh --wallpaper 1               # Dark Canopy (1-4)
+./install.sh --wallpaper light-1         # Dawn Canopy (light-1..light-4)
+./install.sh --wallpaper dynamic         # Dawn by day, Canopy by night
+./install.sh --wallpaper timed           # 24-hour XML cycle
+./install.sh --wallpaper all             # Copy all eight to ~/Pictures/wallpapers-mt-verdant
+
+# 9. Scripting & Automation (Non-interactive mode):
+./install.sh --non-interactive --panel round-island --controls standard --accent emerald
+
+# 10. Remove the theme (keeps a parked copy, restores GTK4 backups):
+./install.sh --uninstall
 ```
 
 ### Standalone Icon & Cursor Suite Installation (Any Linux Desktop)
@@ -140,7 +170,7 @@ cd mt-verdant-icons
 All application themes are bundled under `extras/` and use the single source of truth color tokens from `palette/tokens.json`.
 
 ### Quick Setup: One-Click App Theme Installer
-To automatically scan your system and apply matching color schemes to all detected terminals, shells, and text editors:
+To scan your system and install matching color schemes for all detected terminals, shells, and text editors (activation stays opt-in):
 ```sh
 ./tools/extras/install-all.sh
 ```
@@ -181,7 +211,7 @@ To automatically scan your system and apply matching color schemes to all detect
 - **Fish Shell**:
   ```sh
   bash extras/fish/install.sh
-  fish_config theme choose "mt_verdant_nocturne"
+  fish_config theme choose "mt_verdant_nocturne"   # or: bash extras/fish/install.sh --apply
   ```
 
 ### 3. Text Editors & IDEs
@@ -228,20 +258,24 @@ To automatically scan your system and apply matching color schemes to all detect
 ## Build from Source
 
 ```sh
-# Verify WCAG contrast compliance (13/13 token pairs pass)
-python3 tools/dev/check_contrast.py
+# Every gate the release runs
+python3 tools/dev/check_contrast.py        # 103+ pairs incl. terminals and editor colors
+python3 tools/dev/check_colors.py          # no color literals outside tokens
+python3 tools/dev/check_selectors.py       # tweak selectors exist in Shell 50/51
+python3 tools/dev/check_version.py
 
-# Generate 4K procedural wallpapers
-python3 tools/wallpaper/generate.py
+# Generate and verify the 8 wallpaper suite
+python3 tools/wallpaper/generate.py --verify
 
-# Build GNOME Shell themes (GNOME 50 and 51)
-python3 tools/shell/build.py --all
+# Build Shell (all mapped majors) and GTK3 for a chosen accent
+python3 tools/shell/build.py --all --accent emerald
+python3 tools/gtk/build.py --accent emerald
 
-# Build GTK3 and GTK4 CSS
-python3 tools/gtk/build.py
+# Sandboxed install test (source tree or release tarball)
+sh tools/dev/smoke-install.sh .
 
-# Render desktop mockups and ecosystem showcase
-python3 tools/dev/generate_mockups.py
+# Full release archive with per-accent presets + packaged-installer smoke test
+sh tools/release.sh 0.4.0
 ```
 
 ---
@@ -250,14 +284,15 @@ python3 tools/dev/generate_mockups.py
 
 | Layer | Status | Target Location |
 |---|---|---|
-| GNOME Shell 50/51 | Tested (floating pill bar, frosted glass, quick settings) | `~/.themes/MT-Verdant-Nocturne/gnome-shell/` |
-| GTK3 Apps | Tested (circular dots, compact/standard, rimless, rounded) | `~/.themes/MT-Verdant-Nocturne/gtk-3.0/` |
+| GNOME Shell 51.1 | Verified live (theme loads, floating panel, libadwaita app); quick settings/overview manual pass pending | `~/.themes/MT-Verdant-Nocturne/gnome-shell/` |
+| GNOME Shell 50.x | Built from vendored 50 CSS; live session test pending | `~/.themes/MT-Verdant-Nocturne/gnome-shell/` |
+| GTK3 Apps | Verified with a headless widget probe (standard, compact, macOS dots, rimless) | `~/.themes/MT-Verdant-Nocturne/gtk-3.0/` |
 | GTK2 Legacy | Fallback `gtkrc` for older apps (GIMP 2.10, Audacity) | `~/.themes/MT-Verdant-Nocturne/gtk-2.0/` |
-| GTK4 / Libadwaita | Best-effort overrides via `--gtk4-libadwaita` | `~/.config/gtk-4.0/gtk.css` |
+| GTK4 / Libadwaita | Opt-in best-effort override (`--gtk4-libadwaita`), probe-verified | `~/.config/gtk-4.0/gtk.css` |
 | Flatpak GTK3 | Sandboxed apps via `org.gtk.Gtk3theme.MT-Verdant-Nocturne` | `flatpak/` |
-| 4K Wallpapers | 4 original procedural artworks | `${THEME_DIR}/wallpapers/` |
+| 4K Wallpapers | 8 procedural artworks (4 night + 4 dawn) | `${THEME_DIR}/wallpapers/` |
 | Terminal Schemes | Kitty, Ghostty, Alacritty, Foot, GNOME Terminal | `extras/terminals/` |
-| Shell Theme | Fish syntax highlighting | `extras/fish/` |
+| Shells | Fish syntax highlighting | `extras/fish/` |
 | Text Editors | GtkSourceView 4/5, Kate/KWrite, VS Code | `extras/text-editors/`, `extras/vscode/` |
 | KDE / Qt | Plasma Color Scheme | `extras/kde/color-schemes/` |
 | Boot Screens | GRUB (4K) & Plymouth animated splash | `extras/grub/`, `extras/plymouth/` |

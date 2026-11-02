@@ -1,7 +1,7 @@
 # © Mayanktaker Computers & Web Development | https://mayanktaker.com
 # MT Verdant Nocturne — GTK2 legacy application fallback (GIMP 2.10, Audacity, etc.)
 
-gtk-color-scheme = "base_color:#16222A\nbg_color:#0F141B\ntext_color:#E9F1EC\nfg_color:#E9F1EC\nselected_bg_color:#8FB8A6\nselected_fg_color:#0D131A\ntooltip_bg_color:#1D3238\ntooltip_fg_color:#E9F1EC"
+gtk-color-scheme = "base_color:{{bg.tile}}\nbg_color:{{bg.base}}\ntext_color:{{text.primary}}\nfg_color:{{text.primary}}\nselected_bg_color:{{accent.base}}\nselected_fg_color:{{accent.text_on_accent}}\ntooltip_bg_color:{{bg.surface}}\ntooltip_fg_color:{{text.primary}}"
 
 style "default" {
   xthickness = 1
@@ -13,63 +13,63 @@ style "default" {
   GtkRange::trough-border = 0
   GtkRange::slider-width = 12
 
-  bg[NORMAL]        = "#0F141B"
-  bg[ACTIVE]        = "#1D3238"
-  bg[PRELIGHT]      = "#1D3238"
-  bg[SELECTED]      = "#8FB8A6"
-  bg[INSENSITIVE]   = "#0B0F14"
+  bg[NORMAL]        = "{{bg.base}}"
+  bg[ACTIVE]        = "{{bg.surface}}"
+  bg[PRELIGHT]      = "{{bg.surface}}"
+  bg[SELECTED]      = "{{accent.base}}"
+  bg[INSENSITIVE]   = "{{bg.base_darker}}"
 
-  base[NORMAL]      = "#16222A"
-  base[ACTIVE]      = "#1D3238"
-  base[PRELIGHT]    = "#1D3238"
-  base[SELECTED]    = "#8FB8A6"
-  base[INSENSITIVE] = "#0F141B"
+  base[NORMAL]      = "{{bg.tile}}"
+  base[ACTIVE]      = "{{bg.surface}}"
+  base[PRELIGHT]    = "{{bg.surface}}"
+  base[SELECTED]    = "{{accent.base}}"
+  base[INSENSITIVE] = "{{bg.base}}"
 
-  fg[NORMAL]        = "#E9F1EC"
-  fg[ACTIVE]        = "#E9F1EC"
-  fg[PRELIGHT]      = "#E9F1EC"
-  fg[SELECTED]      = "#0D131A"
-  fg[INSENSITIVE]   = "#76877F"
+  fg[NORMAL]        = "{{text.primary}}"
+  fg[ACTIVE]        = "{{text.primary}}"
+  fg[PRELIGHT]      = "{{text.primary}}"
+  fg[SELECTED]      = "{{accent.text_on_accent}}"
+  fg[INSENSITIVE]   = "{{text.disabled}}"
 
-  text[NORMAL]      = "#E9F1EC"
-  text[ACTIVE]      = "#E9F1EC"
-  text[PRELIGHT]    = "#E9F1EC"
-  text[SELECTED]    = "#0D131A"
-  text[INSENSITIVE] = "#76877F"
+  text[NORMAL]      = "{{text.primary}}"
+  text[ACTIVE]      = "{{text.primary}}"
+  text[PRELIGHT]    = "{{text.primary}}"
+  text[SELECTED]    = "{{accent.text_on_accent}}"
+  text[INSENSITIVE] = "{{text.disabled}}"
 }
 
 style "button" = "default" {
   xthickness = 3
   ythickness = 3
-  bg[NORMAL]   = "#16222A"
-  bg[PRELIGHT] = "#1D3238"
-  bg[ACTIVE]   = "#8FB8A6"
-  fg[ACTIVE]   = "#0D131A"
+  bg[NORMAL]   = "{{bg.tile}}"
+  bg[PRELIGHT] = "{{bg.surface}}"
+  bg[ACTIVE]   = "{{accent.base}}"
+  fg[ACTIVE]   = "{{accent.text_on_accent}}"
 }
 
 style "entry" = "default" {
   xthickness = 3
   ythickness = 3
-  base[NORMAL] = "#16222A"
+  base[NORMAL] = "{{bg.tile}}"
 }
 
 style "menu" = "default" {
   xthickness = 2
   ythickness = 2
-  bg[NORMAL]   = "#16222A"
-  bg[PRELIGHT] = "#8FB8A6"
-  fg[PRELIGHT] = "#0D131A"
+  bg[NORMAL]   = "{{bg.tile}}"
+  bg[PRELIGHT] = "{{accent.base}}"
+  fg[PRELIGHT] = "{{accent.text_on_accent}}"
 }
 
 style "menubar" = "default" {
-  bg[NORMAL]   = "#0F141B"
+  bg[NORMAL]   = "{{bg.base}}"
 }
 
 style "tooltip" {
   xthickness = 4
   ythickness = 4
-  bg[NORMAL]   = "#1D3238"
-  fg[NORMAL]   = "#E9F1EC"
+  bg[NORMAL]   = "{{bg.surface}}"
+  fg[NORMAL]   = "{{text.primary}}"
 }
 
 class "GtkWidget" style "default"

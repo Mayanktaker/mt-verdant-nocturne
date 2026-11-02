@@ -10,7 +10,7 @@
   <color name="bg_tile"        value="#16222A"/>
   <color name="text_primary"   value="#E9F1EC"/>
   <color name="text_secondary" value="#A7B8B1"/>
-  <color name="text_muted"     value="#52736F"/>
+  <color name="text_muted"     value="#6A8F88"/>
   <color name="accent_sage"    value="#8FB8A6"/>
   <color name="accent_strong"  value="#A9CDBB"/>
   <color name="accent_emerald" value="#3DD68C"/>

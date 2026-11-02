@@ -2,9 +2,9 @@
 /* GTK tweak: solid opaque surfaces (no blur / translucency) */
 
 headerbar {
-  background-color: #0f141b;
+  background-color: {{bg.base}};
 }
 
 popover.background {
-  background-color: #16222a;
+  background-color: {{bg.tile}};
 }

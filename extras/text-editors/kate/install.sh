@@ -4,7 +4,7 @@
 
 set -eu
 SRC_FILE="$(cd "$(dirname "$0")" && pwd)/MT-Verdant-Nocturne.colors"
-DEST_DIR="${HOME}/.local/share/org.kde.syntax-highlighting/themes"
+DEST_DIR="${HOME}/.local/share/color-schemes"
 
 mkdir -p "${DEST_DIR}"
 cp "${SRC_FILE}" "${DEST_DIR}/"

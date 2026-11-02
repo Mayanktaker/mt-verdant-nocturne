@@ -5,7 +5,7 @@ Author=Mayanktaker
 [Editor Colors]
 Color Background=15,20,27
 Color Highlighted Line=22,34,42
-Color Line Number=82,115,111
+Color Line Number=106,143,136
 Color Current Line Number=143,184,166
 Color Selection=29,50,56
 Color Word Wrap Marker=44,62,68
@@ -28,7 +28,7 @@ String=7fc8a0;;0;0;0
 Verbatim String=7fc8a0;;0;0;0
 Special String=c9a3b0;;0;0;0
 Types=a9cdbb;;1;0;0
-Comment=52736f;;0;1;0
+Comment=6a8f88;;0;1;0
 Documentation=a7b8b1;;0;1;0
 Decimal=e5b580;;0;0;0
 Base-N Integer=e5b580;;0;0;0

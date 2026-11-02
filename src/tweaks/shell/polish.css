@@ -3,90 +3,90 @@
 
 /* Quick Settings: modern pill tiles and soft ambient glow */
 .quick-settings {
-  padding: 18px;
+  padding: {{geometry.space.lg}}px;
 }
 
 /* Standalone quick toggles */
-.quick-toggle:not(.quick-toggle-has-menu .quick-toggle) {
-  border-radius: 14px;
-  background-color: #16222a;
-  border: 1px solid #2c3e44;
-  color: #e9f1ec;
+.quick-toggle {
+  border-radius: {{geometry.radius.tile}}px;
+  background-color: {{bg.tile}};
+  border: 1px solid {{border.default}};
+  color: {{text.primary}};
   font-weight: 600;
   transition-duration: 150ms;
 }
 
-.quick-toggle:not(.quick-toggle-has-menu .quick-toggle):hover {
-  background-color: #1d3238;
-  border-color: #8fb8a6;
+.quick-toggle:hover {
+  background-color: {{bg.surface}};
+  border-color: {{accent.base}};
 }
 
-.quick-toggle:not(.quick-toggle-has-menu .quick-toggle):checked {
-  background-color: #8fb8a6 !important;
-  color: #0d131a !important;
-  border-color: #8fb8a6 !important;
-  box-shadow: 0 2px 10px rgba(143, 184, 166, 0.35);
+.quick-toggle:checked {
+  background-color: {{accent.base}} !important;
+  color: {{accent.text_on_accent}} !important;
+  border-color: {{accent.base}} !important;
+  box-shadow: 0 2px 10px rgba({{accent.base.rgb}}, 0.35);
 }
 
-.quick-toggle:not(.quick-toggle-has-menu .quick-toggle):checked:hover {
-  background-color: #a9cdbb !important;
-  box-shadow: 0 4px 14px rgba(143, 184, 166, 0.45);
+.quick-toggle:checked:hover {
+  background-color: {{accent.strong}} !important;
+  box-shadow: 0 4px 14px rgba({{accent.base.rgb}}, 0.45);
 }
 
 /* Quick toggles with submenus (Network, Power Mode, Bluetooth) */
 .quick-toggle-has-menu {
-  border-radius: 14px;
+  border-radius: {{geometry.radius.tile}}px;
 }
 
 .quick-toggle-has-menu .quick-toggle {
-  border-radius: 14px 0 0 14px !important;
-  background-color: #16222a;
-  border: 1px solid #2c3e44;
+  border-radius: {{geometry.radius.tile}}px 0 0 {{geometry.radius.tile}}px !important;
+  background-color: {{bg.tile}};
+  border: 1px solid {{border.default}};
   border-right: none;
-  color: #e9f1ec;
+  color: {{text.primary}};
   font-weight: 600;
   transition-duration: 150ms;
 }
 
 .quick-toggle-has-menu .quick-toggle:hover {
-  background-color: #1d3238;
-  border-color: #8fb8a6;
+  background-color: {{bg.surface}};
+  border-color: {{accent.base}};
 }
 
 .quick-toggle-has-menu .quick-toggle:checked {
-  background-color: #8fb8a6 !important;
-  color: #0d131a !important;
-  border-color: #8fb8a6 !important;
+  background-color: {{accent.base}} !important;
+  color: {{accent.text_on_accent}} !important;
+  border-color: {{accent.base}} !important;
 }
 
 .quick-toggle-has-menu .quick-toggle:checked:hover {
-  background-color: #a9cdbb !important;
+  background-color: {{accent.strong}} !important;
 }
 
 .quick-toggle-has-menu .quick-toggle-separator {
   width: 1px;
-  background-color: #2c3e44;
+  background-color: {{border.default}};
 }
 
 .quick-toggle-has-menu .quick-toggle-menu-button {
-  border-radius: 0 14px 14px 0 !important;
-  background-color: #16222a;
-  border: 1px solid #2c3e44;
+  border-radius: 0 {{geometry.radius.tile}}px {{geometry.radius.tile}}px 0 !important;
+  background-color: {{bg.tile}};
+  border: 1px solid {{border.default}};
   border-left: none;
-  color: #e9f1ec;
+  color: {{text.primary}};
   padding: 0.4em 0.8em;
   transition-duration: 150ms;
 }
 
 .quick-toggle-has-menu .quick-toggle-menu-button:hover {
-  background-color: #1d3238;
-  border-color: #8fb8a6;
+  background-color: {{bg.surface}};
+  border-color: {{accent.base}};
 }
 
 .quick-toggle-has-menu .quick-toggle-menu-button:checked {
-  background-color: #a9cdbb !important;
-  color: #0d131a !important;
-  border-color: #8fb8a6 !important;
+  background-color: {{accent.strong}} !important;
+  color: {{accent.text_on_accent}} !important;
+  border-color: {{accent.base}} !important;
 }
 
 /* Top panel: status indicators alignment and spacing */
@@ -108,57 +108,57 @@
 .slider {
   height: 20px;
   -barlevel-height: 8px;
-  -barlevel-background-color: #1d3238;
-  -barlevel-active-background-color: #8fb8a6;
-  -barlevel-overdrive-color: #e5737f;
+  -barlevel-background-color: {{bg.surface}};
+  -barlevel-active-background-color: {{accent.base}};
+  -barlevel-overdrive-color: {{status.destructive}};
   -barlevel-overdrive-separator-width: 2px;
   -slider-handle-radius: 8px;
-  color: #e9f1ec;
+  color: {{text.primary}};
 }
 
 .slider:hover {
-  -barlevel-active-background-color: #a9cdbb;
+  -barlevel-active-background-color: {{accent.strong}};
 }
 
 /* Dash: modern floating pill dock */
 #dash .dash-background {
-  background-color: rgba(15, 20, 27, 0.88);
-  border: 1px solid rgba(44, 62, 68, 0.7);
-  border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  background-color: rgba({{bg.base.rgb}}, 0.88);
+  border: 1px solid rgba({{border.default.rgb}}, 0.7);
+  border-radius: {{geometry.radius.dock}}px;
+  box-shadow: 0 8px 24px rgba({{shadow.rgb}}, 0.45);
 }
 
-#dash .app-well-app-running-dot {
-  background-color: #8fb8a6;
+#dash .app-grid-running-dot {
+  background-color: {{accent.base}};
   width: 5px;
   height: 5px;
-  border-radius: 999px;
+  border-radius: {{geometry.radius.pill}}px;
   margin-bottom: 2px;
 }
 
 /* Popover menus & Calendar */
 .popup-menu-content {
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
-  border: 1px solid #2c3e44;
+  border-radius: {{geometry.radius.popover}}px;
+  box-shadow: 0 8px 30px rgba({{shadow.rgb}}, 0.55);
+  border: 1px solid {{border.default}};
 }
 
 .calendar .calendar-day.calendar-today {
-  background-color: #8fb8a6 !important;
-  color: #0d131a !important;
-  border-radius: 999px;
+  background-color: {{accent.base}} !important;
+  color: {{accent.text_on_accent}} !important;
+  border-radius: {{geometry.radius.pill}}px;
   font-weight: bold;
 }
 
 /* Notifications & OSD cards */
 .osd-window, .workspace-switcher {
-  border-radius: 20px;
-  border: 1px solid rgba(44, 62, 68, 0.75);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  border-radius: {{geometry.radius.popover}}px;
+  border: 1px solid rgba({{border.default.rgb}}, 0.75);
+  box-shadow: 0 8px 28px rgba({{shadow.rgb}}, 0.55);
 }
 
 .message {
-  border-radius: 14px;
-  background-color: #16222a;
-  border: 1px solid #223237;
+  border-radius: {{geometry.radius.tile}}px;
+  background-color: {{bg.tile}};
+  border: 1px solid {{border.subtle}};
 }

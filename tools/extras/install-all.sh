@@ -45,8 +45,11 @@ fi
 # GNOME Terminal
 if have gnome-terminal || have dconf; then
   if [ -f "${REPO_ROOT}/extras/terminals/gnome-terminal/install.sh" ]; then
-    bash "${REPO_ROOT}/extras/terminals/gnome-terminal/install.sh" >/dev/null 2>&1 || true
-    echo "✓ GNOME Terminal: profile registered via dconf"
+    if bash "${REPO_ROOT}/extras/terminals/gnome-terminal/install.sh" >/dev/null 2>&1; then
+      echo "✓ GNOME Terminal: profile registered via dconf"
+    else
+      echo "! GNOME Terminal: profile registration failed (see extras/terminals/gnome-terminal/install.sh)"
+    fi
   fi
 fi
 
@@ -54,8 +57,11 @@ fi
 # Fish Shell
 if have fish || [ -d "${HOME}/.config/fish" ]; then
   if [ -f "${REPO_ROOT}/extras/fish/install.sh" ]; then
-    bash "${REPO_ROOT}/extras/fish/install.sh" >/dev/null 2>&1 || true
-    echo "✓ Fish Shell: theme installed to ~/.config/fish/themes/mt_verdant_nocturne.theme"
+    if bash "${REPO_ROOT}/extras/fish/install.sh" >/dev/null 2>&1; then
+      echo "✓ Fish Shell: theme installed (activate with: fish_config theme choose mt_verdant_nocturne)"
+    else
+      echo "! Fish Shell: theme installation failed"
+    fi
   fi
 fi
 

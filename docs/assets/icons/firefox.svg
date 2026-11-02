@@ -7,7 +7,7 @@
   <linearGradient id="foxGrad" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
     <stop offset="0%" stop-color="#3DD68C"/>
     <stop offset="60%" stop-color="#8FB8A6"/>
-    <stop offset="100%" stop-color="#52736F"/>
+    <stop offset="100%" stop-color="#6A8F88"/>
   </linearGradient>
 </defs>
 <rect x="8" y="8" width="48" height="48" rx="10" fill="url(#ffxBg)" stroke="#2E555F" stroke-width="1.5"/>

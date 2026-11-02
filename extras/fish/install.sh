@@ -11,7 +11,9 @@ mkdir -p "${DEST_DIR}"
 cp "${SRC_FILE}" "${DEST_DIR}/"
 echo "Theme copied to ${DEST_DIR}/${THEME_NAME}.theme"
 
-if command -v fish >/dev/null 2>&1; then
+if [ "${1:-}" = "--apply" ] && command -v fish >/dev/null 2>&1; then
     fish -c "fish_config theme choose ${THEME_NAME}" 2>/dev/null || true
     echo "Theme activated in Fish shell!"
+else
+    echo "Activate with: fish_config theme choose ${THEME_NAME}  (or re-run with --apply)"
 fi
