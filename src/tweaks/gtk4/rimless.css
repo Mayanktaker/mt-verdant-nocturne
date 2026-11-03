@@ -1,0 +1,38 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK4 tweak: rimless borderless windows, cards and popovers */
+
+window.background,
+window.csd,
+window.solid-csd,
+dialog,
+window.dialog {
+  border: none;
+  box-shadow: 0 10px 30px rgba({{shadow.rgb}}, 0.45);
+}
+
+headerbar,
+.titlebar {
+  border-bottom: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.card,
+list.boxed-list,
+frame > border,
+.expander-widget {
+  border: none;
+  box-shadow: 0 2px 10px rgba({{shadow.rgb}}, 0.28);
+}
+
+/* Popovers keep a soft shadow so they stay readable over busy content */
+popover.background,
+popover.menu,
+dropdown > popover.menu.background > contents {
+  border: none;
+  box-shadow: 0 8px 24px rgba({{shadow.rgb}}, 0.5);
+}
+
+tooltip > box {
+  border: none;
+}

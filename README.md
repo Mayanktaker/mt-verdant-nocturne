@@ -38,11 +38,17 @@ A premium dark theme ecosystem for Linux desktops — GNOME Shell 50/51, GTK3, G
 
 ## Verified Renders (real, not mockups)
 
-These are headless renders of the built theme (sage accent) from the release gate: GTK3 on the left, GTK4/libadwaita with the opt-in override on the right.
+These are headless renders of the built theme (sage accent) from the release gate. The GTK4 sheet ships a complete widget stylesheet, so it looks the same in plain GTK4 apps as it does here.
 
-| GTK3 widgets | GTK4 / libadwaita widgets |
+| GTK3 widgets | GTK4 widgets |
 |---|---|
 | ![GTK3 real render](screenshots/real-gtk3-widgets.png) | ![GTK4 real render](screenshots/real-gtk4-widgets.png) |
+
+A real plain-GTK4 app, Shelly 3.1.10, with an input focused — cards, fields, check boxes and action buttons all follow the theme:
+
+| AppImage detail form | Package list |
+|---|---|
+| ![Shelly detail form](screenshots/real-gtk4-shelly.png) | ![Shelly package list](screenshots/real-gtk4-shelly-list.png) |
 
 Live GNOME Shell 51.1 (Wayland), captured after installing the release archive:
 

@@ -1,0 +1,35 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK4 tweak: compact headerbars, entries and list rows */
+
+headerbar,
+.titlebar {
+  min-height: 38px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+headerbar button,
+headerbar menubutton > button {
+  min-height: 26px;
+  padding: 2px 6px;
+}
+
+entry,
+spinbutton,
+dropdown > button,
+combobox > box > button.combo {
+  min-height: 28px;
+  padding: 2px 8px;
+}
+
+list > row,
+listview > row {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* Bookkeeping so the GTK3 compact rules are never needed on the GTK4 sheet */
+button {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}

@@ -50,6 +50,8 @@ A GTK4 theme *replaces* the widget stylesheet instead of extending Adwaita, so a
 - **Checks and radios:** 16px indicator with a visible edge, Sage fill and dark glyph when checked, 4px (check) and pill (radio) radius.
 - **Lists, tabs, sliders, switches, selects, tooltips, scrollbars:** recoloured from the same tokens so no Adwaita blue or grey leaks through.
 
+Surface variants live in `src/tweaks/gtk4/` (`black.css` for OLED, `rimless.css`, `compact.css`, `macos.css`), written against GTK4 node names; the installer appends them after the curated sheet instead of reusing the GTK3 tweak files.
+
 `tools/gtk4/build.py` also emits `gtk-4.0/user.css`, the opt-in `~/.config/gtk-4.0/gtk.css` contract for libadwaita apps. It carries the `@define-color` names only, never the base sheet, so libadwaita keeps its own widget CSS and only takes our palette.
 
 ## 4K Wallpaper Suite Rules

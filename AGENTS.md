@@ -30,7 +30,7 @@ The companion icon and cursor packs live in **`Mayanktaker/mt-verdant-icons`** a
 - App extras install: `tools/extras/install-all.sh` (scans & installs for all detected apps) or individual scripts under `extras/`.
 
 ## Layout
-- `palette/` tokens (v0.4.0: colors, accents, geometry, art) · `tools/theme/` token renderer · `src/` per-layer sources (shell, gtk, tweaks) · `extras/` (terminals, fish, text-editors, kde, grub, sddm, gdm, plymouth, fastfetch, firefox, vscode) · `tools/` generators + installer
+- `palette/` tokens (v0.5.0: colors, accents, geometry, art) · `tools/theme/` token renderer · `src/` per-layer sources (shell, gtk, gtk4, tweaks) · `extras/` (terminals, fish, text-editors, kde, grub, sddm, gdm, plymouth, fastfetch, firefox, vscode) · `tools/` generators (shell, gtk, gtk4, theme, wallpaper) + installer
 - `build/` generated output (gitignored) · `wallpaper/preview/` committed previews · `flatpak/` extension manifest + appdata · `docs/` focused docs
 
 ## Companion repositories

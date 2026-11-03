@@ -428,13 +428,15 @@ spinbutton > text:focus {
   background-color: {{bg.raised}};
 }
 
+/* Disabled fields keep the recessed fill and fade their edge instead of brightening */
 entry:disabled,
 spinbutton:disabled,
 spinbutton > text:disabled,
 textview > text:disabled {
-  background-color: {{bg.tile}};
+  background-color: {{bg.base_darker}};
   color: {{text.disabled}};
   border-color: {{border.subtle}};
+  box-shadow: none;
 }
 
 entry.error,
@@ -649,7 +651,7 @@ switch:disabled > slider {
 /* ---- Scales, progress and level bars ----------------------------------- */
 scale > trough {
   background-color: {{bg.base_darker}};
-  border: 1px solid {{border.subtle}};
+  border: 1px solid {{border.default}};
   border-radius: {{geometry.radius.pill}}px;
   box-shadow: none;
 }
@@ -693,7 +695,7 @@ scale:disabled > trough > highlight {
 
 progressbar > trough {
   background-color: {{bg.base_darker}};
-  border: 1px solid {{border.subtle}};
+  border: 1px solid {{border.default}};
   border-radius: {{geometry.radius.pill}}px;
   box-shadow: none;
 }

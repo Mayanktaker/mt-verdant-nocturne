@@ -503,7 +503,7 @@ append_css "${TWEAK_DIR}/shell/round.css" "$SHELL_CSS"
 [ "$THEME_SIZE" = "compact" ] && append_css "${TWEAK_DIR}/shell/compact.css" "$SHELL_CSS"
 [ "$WANT_OLED" -eq 1 ] && append_css "${TWEAK_DIR}/shell/black.css" "$SHELL_CSS"
 
-for target in "$GTK3_CSS" "$GTK3_DARK" "$GTK4_CSS" "$GTK4_DARK"; do
+for target in "$GTK3_CSS" "$GTK3_DARK"; do
   append_css "${TWEAK_DIR}/gtk/polish.css" "$target"
   append_css "${TWEAK_DIR}/gtk/round.css" "$target"
   [ "$THEME_SIZE" = "compact" ] && append_css "${TWEAK_DIR}/gtk/compact.css" "$target"
@@ -511,6 +511,15 @@ for target in "$GTK3_CSS" "$GTK3_DARK" "$GTK4_CSS" "$GTK4_DARK"; do
   [ "$WANT_RIMLESS" -eq 1 ] && append_css "${TWEAK_DIR}/gtk/rimless.css" "$target"
   [ "$CONTROLS" = "macos" ] && append_css "${TWEAK_DIR}/gtk/macos.css" "$target"
   if [ "$WANT_BLUR" -eq 0 ]; then append_css "${TWEAK_DIR}/gtk/noblur.css" "$target"; fi
+done
+
+# GTK4 gets its own tweaks: the curated sheet already ships radii and polish,
+# and the node names in these files follow GTK4 (windowcontrols, list > row).
+for target in "$GTK4_CSS" "$GTK4_DARK"; do
+  if [ "$THEME_SIZE" = "compact" ]; then append_css "${TWEAK_DIR}/gtk4/compact.css" "$target"; fi
+  if [ "$WANT_OLED" -eq 1 ]; then append_css "${TWEAK_DIR}/gtk4/black.css" "$target"; fi
+  if [ "$WANT_RIMLESS" -eq 1 ]; then append_css "${TWEAK_DIR}/gtk4/rimless.css" "$target"; fi
+  if [ "$CONTROLS" = "macos" ]; then append_css "${TWEAK_DIR}/gtk4/macos.css" "$target"; fi
 done
 
 # ---------------------------------------------------------------- blur extension config

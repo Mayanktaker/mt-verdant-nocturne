@@ -1,0 +1,79 @@
+/* MT Verdant Nocturne — © Mayanktaker Computers & Web Development | https://mayanktaker.com */
+/* GTK4 tweak: true pitch-black OLED surfaces (matches the GTK3 OLED build) */
+
+@define-color window_bg_color {{bg.oled}};
+@define-color view_bg_color {{bg.oled_view}};
+@define-color headerbar_bg_color {{bg.oled}};
+@define-color sidebar_bg_color {{bg.oled}};
+@define-color card_bg_color {{bg.oled_card}};
+@define-color dialog_bg_color {{bg.oled}};
+@define-color popover_bg_color {{bg.oled_card}};
+@define-color borders {{border.oled}};
+
+.background,
+window.background,
+dialog,
+window.dialog,
+headerbar,
+.titlebar,
+.sidebar,
+.navigation-sidebar,
+placessidebar {
+  background-color: {{bg.oled}};
+  border-color: {{border.oled}};
+}
+
+/* Views and text areas drop one step off pure black so text keeps its edge */
+.view,
+iconview,
+listview,
+columnview.view,
+treeview.view,
+notebook > stack:not(:only-child) {
+  background-color: {{bg.oled_view}};
+  border-color: {{border.oled}};
+}
+
+.card,
+list.boxed-list,
+popover.background,
+popover.menu,
+dropdown > popover.menu.background > contents,
+frame > border,
+.expander-widget {
+  background-color: {{bg.oled_card}};
+  border-color: {{border.oled}};
+}
+
+separator,
+list.boxed-list > row {
+  background-color: {{border.oled}};
+  border-color: {{border.oled}};
+}
+
+/* Controls sit on the card tone so they stay visible against pitch black */
+button,
+check,
+radio,
+entry,
+spinbutton,
+dropdown > button,
+combobox > box > button.combo {
+  background-color: {{bg.oled_card}};
+  border-color: {{border.oled}};
+}
+
+textview,
+textview > text {
+  background-color: {{bg.oled_view}};
+  border-color: {{border.oled}};
+}
+
+switch {
+  background-color: {{bg.oled}};
+  border-color: {{border.oled}};
+}
+
+scrollbar > range > trough > slider {
+  background-color: alpha({{text.secondary}}, 0.30);
+}
