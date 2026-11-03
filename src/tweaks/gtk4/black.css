@@ -69,6 +69,48 @@ textview > text {
   border-color: {{border.oled}};
 }
 
+/* Focus and hover states must stay on the OLED ramp, never jump to bg.raised */
+entry:focus,
+entry:focus-within,
+entry:hover,
+spinbutton:focus,
+spinbutton:focus-within,
+spinbutton > text:focus,
+spinbutton:hover,
+spinbutton > text:hover,
+dropdown > button:hover,
+combobox > box > button.combo:hover {
+  background-color: {{bg.oled_view}};
+  border-color: {{border.oled}};
+}
+
+button:hover {
+  background-color: {{bg.oled_card}};
+  border-color: {{border.oled}};
+}
+
+/* Disabled fields keep the black base so they never out-glow the OLED ramp */
+entry:disabled,
+spinbutton:disabled,
+spinbutton > text:disabled {
+  background-color: {{bg.oled}};
+  border-color: {{border.oled}};
+  color: {{text.disabled}};
+}
+
+button:active,
+button:checked,
+button.flat:active,
+button.flat:checked {
+  background-color: {{bg.oled_view}};
+  border-color: {{border.oled}};
+}
+
+check:hover,
+radio:hover {
+  background-color: {{bg.oled_view}};
+}
+
 switch {
   background-color: {{bg.oled}};
   border-color: {{border.oled}};

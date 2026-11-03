@@ -12,6 +12,7 @@ real session (host or disposable VM). "50+" never implies untested future releas
 | GTK4 apps (plain) | same build as 51 | **verified live** in Shelly 3.1.10 (package grid, detail form, entries, checks, action buttons) + headless widget probe | full Adwaita dark base recoloured from tokens; every widget styled, no Adwaita blue left |
 | libadwaita apps | n/a | **verified** in a libadwaita probe (preferences page, entry, switch, action buttons) | opt-in `--gtk4-libadwaita` colour contract only; libadwaita keeps its own widget CSS |
 | Flatpak GTK3 | **built + mount-verified** | same | in-app visual pass deferred; details in docs/flatpak.md |
+| GTK4 surface variants | same build as 51 | **OLED verified** against a real Shelly build (pitch-black window, cards, focused/disabled fields on the OLED ramp) plus probe checks for rimless, compact and macOS buttons | `src/tweaks/gtk4/`, appended by the installer |
 | Wallpaper | n/a | n/a | 8 procedural 4K JPEGs, adaptive pairs + timed cycle; apply is opt-in |
 | Installer | n/a | verified from source **and** from the release archive in a sandboxed HOME | unknown values exit 2; uninstall restores GTK4 backups |
 
