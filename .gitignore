@@ -17,3 +17,6 @@ dist/
 # parked previous installs (never hard-deleted)
 deleted_files_folders/
 flatpak/repo/
+
+# agent tooling artifacts (browser captures)
+.openchamber/

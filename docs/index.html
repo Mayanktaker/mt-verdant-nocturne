@@ -347,6 +347,45 @@
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
     }
+    /* Verified app renders */
+    .render-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 760px) {
+      .render-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .render-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .render-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-deep);
+    }
+    .render-card figcaption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .render-card figcaption strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
     @media (max-width: 850px) {
       .ecosystem-banner {
         grid-template-columns: 1fr;
@@ -515,6 +554,7 @@
       </a>
       <div class="nav-links">
         <a href="#variants">Variants</a>
+        <a href="#renders">Real Apps</a>
         <a href="#icons">Icons</a>
         <a href="#wallpapers">Wallpapers</a>
         <a href="#install">Install</a>
@@ -617,6 +657,33 @@
         </div>
       </div>
     </section>
+
+
+      <!-- Verified on real apps -->
+      <section id="renders" style="margin-top: 72px;">
+        <div class="section-header">
+          <h2>Verified on real apps</h2>
+          <p>Headless renders of the built theme plus a real plain GTK4 app running it — no mockups, no retouching.</p>
+        </div>
+        <div class="render-grid">
+          <figure class="render-card">
+            <img src="assets/screenshots/real-gtk4-widgets.png" alt="GTK4 widget matrix rendered by the theme" loading="lazy">
+            <figcaption><strong>GTK4 widget set</strong>Buttons, fields, check boxes, switches, lists, tabs and sliders in the Sage accent.</figcaption>
+          </figure>
+          <figure class="render-card">
+            <img src="assets/screenshots/real-gtk4-shelly.png" alt="Shelly AppImage detail form themed by MT Verdant Nocturne" loading="lazy">
+            <figcaption><strong>Shelly 3.1.10 — detail form</strong>Plain GTK4 app, input focused: recessed fields, sage focus ring, visible check box.</figcaption>
+          </figure>
+          <figure class="render-card">
+            <img src="assets/screenshots/real-gtk4-shelly-list.png" alt="Shelly package grid themed by MT Verdant Nocturne" loading="lazy">
+            <figcaption><strong>Shelly 3.1.10 — package grid</strong>Cards, selection edge, framed search field and action buttons.</figcaption>
+          </figure>
+          <figure class="render-card">
+            <img src="assets/screenshots/real-gtk3-widgets.png" alt="GTK3 widget matrix rendered by the theme" loading="lazy">
+            <figcaption><strong>GTK3 widget set</strong>The same palette on classic Adwaita-derived GTK3 widgets.</figcaption>
+          </figure>
+        </div>
+      </section>
 
     <!-- Handcrafted Icons Suite -->
     <section id="icons">
