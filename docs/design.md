@@ -12,7 +12,7 @@ Single source of truth for colors: `palette/tokens.json` (do not hardcode hex va
 - **Contrast is a gate:** `tools/dev/check_contrast.py` checks every emitted text/surface pair, UI edges, terminal ANSI colors and editor syntax colors (WCAG ≥4.5 body text, ≥3:1 UI components, ≥7 preferred).
 - **System fonts**, no custom typography in the theme itself.
 
-## Tokens (v0.5.0)
+## Tokens (v0.5.1)
 | Token | Value | Use |
 |---|---|---|
 | bg.base | #0F141B | panel, dialogs, cards |

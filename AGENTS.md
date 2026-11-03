@@ -25,12 +25,12 @@ The companion icon and cursor packs live in **`Mayanktaker/mt-verdant-icons`** a
 - GTK build: `python3 tools/gtk/build.py [--accent <flavor>] [--out DIR]` → `build/theme/gtk-3.0/`
 - GTK4 build: `python3 tools/gtk4/build.py [--accent <flavor>] [--out-dir DIR]` → `gtk.css`, `gtk-dark.css`, `user.css`. A GTK4 theme replaces Adwaita, so the build inlines GTK's own dark base, recolours it via `src/gtk-4.0/recolor.json`, and appends `src/gtk-4.0/overrides.css`. `user.css` is the libadwaita-only colour contract (never the base).
 - Token renderer: `python3 tools/theme/render.py --accent <flavor> --dir src/tweaks --out-dir DIR` (tweaks are templates; hex literals are forbidden).
-- Gates: `check_contrast.py`, `check_colors.py`, `check_selectors.py`, `check_version.py`; sandbox install `tools/dev/smoke-install.sh .`; release `tools/release.sh 0.5.0`.
+- Gates: `check_contrast.py`, `check_colors.py`, `check_selectors.py`, `check_version.py`; sandbox install `tools/dev/smoke-install.sh .`; release `tools/release.sh 0.5.1`.
 - Install: `./install.sh` (interactive CLI wizard) or `tools/install.sh [--panel round-island|pill|bottom-round|flat] [--controls standard|macos] [--accent sage|emerald|moss|pine] [--size standard|compact] [--blur|--no-blur] [--oled] [--rimless] [--wallpaper [1-4|light-1..4|dynamic|timed|all|none]] [--gtk4-libadwaita] [--install-deps] [--uninstall]` → installs theme into `~/.themes/MT-Verdant-Nocturne` (user-only; copies 4K wallpapers into `${THEME_DIR}/wallpapers/` and extras into `${THEME_DIR}/extras/`). Icon/cursor flags were removed in 0.3.0; use the companion repo instead.
 - App extras install: `tools/extras/install-all.sh` (scans & installs for all detected apps) or individual scripts under `extras/`.
 
 ## Layout
-- `palette/` tokens (v0.5.0: colors, accents, geometry, art) · `tools/theme/` token renderer · `src/` per-layer sources (shell, gtk, gtk4, tweaks) · `extras/` (terminals, fish, text-editors, kde, grub, sddm, gdm, plymouth, fastfetch, firefox, vscode) · `tools/` generators (shell, gtk, gtk4, theme, wallpaper) + installer
+- `palette/` tokens (v0.5.1: colors, accents, geometry, art) · `tools/theme/` token renderer · `src/` per-layer sources (shell, gtk, gtk4, tweaks) · `extras/` (terminals, fish, text-editors, kde, grub, sddm, gdm, plymouth, fastfetch, firefox, vscode) · `tools/` generators (shell, gtk, gtk4, theme, wallpaper) + installer
 - `build/` generated output (gitignored) · `wallpaper/preview/` committed previews · `flatpak/` extension manifest + appdata · `docs/` focused docs
 
 ## Companion repositories
