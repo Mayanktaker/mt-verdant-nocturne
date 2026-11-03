@@ -21,16 +21,17 @@
   border-color: {{accent.base}};
 }
 
+/* Checked toggles stay flat: accent glows read as haze on light wallpapers */
 .quick-toggle:checked {
   background-color: {{accent.base}} !important;
   color: {{accent.text_on_accent}} !important;
   border-color: {{accent.base}} !important;
-  box-shadow: 0 2px 10px rgba({{accent.base.rgb}}, 0.35);
+  box-shadow: none;
 }
 
 .quick-toggle:checked:hover {
   background-color: {{accent.strong}} !important;
-  box-shadow: 0 4px 14px rgba({{accent.base.rgb}}, 0.45);
+  box-shadow: none;
 }
 
 /* Quick toggles with submenus (Network, Power Mode, Bluetooth) */
@@ -120,12 +121,12 @@
   -barlevel-active-background-color: {{accent.strong}};
 }
 
-/* Dash: modern floating pill dock */
+/* Dash: modern floating pill dock (tight shadow: Shell widens blur far beyond GTK) */
 #dash .dash-background {
   background-color: rgba({{bg.base.rgb}}, 0.88);
   border: 1px solid rgba({{border.default.rgb}}, 0.7);
   border-radius: {{geometry.radius.dock}}px;
-  box-shadow: 0 8px 24px rgba({{shadow.rgb}}, 0.45);
+  box-shadow: 0 2px 8px rgba({{shadow.rgb}}, 0.4);
 }
 
 #dash .app-grid-running-dot {
@@ -136,10 +137,10 @@
   margin-bottom: 2px;
 }
 
-/* Popover menus & Calendar */
+/* Popover menus & Calendar: 6px blur keeps the edge crisp instead of hazy */
 .popup-menu-content {
   border-radius: {{geometry.radius.popover}}px;
-  box-shadow: 0 8px 30px rgba({{shadow.rgb}}, 0.55);
+  box-shadow: 0 2px 6px rgba({{shadow.rgb}}, 0.45);
   border: 1px solid {{border.default}};
 }
 
@@ -154,7 +155,7 @@
 .osd-window, .workspace-switcher {
   border-radius: {{geometry.radius.popover}}px;
   border: 1px solid rgba({{border.default.rgb}}, 0.75);
-  box-shadow: 0 8px 28px rgba({{shadow.rgb}}, 0.55);
+  box-shadow: 0 2px 8px rgba({{shadow.rgb}}, 0.5);
 }
 
 .message {

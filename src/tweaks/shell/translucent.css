@@ -11,7 +11,7 @@
 #panelBox #panel,
 #panel {
   background-color: rgba({{bg.base.rgb}}, 0.78);
-  box-shadow: 0 4px 22px rgba({{shadow.rgb}}, 0.4);
+  box-shadow: 0 1px 3px rgba({{shadow.rgb}}, 0.4);
 }
 
 #panelBox #panel:overview,
