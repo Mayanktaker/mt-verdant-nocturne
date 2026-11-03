@@ -4,7 +4,7 @@
 /* Refined buttons and inputs */
 button {
   transition: all 150ms ease-in-out;
-  border-radius: {{geometry.radius.control}}px;
+  border-radius: {{geometry.radius.button}}px;
 }
 
 button:focus-visible,

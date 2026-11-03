@@ -21,6 +21,7 @@ python3 "${REPO_ROOT}/tools/wallpaper/generate.py" --which all
 python3 "${REPO_ROOT}/tools/wallpaper/generate.py" --verify
 python3 "${REPO_ROOT}/tools/shell/build.py" --all --accent sage --out-dir "${REPO_ROOT}/build/theme"
 python3 "${REPO_ROOT}/tools/gtk/build.py" --accent sage --out "${REPO_ROOT}/build/theme/gtk-3.0"
+python3 "${REPO_ROOT}/tools/gtk4/build.py" --accent sage --out-dir "${REPO_ROOT}/build/theme/gtk-4.0" >/dev/null
 
 rm -rf "${DIST}"
 mkdir -p "${DIST}/presets" "${DIST}/tweaks" "${DIST}/gtk4" "${DIST}/gtk2" "${DIST}/wallpapers/light" "${DIST}/extras"
@@ -30,8 +31,7 @@ for accent in ${ACCENTS}; do
   python3 "${REPO_ROOT}/tools/shell/build.py" --all --accent "${accent}" --out-dir "${DIST}/presets/${accent}"
   python3 "${REPO_ROOT}/tools/gtk/build.py" --accent "${accent}" --out "${DIST}/presets/${accent}/gtk-3.0" >/dev/null
   python3 "${REPO_ROOT}/tools/theme/render.py" --accent "${accent}" --dir "${REPO_ROOT}/src/tweaks" --out-dir "${DIST}/tweaks/${accent}"
-  mkdir -p "${DIST}/gtk4/${accent}"
-  python3 "${REPO_ROOT}/tools/theme/render.py" --accent "${accent}" --in "${REPO_ROOT}/src/gtk-4.0/overrides.css" --out "${DIST}/gtk4/${accent}/gtk.css"
+  python3 "${REPO_ROOT}/tools/gtk4/build.py" --accent "${accent}" --out-dir "${DIST}/gtk4/${accent}" >/dev/null
   mkdir -p "${DIST}/gtk2/${accent}"
   python3 "${REPO_ROOT}/tools/theme/render.py" --accent "${accent}" --in "${REPO_ROOT}/src/gtk-2.0/gtkrc" --out "${DIST}/gtk2/${accent}/gtkrc"
 done

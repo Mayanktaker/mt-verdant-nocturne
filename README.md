@@ -1,6 +1,6 @@
 # MT Verdant Nocturne
 
-[![Release](https://img.shields.io/badge/release-v0.4.0-8fb8a6.svg?style=flat-square)](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/tag/v0.4.0)
+[![Release](https://img.shields.io/badge/release-v0.5.0-8fb8a6.svg?style=flat-square)](https://github.com/Mayanktaker/mt-verdant-nocturne/releases/tag/v0.5.0)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-3dd68c.svg?style=flat-square)](LICENSES/GPL-3.0.txt)
 [![Showcase](https://img.shields.io/badge/Showcase-GitHub%20Pages-7fc8a0.svg?style=flat-square)](https://mayanktaker.github.io/mt-verdant-nocturne/)
 
@@ -275,7 +275,7 @@ python3 tools/gtk/build.py --accent emerald
 sh tools/dev/smoke-install.sh .
 
 # Full release archive with per-accent presets + packaged-installer smoke test
-sh tools/release.sh 0.4.0
+sh tools/release.sh 0.5.0
 ```
 
 ---

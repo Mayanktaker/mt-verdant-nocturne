@@ -13,7 +13,7 @@ headerbar {
 }
 
 button {
-  border-radius: {{geometry.radius.control}}px;
+  border-radius: {{geometry.radius.button}}px;
 }
 
 entry {

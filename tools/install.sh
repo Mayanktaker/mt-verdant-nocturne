@@ -142,6 +142,7 @@ if [ "$DO_UNINSTALL" -eq 1 ]; then
   echo "uninstalled. Reset the shell theme with:"
   echo "  dconf write /org/gnome/shell/extensions/user-theme/name \"''\""
   echo "  gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
+  echo "  gsettings set org.gnome.desktop.interface color-scheme 'default'"
   exit 0
 fi
 
@@ -388,11 +389,11 @@ TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 if [ "$LAYOUT" = "source" ]; then
   python3 "${REPO_ROOT}/tools/theme/render.py" --accent "${ACCENT}" --dir "${REPO_ROOT}/src/tweaks" --out-dir "${TMP_DIR}/tweaks" >/dev/null
-  python3 "${REPO_ROOT}/tools/theme/render.py" --accent "${ACCENT}" --in "${REPO_ROOT}/src/gtk-4.0/overrides.css" --out "${TMP_DIR}/gtk4.css" >/dev/null
+  python3 "${REPO_ROOT}/tools/gtk4/build.py" --accent "${ACCENT}" --out-dir "${TMP_DIR}/gtk4" >/dev/null
   INDEX_SRC="${REPO_ROOT}/src/index.theme"
 else
   TWEAK_DIR="${REPO_ROOT}/tweaks/${ACCENT}"
-  GTK4_SRC="${REPO_ROOT}/gtk4/${ACCENT}/gtk.css"
+  GTK4_SRC="${REPO_ROOT}/gtk4/${ACCENT}"
   INDEX_SRC="${REPO_ROOT}/index.theme"
 fi
 
@@ -425,12 +426,15 @@ cp -r "${SHELL_SRC}" "${THEME_DIR}/gnome-shell"
 cp -r "${GTK_SRC}" "${THEME_DIR}/gtk-3.0"
 
 if [ "$LAYOUT" = "source" ]; then
-  cp "${TMP_DIR}/gtk4.css" "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp "${TMP_DIR}/gtk4/gtk.css" "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp "${TMP_DIR}/gtk4/gtk-dark.css" "${THEME_DIR}/gtk-4.0/gtk-dark.css"
+  cp "${TMP_DIR}/gtk4/user.css" "${THEME_DIR}/gtk-4.0/user.css"
   TWEAK_DIR="${TMP_DIR}/tweaks"
 else
-  cp "${GTK4_SRC}" "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp "${GTK4_SRC}/gtk.css" "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp "${GTK4_SRC}/gtk-dark.css" "${THEME_DIR}/gtk-4.0/gtk-dark.css"
+  cp "${GTK4_SRC}/user.css" "${THEME_DIR}/gtk-4.0/user.css"
 fi
-cp "${THEME_DIR}/gtk-4.0/gtk.css" "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
 # GTK2 fallback (rendered per accent so legacy apps follow the theme)
 mkdir -p "${THEME_DIR}/gtk-2.0"
@@ -593,9 +597,9 @@ if [ "$WANT_GTK4_OVERRIDE" -eq 1 ]; then
   if [ -L "${CONF_DIR}/gtk-dark.css" ] && [ ! -f "${CONF_DIR}/gtk-dark.css.pre-nocturne-link" ]; then
     readlink "${CONF_DIR}/gtk-dark.css" > "${CONF_DIR}/gtk-dark.css.pre-nocturne-link"
   fi
-  ln -sf "${THEME_DIR}/gtk-4.0/gtk.css" "${CONF_DIR}/gtk.css"
-  ln -sf "${THEME_DIR}/gtk-4.0/gtk-dark.css" "${CONF_DIR}/gtk-dark.css"
-  echo "libadwaita best-effort override linked (opt-in). Revert with --uninstall."
+  ln -sf "${THEME_DIR}/gtk-4.0/user.css" "${CONF_DIR}/gtk.css"
+  ln -sf "${THEME_DIR}/gtk-4.0/user.css" "${CONF_DIR}/gtk-dark.css"
+  echo "libadwaita best-effort colour override linked (opt-in). Revert with --uninstall."
 else
   echo "  + GTK4/libadwaita override: skipped (opt-in with --gtk4-libadwaita)"
 fi
@@ -619,6 +623,8 @@ if have dconf; then
 fi
 if have gsettings; then
   gsettings set org.gnome.desktop.interface gtk-theme "${THEME_NAME}" || true
+  # Dark-only theme: keep libadwaita apps on the dark variant instead of light Adwaita.
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' || true
 fi
 if have gnome-extensions && ! gnome-extensions list 2>/dev/null | grep -q '^user-theme@'; then
   echo "NOTE: User Themes extension not found/enabled — Shell styling needs it:"

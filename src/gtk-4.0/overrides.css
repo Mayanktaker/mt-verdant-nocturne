@@ -1,12 +1,17 @@
 /*
- * MT Verdant Nocturne — GTK4 & Libadwaita overrides
+ * MT Verdant Nocturne — GTK4 overrides (plain GTK4 + libadwaita)
  * © Mayanktaker Computers & Web Development | https://mayanktaker.com
  *
- * Provides full botanical dark styling for both active and unfocused (:backdrop) states.
- * Colors come from palette/tokens.json — single source of truth.
+ * GTK4 does NOT merge a theme on top of Adwaita: the theme's gtk.css *is* the
+ * widget stylesheet. Plain GTK4 apps (Shelly, Bulk Crap Uninstaller ports, etc.)
+ * therefore need a complete sheet, so tools/gtk4/build.py prepends the full
+ * Adwaita dark base (recoloured through src/gtk-4.0/recolor.json) and everything
+ * below is the curated palette layer on top of it.
+ * libadwaita apps keep their own stylesheet at a higher priority; the semantic
+ * @define-color names here are what they consume.
  */
 
-/* GTK4 & Libadwaita color definitions */
+/* ---- Semantic colours (consumed by libadwaita and third-party app CSS) ---- */
 @define-color accent_color {{accent.base}};
 @define-color accent_bg_color {{accent.base}};
 @define-color accent_fg_color {{accent.text_on_accent}};
@@ -14,117 +19,888 @@
 @define-color destructive_bg_color {{status.destructive}};
 @define-color destructive_fg_color {{accent.text_on_accent}};
 @define-color success_color {{status.success}};
+@define-color success_bg_color {{status.success}};
+@define-color success_fg_color {{accent.text_on_accent}};
 @define-color warning_color {{status.warning}};
+@define-color warning_bg_color {{status.warning}};
+@define-color warning_fg_color {{accent.text_on_accent}};
 @define-color error_color {{status.destructive}};
+@define-color error_bg_color {{status.destructive}};
+@define-color error_fg_color {{accent.text_on_accent}};
 
 @define-color window_bg_color {{bg.base}};
 @define-color window_fg_color {{text.primary}};
 @define-color window_backdrop_color {{bg.base}};
-
 @define-color view_bg_color {{bg.tile}};
 @define-color view_fg_color {{text.primary}};
 @define-color view_backdrop_color {{bg.view_backdrop}};
-
 @define-color headerbar_bg_color {{bg.base}};
 @define-color headerbar_fg_color {{text.primary}};
 @define-color headerbar_backdrop_color {{bg.base}};
-
 @define-color sidebar_bg_color {{bg.sidebar}};
 @define-color sidebar_fg_color {{text.secondary}};
 @define-color sidebar_backdrop_color {{bg.sidebar_backdrop}};
-
 @define-color card_bg_color {{bg.raised}};
 @define-color card_fg_color {{text.primary}};
 @define-color card_backdrop_color {{bg.card_backdrop}};
-
 @define-color dialog_bg_color {{bg.base}};
 @define-color dialog_fg_color {{text.primary}};
 @define-color popover_bg_color {{bg.tile}};
 @define-color popover_fg_color {{text.primary}};
 @define-color borders {{border.default}};
+@define-color insensitive_fg_color {{text.disabled}};
+@define-color insensitive_bg_color {{bg.tile}};
+@define-color insensitive_base_color {{bg.tile}};
+@define-color text_view_bg {{bg.tile}};
+@define-color content_view_bg {{bg.tile}};
 
+/* Theme colour names used by the imported Adwaita base */
 @define-color theme_bg_color {{bg.base}};
 @define-color theme_fg_color {{text.primary}};
 @define-color theme_base_color {{bg.tile}};
+@define-color theme_text_color {{text.primary}};
 @define-color theme_selected_bg_color {{accent.base}};
 @define-color theme_selected_fg_color {{accent.text_on_accent}};
+@define-color theme_unfocused_bg_color {{bg.base}};
+@define-color theme_unfocused_fg_color {{text.primary}};
+@define-color theme_unfocused_base_color {{bg.tile}};
+@define-color theme_unfocused_text_color {{text.primary}};
+@define-color theme_unfocused_selected_bg_color {{accent.base}};
+@define-color theme_unfocused_selected_fg_color {{accent.text_on_accent}};
+@define-color unfocused_borders {{border.subtle}};
+@define-color unfocused_insensitive_color {{text.disabled}};
 
-/* Window background and backdrop */
+/* ---- Surfaces ---------------------------------------------------------- */
+.background,
 window.background,
-window.background:backdrop {
-  background-color: @window_bg_color;
-  color: @window_fg_color;
+dialog,
+window.dialog {
+  background-color: {{bg.base}};
+  color: {{text.primary}};
 }
 
-/* Headerbar active and backdrop */
+.view,
+iconview,
+listview,
+columnview.view,
+treeview.view,
+textview > text {
+  background-color: {{bg.tile}};
+  color: {{text.primary}};
+}
+
+.view:backdrop,
+textview > text:backdrop {
+  background-color: {{bg.view_backdrop}};
+  color: {{text.primary}};
+}
+
+.titlebar,
 headerbar,
 headerbar:backdrop {
-  background-color: @headerbar_bg_color;
-  color: @headerbar_fg_color;
-  border-color: @borders;
-}
-
-/* Navigation sidebar & split view containers (fixes unfocused non-themed look!) */
-.navigation-sidebar,
-.navigation-sidebar:backdrop,
-placessidebar,
-placessidebar:backdrop,
-splitview > paned > .sidebar,
-splitview > paned > .sidebar:backdrop,
-navigationview,
-navigationview:backdrop {
-  background-color: @sidebar_bg_color;
-  color: @sidebar_fg_color;
-}
-
-/* Navigation sidebar rows */
-.navigation-sidebar row,
-placessidebar row {
-  color: @sidebar_fg_color;
-}
-
-.navigation-sidebar row:hover,
-placessidebar row:hover {
-  background-color: rgba({{accent.base.rgb}}, 0.10);
-  color: @theme_fg_color;
-}
-
-.navigation-sidebar row:selected,
-.navigation-sidebar row:selected:focus,
-.navigation-sidebar row:selected:backdrop,
-placessidebar row:selected,
-placessidebar row:selected:focus,
-placessidebar row:selected:backdrop,
-list.boxed-list > row:selected,
-list.boxed-list > row:selected:focus,
-list.boxed-list > row:selected:backdrop,
-row:selected {
-  background-color: rgba({{accent.base.rgb}}, 0.20);
+  background-color: {{bg.base}};
+  background-image: none;
   color: {{text.primary}};
-  box-shadow: inset 0 0 0 1px rgba({{accent.base.rgb}}, 0.65);
+  border-color: {{border.subtle}};
+  box-shadow: none;
 }
 
-/* Destructive actions use the same coral + dark label as GTK3 */
-.destructive-action {
-  background-color: @destructive_bg_color;
-  color: @destructive_fg_color;
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar menubutton > button {
+  border-color: {{border.default}};
 }
 
-/* Main view areas */
-.view,
-.view:backdrop,
+/* Window buttons stay pill-dot glyphs, not framed buttons */
+headerbar windowcontrols > button,
+.titlebar windowcontrols > button,
+windowcontrols button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: {{text.secondary}};
+}
+
+/* Sidebar rail, navigation split view and assistant pages */
+.sidebar,
+.navigation-sidebar,
+placessidebar,
+window.assistant .sidebar,
+splitview > paned > .sidebar {
+  background-color: {{bg.sidebar}};
+  color: {{text.secondary}};
+  border-color: {{border.subtle}};
+}
+
+/* Cards, boxed lists and framed groups */
+.card,
+list.boxed-list,
+list.boxed-list:backdrop,
+list.frame,
+.frame,
+.expander-widget {
+  background-color: {{bg.raised}};
+  color: {{text.primary}};
+  border-color: {{border.subtle}};
+  border-radius: {{geometry.radius.tile}}px;
+}
+
+list.boxed-list > row,
+list.boxed-list > row:backdrop {
+  border-color: {{border.subtle}};
+}
+
+frame > border,
+.frame > border {
+  border-color: {{border.default}};
+  border-radius: {{geometry.radius.tile}}px;
+}
+
+separator {
+  background-color: {{border.subtle}};
+  min-width: 1px;
+  min-height: 1px;
+}
+
+/* Popovers, menus and dropdown sheets */
+popover.background,
+popover.menu,
+dropdown > popover.menu.background > contents,
+menu,
+.menu {
+  background-color: {{bg.raised}};
+  color: {{text.primary}};
+  border: 1px solid {{border.subtle}};
+  border-radius: {{geometry.radius.popover}}px;
+}
+
+popover.background > contents,
+popover.menu > contents {
+  background-color: transparent;
+  border-radius: {{geometry.radius.popover}}px;
+}
+
+popover.background modelbutton:hover,
+popover.menu modelbutton:hover,
+popover.menu modelbutton:selected {
+  background-color: alpha({{accent.base}}, 0.16);
+  color: {{text.primary}};
+  border-radius: {{geometry.radius.button}}px;
+}
+
+/* Tooltips */
+tooltip.background,
+tooltip > box {
+  background-color: {{bg.surface}};
+  color: {{text.primary}};
+  border: 1px solid {{border.default}};
+  border-radius: {{geometry.radius.control}}px;
+  box-shadow: none;
+}
+
+/* OSD pills (volume, video overlays) */
+.osd,
+.osd.background {
+  background-color: alpha({{bg.base_darker}}, {{bg.osd_alpha}});
+  color: {{text.primary}};
+  border-color: {{border.subtle}};
+}
+
+/* Notebook tabs */
+notebook > header,
+notebook > header > tabs > tab {
+  background-color: {{bg.base}};
+  color: {{text.secondary}};
+  border-color: {{border.subtle}};
+}
+
+notebook > stack:not(:only-child) {
+  background-color: {{bg.tile}};
+}
+
+notebook > header > tabs > tab:checked,
+notebook > header > tabs > tab:hover {
+  color: {{text.primary}};
+  background-color: {{bg.tile}};
+  border-color: {{border.default}};
+}
+
+notebook > header.top > tabs > tab:checked {
+  box-shadow: inset 0 -4px {{accent.base}};
+}
+
+notebook > header.bottom > tabs > tab:checked {
+  box-shadow: inset 0 4px {{accent.base}};
+}
+
+notebook > header.left > tabs > tab:checked {
+  box-shadow: inset -4px 0 {{accent.base}};
+}
+
+notebook > header.right > tabs > tab:checked {
+  box-shadow: inset 4px 0 {{accent.base}};
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+button,
+button.flat,
+notebook > header > tabs > arrow,
+button.sidebar-button {
+  background-color: {{bg.raised}};
+  background-image: none;
+  color: {{text.primary}};
+  border: 1px solid {{border.default}};
+  border-radius: {{geometry.radius.button}}px;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+
+button.flat,
+button.sidebar-button,
+notebook > header > tabs > arrow {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button:hover,
+button.sidebar-button:hover,
+button.flat:hover,
+notebook > header > tabs > arrow:hover {
+  background-color: {{bg.surface_hover}};
+  background-image: none;
+  color: {{text.primary}};
+  border-color: {{border.default}};
+  box-shadow: none;
+}
+
+button:active,
+button:checked,
+button.flat:active,
+button.flat:checked,
+button.flat:hover:active,
+button.sidebar-button:active,
+button.sidebar-button:checked {
+  background-color: {{bg.surface_active}};
+  background-image: none;
+  color: {{text.primary}};
+  border-color: {{border.default}};
+  box-shadow: none;
+}
+
+button:disabled,
+button:disabled label,
+button.flat:disabled,
+button.sidebar-button:disabled {
+  background-color: {{bg.tile}};
+  background-image: none;
+  color: {{text.disabled}};
+  border-color: {{border.subtle}};
+  box-shadow: none;
+}
+
+button.flat:disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* Suggested: solid sage with the dark label used across the suite */
+button.suggested-action {
+  background-color: {{accent.base}};
+  background-image: none;
+  color: {{accent.text_on_accent}};
+  border-color: {{accent.base}};
+  font-weight: 600;
+  box-shadow: none;
+}
+
+button.suggested-action:hover {
+  background-color: {{accent.strong}};
+  border-color: {{accent.strong}};
+  color: {{accent.text_on_accent}};
+}
+
+button.suggested-action:active,
+button.suggested-action:checked {
+  background-color: {{accent.dim}};
+  border-color: {{accent.dim}};
+  color: {{accent.text_on_accent}};
+}
+
+button.suggested-action:disabled {
+  background-color: alpha({{accent.base}}, 0.28);
+  border-color: transparent;
+  color: {{accent.text_on_accent}};
+}
+
+/* Destructive: coral fill with the same dark label */
+button.destructive-action {
+  background-color: {{status.destructive}};
+  background-image: none;
+  color: {{accent.text_on_accent}};
+  border-color: {{status.destructive}};
+  text-shadow: none;
+}
+
+button.destructive-action:hover {
+  background-color: {{window_controls.close_hover}};
+  border-color: {{window_controls.close_hover}};
+  color: {{accent.text_on_accent}};
+}
+
+button.destructive-action:active,
+button.destructive-action:checked {
+  background-color: {{window_controls.close}};
+  border-color: {{window_controls.close}};
+  color: {{accent.text_on_accent}};
+}
+
+button.destructive-action:disabled {
+  background-color: alpha({{status.destructive}}, 0.28);
+  border-color: transparent;
+  color: {{accent.text_on_accent}};
+}
+
+/* Flat variants of the action buttons lose their frame, keep the tint */
+button.suggested-action.flat {
+  background-color: transparent;
+  color: {{accent.base}};
+  border-color: transparent;
+}
+
+button.suggested-action.flat:hover {
+  background-color: alpha({{accent.base}}, 0.14);
+  color: {{accent.strong}};
+}
+
+button.destructive-action.flat {
+  background-color: transparent;
+  color: {{status.destructive}};
+  border-color: transparent;
+}
+
+button.destructive-action.flat:hover {
+  background-color: alpha({{status.destructive}}, 0.14);
+}
+
+button.circular.image-button,
+button.image-button {
+  padding: 5px;
+}
+
+/* ---- Entries, spin buttons and text views ------------------------------ */
+entry,
+spinbutton,
+spinbutton.vertical > text,
+spinbutton:not(.vertical) {
+  background-color: {{bg.base_darker}};
+  background-image: none;
+  color: {{text.primary}};
+  border: 1px solid {{border.default}};
+  border-radius: {{geometry.radius.control}}px;
+  box-shadow: none;
+  caret-color: {{accent.base}};
+}
+
+entry > text > placeholder,
+entry > text > placeholder:focus,
+spinbutton > text > placeholder {
+  color: {{text.disabled}};
+}
+
+entry:hover,
+spinbutton:hover,
+spinbutton > text:hover {
+  border-color: {{border.default}};
+  background-color: {{bg.raised}};
+}
+
+entry:focus,
+entry:focus-within,
+spinbutton:focus,
+spinbutton:focus-within,
+spinbutton > text:focus {
+  border-color: {{accent.base}};
+  box-shadow: inset 0 0 0 1px alpha({{accent.base}}, 0.55);
+  background-color: {{bg.raised}};
+}
+
+entry:disabled,
+spinbutton:disabled,
+spinbutton > text:disabled,
+textview > text:disabled {
+  background-color: {{bg.tile}};
+  color: {{text.disabled}};
+  border-color: {{border.subtle}};
+}
+
+entry.error,
+entry.error:focus,
+spinbutton.error {
+  border-color: {{status.destructive}};
+  box-shadow: inset 0 0 0 1px alpha({{status.destructive}}, 0.55);
+  color: {{text.primary}};
+}
+
+entry.warning,
+entry.warning:focus {
+  border-color: {{status.warning}};
+  box-shadow: inset 0 0 0 1px alpha({{status.warning}}, 0.55);
+}
+
+/* Search fields keep the tile fill so they read as inputs, not pills */
+entry.search {
+  border-radius: {{geometry.radius.control}}px;
+}
+
+spinbutton > button,
+spinbutton > button:hover,
+spinbutton > button:active {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: {{text.secondary}};
+}
+
+spinbutton > button:hover {
+  background-color: {{bg.surface_hover}};
+  color: {{text.primary}};
+}
+
+textview,
+textview > text {
+  background-color: {{bg.base_darker}};
+  color: {{text.primary}};
+}
+
+textview > text > selection,
+selection,
+label > selection,
+entry > selection {
+  background-color: {{accent.base}};
+  color: {{accent.text_on_accent}};
+}
+
+/* Dropdown and combobox buttons read as inputs, not pills */
+dropdown > button,
+combobox > box > button.combo,
+button.combo {
+  background-color: {{bg.base_darker}};
+  background-image: none;
+  color: {{text.primary}};
+  border: 1px solid {{border.default}};
+  border-radius: {{geometry.radius.control}}px;
+  box-shadow: none;
+}
+
+dropdown > button:hover,
+combobox > box > button.combo:hover {
+  background-color: {{bg.raised}};
+  border-color: {{border.default}};
+}
+
+/* ---- Check and radio indicators ---------------------------------------- */
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  background-image: none;
+  background-color: {{bg.raised}};
+  border: 1px solid {{border.default}};
+  border-radius: 4px;
+  box-shadow: none;
+  color: {{text.primary}};
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+
+radio {
+  border-radius: {{geometry.radius.pill}}px;
+}
+
+check:hover,
+radio:hover {
+  background-image: none;
+  background-color: {{bg.surface_hover}};
+  border-color: {{accent.dim}};
+}
+
+check:active,
+radio:active {
+  background-image: none;
+  background-color: {{bg.surface_active}};
+  box-shadow: none;
+}
+
+check:checked,
+check:indeterminate,
+radio:checked,
+radio:indeterminate {
+  background-image: none;
+  background-color: {{accent.base}};
+  border-color: {{accent.base}};
+  color: {{accent.text_on_accent}};
+}
+
+check:checked:hover,
+check:indeterminate:hover,
+radio:checked:hover,
+radio:indeterminate:hover {
+  background-image: none;
+  background-color: {{accent.strong}};
+  border-color: {{accent.strong}};
+  color: {{accent.text_on_accent}};
+}
+
+check:checked:active,
+check:indeterminate:active,
+radio:checked:active,
+radio:indeterminate:active {
+  background-image: none;
+  background-color: {{accent.dim}};
+  border-color: {{accent.dim}};
+  color: {{accent.text_on_accent}};
+}
+
+check:disabled,
+radio:disabled,
+check:checked:disabled,
+radio:checked:disabled,
+check:indeterminate:disabled,
+radio:indeterminate:disabled {
+  background-image: none;
+  background-color: {{bg.base_darker}};
+  border-color: {{border.subtle}};
+  color: {{text.disabled}};
+  box-shadow: none;
+}
+
+checkbutton {
+  color: {{text.primary}};
+  border-radius: {{geometry.radius.button}}px;
+}
+
+checkbutton:disabled,
+checkbutton label:disabled {
+  color: {{text.disabled}};
+}
+
+/* Check nodes inside list rows / tree views follow the row surface */
+treeview.view check,
+treeview.view radio,
+.view.content-view.check {
+  background-color: {{bg.raised}};
+  border-color: {{border.default}};
+}
+
+/* ---- Switch ------------------------------------------------------------ */
+switch {
+  background-color: {{bg.base_darker}};
+  background-image: none;
+  color: {{text.secondary}};
+  border: 1px solid {{border.subtle}};
+  box-shadow: none;
+}
+
+switch:hover {
+  background-color: {{bg.base}};
+  border-color: {{border.default}};
+}
+
+switch:checked {
+  background-color: {{accent.base}};
+  color: {{accent.text_on_accent}};
+  border-color: {{accent.base}};
+}
+
+switch:checked:hover {
+  background-color: {{accent.strong}};
+  border-color: {{accent.strong}};
+}
+
+switch:disabled {
+  background-color: {{bg.base_darker}};
+  border-color: {{border.subtle}};
+  color: {{text.disabled}};
+}
+
+switch > slider {
+  background-image: none;
+  background-color: {{text.primary}};
+  border: 1px solid {{border.subtle}};
+  box-shadow: none;
+  color: {{text.primary}};
+}
+
+switch:checked > slider {
+  background-image: none;
+  background-color: {{accent.text_on_accent}};
+  border-color: {{accent.dim}};
+}
+
+switch:disabled > slider {
+  background-image: none;
+  background-color: {{text.disabled}};
+  border-color: {{border.subtle}};
+}
+
+/* ---- Scales, progress and level bars ----------------------------------- */
+scale > trough {
+  background-color: {{bg.base_darker}};
+  border: 1px solid {{border.subtle}};
+  border-radius: {{geometry.radius.pill}}px;
+  box-shadow: none;
+}
+
+scale > trough > fill,
+scale > trough > highlight {
+  background-color: {{accent.base}};
+  background-image: none;
+  border: 1px solid {{accent.base}};
+  border-radius: {{geometry.radius.pill}}px;
+}
+
+scale > trough > fill:disabled,
+scale > trough > highlight:disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+scale > trough > slider {
+  background-color: {{text.primary}};
+  background-image: none;
+  border: 1px solid {{accent.dim}};
+  box-shadow: none;
+  color: {{text.primary}};
+}
+
+scale > trough > slider:hover {
+  background-color: {{text.primary}};
+  border-color: {{accent.base}};
+}
+
+scale > trough > slider:disabled {
+  background-color: {{text.disabled}};
+  border-color: {{border.subtle}};
+}
+
+scale:disabled > trough,
+scale:disabled > trough > highlight {
+  background-color: {{bg.base_darker}};
+}
+
+progressbar > trough {
+  background-color: {{bg.base_darker}};
+  border: 1px solid {{border.subtle}};
+  border-radius: {{geometry.radius.pill}}px;
+  box-shadow: none;
+}
+
+progressbar > trough > progress {
+  background-color: {{accent.base}};
+  background-image: none;
+  border: 1px solid {{accent.base}};
+  border-radius: {{geometry.radius.pill}}px;
+}
+
+progressbar > trough > progress:disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+row:selected progressbar > trough > progress {
+  border-color: {{accent.dim}};
+}
+
+levelbar > trough {
+  background-color: {{bg.base_darker}};
+  border: 1px solid {{border.subtle}};
+  border-radius: {{geometry.radius.pill}}px;
+}
+
+levelbar > trough > block {
+  background-color: {{accent.base}};
+  border-radius: {{geometry.radius.pill}}px;
+}
+
+levelbar > trough > block.full {
+  background-color: {{accent.base}};
+}
+
+levelbar > trough > block.high {
+  background-color: {{accent.strong}};
+}
+
+levelbar > trough > block.low,
+levelbar > trough > block.empty {
+  background-color: {{bg.surface}};
+}
+
+/* ---- Scrollbars -------------------------------------------------------- */
+scrollbar {
+  background-color: transparent;
+  border: none;
+}
+
+scrollbar > range > trough > slider {
+  background-color: alpha({{text.secondary}}, 0.35);
+  border: none;
+  border-radius: {{geometry.radius.pill}}px;
+  box-shadow: none;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar > range > trough > slider:hover {
+  background-color: alpha({{accent.base}}, 0.55);
+}
+
+scrollbar > range > trough > slider:hover:active {
+  background-color: {{accent.base}};
+}
+
+/* ---- Lists, rows and selection ----------------------------------------- */
+list,
 listview,
-listview:backdrop {
-  background-color: @view_bg_color;
-  color: @view_fg_color;
+row,
+list > row {
+  background-color: transparent;
+  color: {{text.primary}};
+  border-color: {{border.subtle}};
 }
 
-/* Text selection */
-selection, textview text selection:focus, textview text selection {
-  background-color: @theme_selected_bg_color;
-  color: @theme_selected_fg_color;
+row:hover,
+list > row:hover {
+  background-color: alpha({{accent.base}}, 0.08);
 }
 
-button:focus-visible, entry:focus-visible {
-  outline-color: @accent_color;
+row:selected,
+row:selected:hover,
+list > row:selected,
+listview > row:selected,
+treeview.view:selected,
+columnview.view:selected {
+  background-color: alpha({{accent.base}}, 0.20);
+  background-image: none;
+  color: {{text.primary}};
+  box-shadow: inset 0 0 0 1px alpha({{accent.base}}, 0.45);
+}
+
+row:selected label,
+row:selected .dim-label {
+  color: {{text.primary}};
+}
+
+row.activatable:selected.has-open-popup {
+  background-color: alpha({{accent.base}}, 0.28);
+}
+
+.dim-label,
+label.dim-label {
+  color: {{text.secondary}};
+}
+
+/* Links and status text */
+link,
+button.link,
+label link {
+  color: {{accent.base}};
+}
+
+link:hover,
+button.link:hover {
+  color: {{accent.strong}};
+}
+
+link:active,
+link:visited,
+button.link:active,
+button.link:visited {
+  color: {{accent.dim}};
+}
+
+link:disabled,
+button.link:disabled {
+  color: {{text.disabled}};
+}
+
+.accent {
+  color: {{accent.base}};
+}
+
+.success {
+  color: {{status.success}};
+}
+
+.warning {
+  color: {{status.warning}};
+}
+
+.error {
+  color: {{status.destructive}};
+}
+
+/* ---- Accent-facing leftovers from the imported Adwaita base ------------ */
+.view:selected,
+.view:selected:focus,
+iconview:selected,
+textview > text:selected,
+textview > text:selected:focus,
+filechooser gridview child:selected,
+filechooser gridview child:selected:hover,
+calendar > grid > label.day-number:checked,
+.content-view .tile:selected,
+.view.content-view.check:checked:not(list),
+.view.content-view.check:checked:hover:not(list),
+button.emoji-section:checked,
+popover.emoji-picker emoji:focus,
+popover.emoji-picker emoji:hover,
+emoji-completion-row:focus,
+emoji-completion-row:hover {
+  background-color: alpha({{accent.base}}, 0.22);
+  background-image: none;
+  color: {{text.primary}};
+  box-shadow: inset 0 0 0 1px alpha({{accent.base}}, 0.45);
+}
+
+menubar > item:selected,
+paned > separator:selected {
+  background-color: alpha({{accent.base}}, 0.16);
+  color: {{accent.base}};
+  box-shadow: inset 0 -3px {{accent.base}};
+}
+
+/* Tree and column view headers/selection */
+columnview.view > header > button,
+treeview.view > header > button {
+  background-color: {{bg.base}};
+  background-image: none;
+  color: {{text.secondary}};
+  border-color: {{border.subtle}};
+}
+
+columnview.view.progressbar,
+treeview.view.progressbar {
+  background-color: {{accent.base}};
+  background-image: none;
+  color: {{accent.text_on_accent}};
+}
+
+treeview.view:disabled:selected,
+columnview.view:disabled:selected {
+  background-color: alpha({{accent.base}}, 0.12);
+  color: {{text.disabled}};
+}
+
+/* ---- Focus rings ------------------------------------------------------- */
+button:focus-visible,
+entry:focus-visible,
+checkbutton:focus-visible,
+switch:focus-visible,
+dropdown:focus-visible,
+scale:focus-visible {
+  outline: 2px solid alpha({{accent.base}}, 0.65);
+  outline-offset: 1px;
 }
