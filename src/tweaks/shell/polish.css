@@ -121,12 +121,12 @@
   -barlevel-active-background-color: {{accent.strong}};
 }
 
-/* Dash: modern floating pill dock (tight shadow: Shell widens blur far beyond GTK) */
+/* Dash: modern floating pill dock (flat: Blur My Shell owns depth) */
 #dash .dash-background {
   background-color: rgba({{bg.base.rgb}}, 0.88);
   border: 1px solid rgba({{border.default.rgb}}, 0.7);
   border-radius: {{geometry.radius.dock}}px;
-  box-shadow: 0 2px 8px rgba({{shadow.rgb}}, 0.4);
+  box-shadow: none;
 }
 
 #dash .app-grid-running-dot {
@@ -137,10 +137,10 @@
   margin-bottom: 2px;
 }
 
-/* Popover menus & Calendar: 6px blur keeps the edge crisp instead of hazy */
+/* Popover menus & Calendar: border only, no drop shadow */
 .popup-menu-content {
   border-radius: {{geometry.radius.popover}}px;
-  box-shadow: 0 2px 6px rgba({{shadow.rgb}}, 0.45);
+  box-shadow: none;
   border: 1px solid {{border.default}};
 }
 
@@ -155,11 +155,21 @@
 .osd-window, .workspace-switcher {
   border-radius: {{geometry.radius.popover}}px;
   border: 1px solid rgba({{border.default.rgb}}, 0.75);
-  box-shadow: 0 2px 8px rgba({{shadow.rgb}}, 0.5);
+  box-shadow: none;
 }
 
 .message {
   border-radius: {{geometry.radius.tile}}px;
   background-color: {{bg.tile}};
   border: 1px solid {{border.subtle}};
+}
+
+/* Flat surfaces: every outer Shell shadow removed — Blur My Shell supplies depth */
+.notification-banner,
+.modal-dialog,
+.switcher-list,
+.workspace-background,
+.keyboard-subkeys-boxpointer,
+.candidate-popup-content {
+  box-shadow: none;
 }

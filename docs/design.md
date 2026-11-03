@@ -8,7 +8,7 @@ Single source of truth for colors: `palette/tokens.json` (do not hardcode hex va
 - **Dark-first, quiet surfaces:** charcoal-teal bases a step darker than Adwaita, never pure black; menus and dialogs stay opaque for readability.
 - **Leaf-sage accent:** sage is the only action/focus/selection color; blossom-pink is decorative (wallpaper, branding) and never an action color.
 - **Familiar GNOME shape:** upstream layout and spacing are kept; radii come from the `geometry` token scale so Shell, GTK3 and GTK4 agree.
-- **Shallow shadows only:** GNOME Shell spreads `box-shadow` blur much wider than GTK, so a 30px radius reads as a ~90px grey haze on light wallpapers. Shell surfaces stay at ≤8px blur and ≤0.5 alpha (popups `0 2px 6px`, panel `0 1px 3px`), and checked toggles carry no accent glow.
+- **No Shell drop shadows:** outer `box-shadow` is removed from every Shell surface (popups, OSD, dash, panel, banners, dialogs); Blur My Shell supplies depth when installed. Shell spreads blur far wider than GTK, so even an 8px shadow read as a grey halo on light wallpapers. Inset focus rings stay.
 - **Contrast is a gate:** `tools/dev/check_contrast.py` checks every emitted text/surface pair, UI edges, terminal ANSI colors and editor syntax colors (WCAG ≥4.5 body text, ≥3:1 UI components, ≥7 preferred).
 - **System fonts**, no custom typography in the theme itself.
 

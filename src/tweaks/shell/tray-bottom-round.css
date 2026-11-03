@@ -16,7 +16,7 @@
   border-bottom: 1px solid rgba({{border.default.rgb}}, 0.75);
   border-left: 1px solid rgba({{border.default.rgb}}, 0.75);
   border-right: 1px solid rgba({{border.default.rgb}}, 0.75);
-  box-shadow: 0 2px 6px rgba({{shadow.rgb}}, 0.4);
+  box-shadow: none;
 }
 
 #panelBox #panel:overview,
