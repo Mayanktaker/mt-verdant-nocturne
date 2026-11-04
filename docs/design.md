@@ -55,21 +55,12 @@ Surface variants live in `src/tweaks/gtk4/` (`black.css` for OLED, `rimless.css`
 
 `tools/gtk4/build.py` also emits `gtk-4.0/user.css`, the opt-in `~/.config/gtk-4.0/gtk.css` contract for libadwaita apps. It carries the `@define-color` names only, never the base sheet, so libadwaita keeps its own widget CSS and only takes our palette.
 
-## 4K Wallpaper Suite Rules
-Eight procedural artworks from one shared renderer (`tools/wallpaper/generate.py`), four night and four dawn. Dark pieces target 28–50/255 mean luminance so they read on normal panels; all outputs are 3840×2160 JPEG with 1920×1080 previews. No photographic sources.
+## 4K Wallpaper Suite
+Eight original procedural artworks are built by `tools/wallpaper/generate.py` using the deterministic renderer in `tools/wallpaper/renderer.py`. The dark set is four separate night landscapes; the light set is its own mix of sculptural forms and pale landscapes, not recolors of the night art. The visual philosophy and compositions are documented in `docs/wallpaper-art-direction.md`.
 
-Night:
-1. **Botanical Canopy (Midnight Fern)**: Night-garden foliage in theme tones with restrained pale-pink blossoms and quiet moonlight.
-2. **Verdant Aurora (Nordic Pines)**: Silhouetted pine forest under a glowing emerald and sage aurora borealis gradient with distant stars.
-3. **Zen Flora (Geometric Contour)**: Bauhaus/Material-inspired organic geometric leaf contour curves on deep obsidian teal.
-4. **Obsidian River (Mineral Flow)**: Fluid topographic elevation isolines with glowing sage mineral veins over dark riverbed bedrock.
+Dark: **Stillwater at Blue Hour**, **Verdant Aurora**, **Moonlit Alpine Range**, and **Mineral River**. Light (`wallpaper/dist/light/`): **Sculpted Canopy**, **Paper-Cut Sunrise**, **Folded Celadon**, and **Mist on the Water**. Colors are derived from `art.dark` and `art.light` in the palette tokens.
 
-### Dawn Suite (`wallpaper/dist/light/`)
-The same four compositions re-voiced with the `art.light` palette, so both suites share one style:
-1. **Botanical Canopy Dawn (Morning Mist)**: The canopy frame in warm morning light.
-2. **Celestial Rift (Sage Sky)**: Aurora ribbons over pale pine ridges.
-3. **Cosmic Dawn (Stellar Amber)**: Architectural leaf contours on a dawn gradient.
-4. **Botanical Horizon (Aurora Dawn)**: Topographic flow in muted sage.
+All outputs are 3840×2160 JPEGs with 1920×1080 previews. Rendering is deterministic; `python3 tools/wallpaper/generate.py --verify` checks dimensions, uniqueness, and a readable luminance range. No photographic sources are bundled.
 
 - The compact suite (~1.5 MB total) ships with the theme so GNOME Settings entries always resolve; only the selected image is applied to the desktop.
 - 1920×1080 preview JPGs reside in `wallpaper/preview/` and `wallpaper/preview/light/`.

@@ -37,7 +37,8 @@ The companion icon and cursor packs live in **`Mayanktaker/mt-verdant-icons`** a
 - `Mayanktaker/mt-verdant-icons` — `MT-Verdant-Icons` + `MT-Verdant-Cursors`, own palette, gates and releases. Do not add icon build steps or `~/.icons` writes back into this repo.
 
 ## Documentation pointers (do not duplicate content here)
-- `docs/design.md` — Botanical Canopy direction, token table, wallpaper rules
+- `docs/design.md` — Botanical Canopy direction, token table, wallpaper suite
+- `docs/wallpaper-art-direction.md` — wallpaper philosophy and composition rules
 - `docs/compatibility.md` — GNOME version matrix + test checklist
 - `docs/flatpak.md` — Flatpak GTK3 theme extension plan & status
 - `docs/workflow.md` — build/release workflow

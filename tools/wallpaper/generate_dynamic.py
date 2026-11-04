@@ -12,16 +12,16 @@ BG = TOKENS["color"]["bg"]["base"]
 FG = TOKENS["color"]["text"]["primary"]
 
 DARK = [
-    ("mt-verdant-canopy", "MT Verdant Canopy (Midnight Fern)"),
-    ("mt-verdant-aurora", "MT Verdant Aurora (Nordic Pines)"),
-    ("mt-verdant-flora", "MT Verdant Flora (Zen Contour)"),
-    ("mt-verdant-river", "MT Verdant River (Obsidian Flow)"),
+    ("mt-verdant-canopy", "MT Verdant — Stillwater at Blue Hour"),
+    ("mt-verdant-aurora", "MT Verdant — Verdant Aurora"),
+    ("mt-verdant-flora", "MT Verdant — Moonlit Alpine Range"),
+    ("mt-verdant-river", "MT Verdant — Mineral River"),
 ]
 LIGHT = [
-    ("mt-verdant-canopy-dawn", "MT Verdant Canopy Dawn (Morning Mist)"),
-    ("mt-verdant-celestial-rift", "MT Verdant Celestial Rift (Sage Sky)"),
-    ("mt-verdant-cosmic-dawn", "MT Verdant Cosmic Dawn (Stellar Amber)"),
-    ("mt-verdant-botanical-horizon", "MT Verdant Botanical Horizon (Aurora Dawn)"),
+    ("mt-verdant-canopy-dawn", "MT Verdant — Sculpted Canopy"),
+    ("mt-verdant-celestial-rift", "MT Verdant — Paper-Cut Sunrise"),
+    ("mt-verdant-cosmic-dawn", "MT Verdant — Folded Celadon"),
+    ("mt-verdant-botanical-horizon", "MT Verdant — Mist on the Water"),
 ]
 
 
@@ -56,7 +56,7 @@ def properties_xml(base: str) -> str:
     <scolor>{BG}</scolor>
   </wallpaper>""")
     entries.append(f"""  <wallpaper deleted="false">
-    <name>MT Verdant Canopy (24-Hour Timed Cycle)</name>
+    <name>MT Verdant — Stillwater (24-Hour Timed Cycle)</name>
     <filename>{base}/mt-verdant-timed.xml</filename>
     <options>zoom</options>
     <shade_type>solid</shade_type>
