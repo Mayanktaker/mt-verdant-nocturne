@@ -19,19 +19,23 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y sassc
+          # sassc builds GTK3; libglib2.0-bin ships gresource(1) for the GTK4 base sheet
+          sudo apt-get install -y sassc libglib2.0-bin libgirepository1.0-dev libcairo2-dev pkg-config gir1.2-gtk-4.0
           python3 -m pip install --upgrade pip numpy pillow
+          # Optional: PyGObject reads libgtk's base sheet directly; build.py falls back to gresource(1)
+          python3 -m pip install PyGObject || echo "PyGObject unavailable - GTK4 build will use gresource(1)"
       - name: Color, contrast, selector and version gates
         run: |
           python3 tools/dev/check_contrast.py
           python3 tools/dev/check_colors.py
           python3 tools/dev/check_selectors.py
           python3 tools/dev/check_version.py
-      - name: Build Shell (50 + 51) and GTK3 for every accent
+      - name: Build Shell (50 + 51), GTK3 and GTK4 for every accent
         run: |
           for accent in sage emerald moss pine; do
             python3 tools/shell/build.py --all --accent "$accent"
             python3 tools/gtk/build.py --accent "$accent" --out "build/theme-$accent/gtk-3.0"
+            python3 tools/gtk4/build.py --accent "$accent" --out-dir "build/theme-$accent/gtk-4.0"
           done
       - name: Wallpaper suite (generate + verify)
         run: |
@@ -40,9 +44,9 @@ jobs:
       - name: Sandboxed source install
         run: sh tools/dev/smoke-install.sh .
       - name: Build, install and smoke-test the release archive
-        run: sh tools/release.sh 0.4.0
+        run: sh tools/release.sh "$(cat VERSION)"
       - uses: actions/upload-artifact@v4
         with:
           name: mt-verdant-nocturne-release
-          path: dist/mt-verdant-nocturne-v0.4.0.tar.xz
+          path: dist/mt-verdant-nocturne-v*.tar.xz
           if-no-files-found: error

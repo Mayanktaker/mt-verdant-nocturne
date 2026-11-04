@@ -5,6 +5,8 @@
 import argparse
 import json
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -21,18 +23,62 @@ sys.path.insert(0, str(REPO_ROOT / "tools" / "theme"))
 from palette import FLAVORS, flatten, load_tokens, render_template, resolve_accent
 
 
+def base_from_gi() -> str | None:
+    # PyGObject path: importing Gtk registers libgtk's own resources.
+    try:
+        import gi
+
+        gi.require_version("Gtk", "4.0")
+        from gi.repository import Gio, Gtk  # noqa: F401  (import registers GTK's resources)
+
+        return Gio.resources_lookup_data(BASE_RESOURCE, 0).get_data().decode("utf-8")
+    except Exception:  # noqa: BLE001 - any PyGObject problem falls through to the CLI path
+        return None
+
+
+def libgtk_candidates() -> list[Path]:
+    # Shared objects that may carry the GTK4 theme gresource, in lookup order.
+    patterns = (
+        "/usr/lib/*/libgtk-4.so.1",
+        "/usr/lib64/libgtk-4.so.1",
+        "/usr/lib/libgtk-4.so.1",
+        "/usr/local/lib/libgtk-4.so.1",
+        "/opt/homebrew/lib/libgtk-4.1.dylib",
+        "/usr/local/lib/libgtk-4.1.dylib",
+    )
+    found: list[Path] = []
+    for pattern in patterns:
+        found.extend(sorted(Path("/").glob(pattern.lstrip("/"))))
+    return found
+
+
+def base_from_gresource() -> str | None:
+    # gresource(1) path: no Python bindings needed (CI runners, minimal installs).
+    tool = shutil.which("gresource")
+    if not tool:
+        return None
+    for library in libgtk_candidates():
+        result = subprocess.run(
+            [tool, "extract", str(library), BASE_RESOURCE],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode == 0 and result.stdout:
+            return result.stdout
+    return None
+
+
 def read_base() -> str:
     # Read GTK's own compiled Adwaita dark stylesheet from its gresource.
-    import gi
-
-    gi.require_version("Gtk", "4.0")
-    from gi.repository import Gio, Gtk  # noqa: F401  (import registers GTK's resources)
-
-    try:
-        data = Gio.resources_lookup_data(BASE_RESOURCE, 0)
-    except Exception as error:  # noqa: BLE001 - surfaced as a build failure
-        raise SystemExit(f"cannot read {BASE_RESOURCE} from libgtk: {error}") from error
-    return data.get_data().decode("utf-8")
+    for reader in (base_from_gi, base_from_gresource):
+        css = reader()
+        if css:
+            return css
+    raise SystemExit(
+        "cannot read GTK4's base stylesheet: install PyGObject (python3-gi) or glib's "
+        "gresource tool, or pass --base <saved Adwaita dark sheet>"
+    )
 
 
 def token_colors(tokens: dict, accent: str) -> dict:

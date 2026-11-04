@@ -185,7 +185,8 @@ if [ "$WANT_WALLPAPER" -eq 1 ]; then
 fi
 
 # ---------------------------------------------------------------- distro packages
-. /etc/os-release 2>/dev/null || ID=unknown
+# Read only the distro id: sourcing os-release wholesale clobbers $VERSION.
+ID="$( . /etc/os-release 2>/dev/null; printf '%s' "${ID:-unknown}" )"
 case "${ID:-unknown}" in
   ubuntu|debian)
     USER_THEME_PKG="gnome-shell-extensions"
