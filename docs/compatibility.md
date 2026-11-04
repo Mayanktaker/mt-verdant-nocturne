@@ -29,6 +29,8 @@ real session (host or disposable VM). "50+" never implies untested future releas
 
 ## Known limitations
 - libadwaita apps replace the GTK theme with Adwaita by design, so the installed theme cannot style their widgets; the opt-in user CSS only supplies the colour contract.
+- Building from source needs PyGObject (`python3-gi`) **or** glib's `gresource` tool so the GTK4 sheet can be read from libgtk; the release archive ships that sheet pre-built. Pass `--base <file>` to use a saved Adwaita dark sheet instead.
+- OLED is a surface flag (`--oled`), not a separate theme directory: reinstall to switch, and expect opaque surfaces so Blur My Shell has nothing to blur there.
 - GTK4 sheet is generated from the host libgtk's Adwaita dark base, so a GTK major/minor that renames nodes can shift some exotic widget states until the next build.
 - Shell CSS and wallpaper never affect the contents of Flatpak sandboxes.
 - Blur requires the Blur My Shell extension; without it panels are translucent.
